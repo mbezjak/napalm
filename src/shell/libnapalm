@@ -14,3 +14,16 @@ configure_environment() {
     NAPALM_USER_HOME=$HOME/.napalm
   fi
 }
+
+list_plugins() {
+  local _count=0
+  local _plugins=''
+
+  for f in ${NAPALM_HOME}/plugins/* ${NAPALM_USER_HOME}/plugins/*
+  do
+    let _count="$_count + 1"
+    _plugins="${_plugins} $(basename $f)"
+  done
+
+  echo "Plugins[$_count]:$_plugins"
+}
