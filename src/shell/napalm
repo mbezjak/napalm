@@ -9,10 +9,8 @@
 #     http://www.opensource.org/licenses/mit-license.php
 #
 
-set -o errexit
-
 NAPALM_VERSION=0.1
-NAPALM_HOME=$(dirname $(readlink -f $0))
+set -o errexit
 
 # error codes
 E_USAGE=10
@@ -58,8 +56,21 @@ exit 0
 # print functions #
 ###################
 
+resolve_napalm_home() {
+  if [[ -z "$NAPALM_HOME" ]]; then
+    local _bin=$(dirname $(readlink -f $0))
+    NAPALM_HOME=$(readlink -f ${_bin}/..)
+  fi
+}
+
 #################
 # program start #
+
+resolve_napalm_home
+#. ${NAPALM_HOME}/lib/log4sh
+#. ${NAPALM_HOME}/lib/libnapalm
+
+PROJECTS_DIR=$HOME/.napalm/projects
 
 while getopts "hv" option; do
   case $option in
