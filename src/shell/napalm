@@ -63,11 +63,24 @@ resolve_napalm_home() {
   fi
 }
 
+init_logging() {
+  LOG4SH_CONFIGURATION='none' . ${NAPALM_HOME}/lib/log4sh
+  log4sh_resetConfiguration
+
+  logger_setLevel DEBUG
+  logger_addAppender fileLog
+  appender_setType fileLog RollingFileAppender
+  appender_file_setFile fileLog ${NAPALM_HOME}/logs/napalm.log
+  appender_file_setMaxFileSize fileLog 10KB
+  appender_file_setMaxBackupIndex fileLog 1
+  appender_activateOptions fileLog
+}
+
 #################
 # program start #
 
 resolve_napalm_home
-#. ${NAPALM_HOME}/lib/log4sh
+init_logging
 #. ${NAPALM_HOME}/lib/libnapalm
 
 PROJECTS_DIR=$HOME/.napalm/projects
