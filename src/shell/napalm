@@ -17,6 +17,9 @@ NAPALM_HOME=$(dirname $(readlink -f $0))
 # error codes
 E_USAGE=10
 
+###################
+# print functions #
+
 # print usage to stderr and exit with E_USAGE
 print_usage() {
 cat >&2 << EOF
@@ -38,6 +41,7 @@ EOF
 exit $E_USAGE
 }
 
+# print version to stderr and exit
 print_version() {
 cat >&2 << EOF
 napalm $NAPALM_VERSION
@@ -50,3 +54,7 @@ EOF
 
 exit 0
 }
+
+# print functions #
+###################
+
