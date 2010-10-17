@@ -12,7 +12,7 @@ clean:
 	rm -rf $(BUILD_DIR)
 
 test: test-prep
-	( cd $(TEST_DIR); $(TEST_DIR)/integration_test.sh )
+	( cd $(TEST_DIR); $(TEST_DIR)/integration_tests.sh )
 
 test-prep: test-clean
 	@mkdir -p $(TEST_DIR)
