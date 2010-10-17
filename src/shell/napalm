@@ -70,11 +70,14 @@ init_logging() {
   log4sh_resetConfiguration
 
   logger_setLevel DEBUG
+
   logger_addAppender fileLog
   appender_setType fileLog RollingFileAppender
   appender_file_setFile fileLog ${NAPALM_USER_HOME}/logs/napalm.log
   appender_file_setMaxFileSize fileLog 10KB
   appender_file_setMaxBackupIndex fileLog 1
+  appender_setLayout fileLog PatternLayout
+  appender_setPattern fileLog '%d - %p - %m'
   appender_activateOptions fileLog
 }
 
@@ -85,8 +88,7 @@ resolve_napalm_home
 . ${NAPALM_HOME}/lib/libnapalm
 configure_environment
 init_logging
-
-PROJECTS_DIR=$HOME/.napalm/projects
+logger_debug "called: napalm $@"
 
 while getopts "hv" option; do
   case $option in
