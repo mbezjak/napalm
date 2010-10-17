@@ -9,6 +9,8 @@
 #     http://www.opensource.org/licenses/mit-license.php
 #
 
+set -o errexit
+
 NAPALM_VERSION=0.1
 NAPALM_HOME=$(dirname $(readlink -f $0))
 
