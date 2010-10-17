@@ -58,6 +58,8 @@ exit 0
 # print functions #
 ###################
 
+#################
+# program start #
 
 while getopts "hv" option; do
   case $option in
@@ -68,3 +70,5 @@ while getopts "hv" option; do
 done
 shift $((OPTIND-1))
 
+
+exit 0
