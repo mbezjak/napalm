@@ -23,7 +23,7 @@ E_USAGE=10
 # print usage to stderr and exit with E_USAGE
 print_usage() {
 cat >&2 << EOF
-napalm - Not A reaL PAckage Manager
+napalm - not a real package manager
 
 SYNOPSIS
     napalm install NAME VERSION
