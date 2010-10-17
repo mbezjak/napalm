@@ -59,10 +59,10 @@ Example
 
 Install
 =======
+First download latest napalm release and extract contents.
 
- 0. download latest napalm release and extract contents
- 1. make
- 2. sudo make install
+    $ make
+    $ sudo make install
 
 Required dependencies
 =====================
