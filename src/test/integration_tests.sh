@@ -1,18 +1,20 @@
 #!/bin/sh
 
+NAPALM='../dist/bin/napalm'
+
 testPrintVersion() {
-  ./napalm -v 2> /dev/null
+  $NAPALM -v 2> /dev/null
   assertEquals 0 $?
 }
 
 testPrintHelp() {
-  ./napalm -h 2> /dev/null
+  $NAPALM -h 2> /dev/null
   assertEquals 10 $?
 }
 
 testIllegalArgument() {
-  # -i is not recognized argument
-  ./napalm -i 2> /dev/null
+  # -i is not a recognized argument
+  $NAPALM -i 2> /dev/null
   assertEquals 10 $?
 }
 
