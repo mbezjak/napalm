@@ -2,6 +2,9 @@
 
 NAPALM='../dist/bin/napalm'
 
+mkdir user_home
+export NAPALM_USER_HOME='user_home'
+
 testPrintVersion() {
   $NAPALM -v 2> /dev/null
   assertEquals 0 $?

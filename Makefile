@@ -33,11 +33,10 @@ dist-prep: dist-clean
 	@mkdir -p $(DIST_DIR)/bin
 	@mkdir -p $(DIST_DIR)/lib
 	@mkdir -p $(DIST_DIR)/plugins
-	@mkdir -p $(DIST_DIR)/logs
 
 	cp -p $(SRC_SHELL_DIR)/napalm $(DIST_DIR)/bin
 	cp -p $(LIB_DIR)/log4sh/log4sh $(DIST_DIR)/lib
-#	cp -p $(SRC_SHELL)/libnapalm $(DIST_DIR)/lib
+	cp -p $(SRC_SHELL_DIR)/libnapalm $(DIST_DIR)/lib
 #	cp -p $(PLUGINS_DIR)/* $(DIST_DIR)/plugins
 
 dist-clean:
