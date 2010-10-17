@@ -8,3 +8,43 @@
 #
 #     http://www.opensource.org/licenses/mit-license.php
 #
+
+NAPALM_VERSION=0.1
+NAPALM_HOME=$(dirname $(readlink -f $0))
+
+# error codes
+E_USAGE=10
+
+# print usage to stderr and exit with E_USAGE
+print_usage() {
+cat >&2 << EOF
+napalm - Not A reaL PAckage Manager
+
+SYNOPSIS
+    napalm install NAME VERSION
+    napalm use NAME [VERSION]
+    napalm show [NAME [VERSION]]
+    napalm create-plugin NAME
+    napalm list-plugins
+    napalm -h
+    napalm -v
+
+NAME    - program name
+VERSION - program version
+EOF
+
+exit $E_USAGE
+}
+
+print_version() {
+cat >&2 << EOF
+napalm $NAPALM_VERSION
+Copyright (c) 2010 Miro Bezjak <bezjak.miro@gmail.com>
+License MIT: http://www.opensource.org/licenses/mit-license.php
+Documentation & source code: http://github.com/mbezjak/napalm
+
+NAPALM_HOME = $NAPALM_HOME
+EOF
+
+exit 0
+}
