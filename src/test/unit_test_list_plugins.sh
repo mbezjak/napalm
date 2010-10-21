@@ -15,7 +15,7 @@ testListPlugins() {
 
   (NAPALM_HOME=$tmp/global;
    NAPALM_USER_HOME=$tmp/local;
-   assertEquals 'Plugins[4]: a b c d' "`list_plugins`")
+   assertEquals 'Plugins [4]: a b c d' "`list_plugins`")
 
   rm -rf $tmp
 }

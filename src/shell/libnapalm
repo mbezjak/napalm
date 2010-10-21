@@ -29,7 +29,7 @@ list_plugins() {
     plugins="${plugins} $(basename $f)"
   done
 
-  echo "Plugins[$count]:$plugins"
+  echo "Plugins [$count]:$plugins"
 }
 
 # args:
