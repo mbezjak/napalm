@@ -35,8 +35,7 @@ dist-prep: dist-clean
 	@mkdir -p $(DIST_DIR)/bin
 	@mkdir -p $(DIST_DIR)/plugins
 
-	cp -p $(SRC_SHELL_DIR)/napalm $(DIST_DIR)/bin
-	cp -p $(SRC_SHELL_DIR)/libnapalm $(DIST_DIR)/bin
+	cp -p $(SRC_SHELL_DIR)/* $(DIST_DIR)/bin
 #	cp -p $(PLUGINS_DIR)/* $(DIST_DIR)/plugins
 
 dist-clean:
