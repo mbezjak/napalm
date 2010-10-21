@@ -78,5 +78,11 @@ napalm supports installing projects via plugins. A plugin is written as a very
 simple bash script. Plugin's job is to describe how to download a project. Take
 a look at plugins directory for examples how to write napalm plugin.
 
+### Limitations
+
+ * plugin name cannot contain a dash (`-`) character in it's name. For example,
+   you cannot name a plugin `foo-bar`. Instead use `fooBar` or `foo_bar` or
+   `foobar`...
+
 ## License
 Project uses MIT license. Check LICENSE file for more info.
