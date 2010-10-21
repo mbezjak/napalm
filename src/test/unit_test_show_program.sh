@@ -11,34 +11,34 @@ tearDown() {
   rm -rf $pd
 }
 
-testShowProgramAllNotInstalled() {
-   local msg=`show_program foo 1.3`
+testShowProgramWithNameAndVersionNotInstalled() {
+   local msg=`show_program_with_name_and_version foo 1.3`
    assertEquals 'Not installed: foo 1.3' "$msg"
 }
 
-testShowProgramAllInstalledNotActive() {
+testShowProgramWithNameAndVersionInstalledButNotActive() {
   local prog=$pd/foo-1.3
   mkdir -p $prog
 
-  local msg=`show_program foo 1.3`
+  local msg=`show_program_with_name_and_version foo 1.3`
   assertEquals "   $prog" "$msg"
 }
 
-testShowProgramAllInstalledNotActive2() {
+testShowProgramWithNameAndVersionInstalledButNotActive2() {
   local prog=$pd/foo-1.3
   mkdir -p $prog
-  ln -s /tmp foo
+  ln -s /tmp $pd/foo
 
-  local msg=`show_program foo 1.3`
+  local msg=`show_program_with_name_and_version foo 1.3`
   assertEquals "   $prog" "$msg"
 }
 
-testShowProgramAllInstalledActive() {
+testShowProgramWithNameAndVersionInstalledAndActive() {
   local prog=$pd/foo-1.3
   mkdir -p $prog
   ln -s ${prog} $pd/foo
 
-  local msg=`show_program foo 1.3`
+  local msg=`show_program_with_name_and_version foo 1.3`
   assertEquals " * $prog" "$msg"
 }
 
