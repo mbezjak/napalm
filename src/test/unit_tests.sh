@@ -1,7 +1,7 @@
 #!/bin/sh
 
 setUp() {
-  . '../dist/lib/libnapalm'
+  . '../dist/bin/libnapalm'
 }
 
 testConfigureEnvironmentNUHisAlreadySet() {

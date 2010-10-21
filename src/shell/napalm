@@ -67,7 +67,7 @@ resolve_napalm_home() {
 # program start #
 
 resolve_napalm_home
-. ${NAPALM_HOME}/lib/libnapalm
+. ${NAPALM_HOME}/bin/libnapalm
 configure_environment
 
 while getopts "hv" option; do
