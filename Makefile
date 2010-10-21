@@ -18,7 +18,9 @@ test: dist test-prep
 	@echo "integration tests..."
 	( cd $(TEST_DIR); $(TEST_DIR)/integration_tests.sh )
 	@echo "unit tests..."
-	( cd $(TEST_DIR); $(TEST_DIR)/unit_tests.sh )
+	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_configure_environment.sh )
+	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_list_plugins.sh )
+	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_show_program.sh )
 
 test-prep: test-clean
 	@mkdir -p $(TEST_DIR)

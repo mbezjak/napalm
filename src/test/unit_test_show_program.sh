@@ -4,40 +4,7 @@ setUp() {
   . '../dist/bin/libnapalm'
 }
 
-testConfigureEnvironmentNUHisAlreadySet() {
-  local nuh='/tmp/already/set'
-
-  (export NAPALM_USER_HOME=$nuh;
-   configure_environment;
-   assertEquals $nuh $NAPALM_USER_HOME;
-   assertEquals $nuh/programs $PROGRAMS_DIR)
-}
-
-testConfigureEnvironment() {
-  local nuh=$HOME/.napalm
-
-  (configure_environment;
-   assertEquals $nuh $NAPALM_USER_HOME;
-   assertEquals $nuh/programs $PROGRAMS_DIR)
-}
-
-testListPlugins() {
-  local tmp=`mktemp -d`
-  mkdir -p $tmp/global/plugins
-  mkdir -p $tmp/local/plugins
-
-  (NAPALM_HOME=$tmp/global;
-   NAPALM_USER_HOME=$tmp/local;
-   touch ${NAPALM_HOME}/plugins/a;
-   touch ${NAPALM_HOME}/plugins/b;
-   touch ${NAPALM_USER_HOME}/plugins/c;
-   touch ${NAPALM_USER_HOME}/plugins/d;
-   assertEquals 'Plugins[4]: a b c d' "`list_plugins`")
-
-  rm -rf $tmp
-}
-
-testListPluginsAllNotInstalled() {
+testShowProgramAllNotInstalled() {
   local tmp=`mktemp -d`
 
   (PROGRAMS_DIR=$tmp;
@@ -47,7 +14,7 @@ testListPluginsAllNotInstalled() {
   rm -rf $tmp
 }
 
-testListPluginsAllInstalledNotActive() {
+testShowProgramAllInstalledNotActive() {
   local tmp=`mktemp -d`
   local prog=${tmp}/foo-1.3
   mkdir -p $prog
@@ -59,7 +26,7 @@ testListPluginsAllInstalledNotActive() {
   rm -rf $tmp
 }
 
-testListPluginsAllInstalledNotActive2() {
+testShowProgramAllInstalledNotActive2() {
   local tmp=`mktemp -d`
   local prog=${tmp}/foo-1.3
   mkdir -p $prog
@@ -72,7 +39,7 @@ testListPluginsAllInstalledNotActive2() {
   rm -rf $tmp
 }
 
-testListPluginsAllInstalledActive() {
+testShowProgramAllInstalledActive() {
   local tmp=`mktemp -d`
   local prog=${tmp}/foo-1.3
   mkdir -p $prog
@@ -85,7 +52,7 @@ testListPluginsAllInstalledActive() {
   rm -rf $tmp
 }
 
-testListPluginsNameNone() {
+testShowProgramNameNone() {
   local tmp=`mktemp -d`
 
   (PROGRAMS_DIR=$tmp;
@@ -95,7 +62,7 @@ testListPluginsNameNone() {
   rm -rf $tmp
 }
 
-testListPluginsNameNoLink() {
+testShowProgramNameNoLink() {
   local tmp=`mktemp -d`
   mkdir -p ${tmp}/foo-1.3
   mkdir -p ${tmp}/foo-1.5
@@ -108,7 +75,7 @@ testListPluginsNameNoLink() {
   rm -rf $tmp
 }
 
-testListPluginsNameLink() {
+testShowProgramNameLink() {
   local tmp=`mktemp -d`
   mkdir -p ${tmp}/foo-1.3
   mkdir -p ${tmp}/foo-1.5
@@ -122,7 +89,7 @@ testListPluginsNameLink() {
   rm -rf $tmp
 }
 
-testListPluginsNone() {
+testShowProgramNone() {
   local tmp=`mktemp -d`
 
   (PROGRAMS_DIR=$tmp;
@@ -132,7 +99,7 @@ testListPluginsNone() {
   rm -rf $tmp
 }
 
-testListPluginsNone() {
+testShowProgramNone() {
   local tmp=`mktemp -d`
 
   (PROGRAMS_DIR=$tmp;
@@ -142,7 +109,7 @@ testListPluginsNone() {
   rm -rf $tmp
 }
 
-testListPluginsMixed() {
+testShowProgramMixed() {
   local tmp=`mktemp -d`
   mkdir -p ${tmp}/foo-1.3
   mkdir -p ${tmp}/foo-1.5
