@@ -1,10 +1,10 @@
-SRC_DIR=$(PWD)/src
+SRC_DIR=$(CURDIR)/src
 SRC_SHELL_DIR=$(SRC_DIR)/shell
 SRC_TEST_DIR=$(SRC_DIR)/test
-LIB_DIR=$(PWD)/lib
-PLUGINS_DIR=$(PWD)/plugins
+LIB_DIR=$(CURDIR)/lib
+PLUGINS_DIR=$(CURDIR)/plugins
 
-BUILD_DIR=$(PWD)/build
+BUILD_DIR=$(CURDIR)/build
 TEST_DIR=$(BUILD_DIR)/test
 DIST_DIR=$(BUILD_DIR)/dist
 
