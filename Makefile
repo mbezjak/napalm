@@ -32,13 +32,11 @@ test-clean:
 dist: dist-prep
 
 dist-prep: dist-clean
-	@mkdir -p $(DIST_DIR)
 	@mkdir -p $(DIST_DIR)/bin
-	@mkdir -p $(DIST_DIR)/lib
 	@mkdir -p $(DIST_DIR)/plugins
 
 	cp -p $(SRC_SHELL_DIR)/napalm $(DIST_DIR)/bin
-	cp -p $(SRC_SHELL_DIR)/libnapalm $(DIST_DIR)/lib
+	cp -p $(SRC_SHELL_DIR)/libnapalm $(DIST_DIR)/bin
 #	cp -p $(PLUGINS_DIR)/* $(DIST_DIR)/plugins
 
 dist-clean:
