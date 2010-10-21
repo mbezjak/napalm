@@ -5,12 +5,19 @@ setUp() {
 }
 
 testConfigureEnvironmentNUHisAlreadySet() {
-  local nuh='/tmp/already/set'
+  local nuh='/already/set'
 
   (export NAPALM_USER_HOME=$nuh;
    configure_environment;
-   assertEquals $nuh $NAPALM_USER_HOME;
-   assertEquals $nuh/programs $PROGRAMS_DIR)
+   assertEquals $nuh $NAPALM_USER_HOME)
+}
+
+testConfigureEnvironmentProgramDirIsAlreadySet() {
+  local pd='/already/set'
+
+  (export NAPALM_PROGRAM_DIR=$pd;
+   configure_environment;
+   assertEquals $pd $NAPALM_PROGRAM_DIR)
 }
 
 testConfigureEnvironment() {
@@ -18,7 +25,7 @@ testConfigureEnvironment() {
 
   (configure_environment;
    assertEquals $nuh $NAPALM_USER_HOME;
-   assertEquals $nuh/programs $PROGRAMS_DIR)
+   assertEquals $nuh/programs $NAPALM_PROGRAMS_DIR)
 }
 
 

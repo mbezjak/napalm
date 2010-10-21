@@ -7,7 +7,7 @@ setUp() {
 testShowProgramAllNotInstalled() {
   local tmp=`mktemp -d`
 
-  (PROGRAMS_DIR=$tmp;
+  (NAPALM_PROGRAMS_DIR=$tmp;
    local msg=`show_program foo 1.3`
    assertEquals 'Not installed: foo 1.3' "$msg")
 
@@ -19,7 +19,7 @@ testShowProgramAllInstalledNotActive() {
   local prog=${tmp}/foo-1.3
   mkdir -p $prog
 
-  (PROGRAMS_DIR=$tmp;
+  (NAPALM_PROGRAMS_DIR=$tmp;
    local msg=`show_program foo 1.3`
    assertEquals "   $prog" "$msg")
 
@@ -32,7 +32,7 @@ testShowProgramAllInstalledNotActive2() {
   mkdir -p $prog
   ln -s /tmp foo
 
-  (PROGRAMS_DIR=$tmp;
+  (NAPALM_PROGRAMS_DIR=$tmp;
    local msg=`show_program foo 1.3`
    assertEquals "   $prog" "$msg")
 
@@ -45,7 +45,7 @@ testShowProgramAllInstalledActive() {
   mkdir -p $prog
   ln -s ${prog} ${tmp}/foo
 
-  (PROGRAMS_DIR=$tmp;
+  (NAPALM_PROGRAMS_DIR=$tmp;
    local msg=`show_program foo 1.3`
    assertEquals " * $prog" "$msg")
 
@@ -55,7 +55,7 @@ testShowProgramAllInstalledActive() {
 testShowProgramNameNone() {
   local tmp=`mktemp -d`
 
-  (PROGRAMS_DIR=$tmp;
+  (NAPALM_PROGRAMS_DIR=$tmp;
    local msg=`show_program foo`
    assertEquals "Not installed: foo" "$msg")
 
@@ -67,7 +67,7 @@ testShowProgramNameNoLink() {
   mkdir -p ${tmp}/foo-1.3
   mkdir -p ${tmp}/foo-1.5
 
-  (PROGRAMS_DIR=$tmp;
+  (NAPALM_PROGRAMS_DIR=$tmp;
    local msg=`show_program foo`
    local expected=`echo -e "   ${tmp}/foo-1.3\n   ${tmp}/foo-1.5"`
    assertEquals "$expected" "$msg")
@@ -81,7 +81,7 @@ testShowProgramNameLink() {
   mkdir -p ${tmp}/foo-1.5
   ln -s ${tmp}/foo-1.5 ${tmp}/foo
 
-  (PROGRAMS_DIR=$tmp;
+  (NAPALM_PROGRAMS_DIR=$tmp;
    local msg=`show_program foo`
    local expected=`echo -e "   ${tmp}/foo-1.3\n * ${tmp}/foo-1.5"`
    assertEquals "$expected" "$msg")
@@ -92,7 +92,7 @@ testShowProgramNameLink() {
 testShowProgramNone() {
   local tmp=`mktemp -d`
 
-  (PROGRAMS_DIR=$tmp;
+  (NAPALM_PROGRAMS_DIR=$tmp;
    local msg=`show_program`
    assertEquals "Nothing installed" "$msg")
 
@@ -102,7 +102,7 @@ testShowProgramNone() {
 testShowProgramNone() {
   local tmp=`mktemp -d`
 
-  (PROGRAMS_DIR=$tmp;
+  (NAPALM_PROGRAMS_DIR=$tmp;
    local msg=`show_program`
    assertEquals "Nothing installed" "$msg")
 
@@ -118,7 +118,7 @@ testShowProgramMixed() {
   ln -s ${tmp}/bar-2.0.1 ${tmp}/bar
   mkdir -p ${tmp}/baz-0.5-rc1
 
-  (PROGRAMS_DIR=$tmp;
+  (NAPALM_PROGRAMS_DIR=$tmp;
    local msg=`show_program`
    local expected=`cat << EOF
  * ${tmp}/bar-2.0.1

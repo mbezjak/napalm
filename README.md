@@ -68,7 +68,10 @@ are installed. Some distributions don't install them by default.
 These environment variables can be set to alter behavior of napalm.
 
  * NAPALM_HOME - points to where napalm is installed
- * NAPALM_USER_HOME - points to a hidden directory in user's home directory (defaults to $HOME/.napalm)
+ * NAPALM_USER_HOME - points to a hidden directory in user's home directory
+   (defaults to $HOME/.napalm)
+ * NAPALM_PROGRAMS_DIR - points to a directory where programs will be installed
+   (defaults to $NAPALM_USER_HOME/programs)
 
 ## Development documentation
 napalm supports installing projects via plugins. A plugin is written as a very
