@@ -68,7 +68,7 @@ show_program() {
 
     for p in $iterator
     do
-      local prog=${tmp}/${p}
+      local prog=$NAPALM_PROGRAMS_DIR/$p
 
       # link exists and points towards $prog
       [[ -L $link && $(readlink -f $link) == $prog ]] && flag='*'
@@ -89,13 +89,13 @@ show_program() {
 
     for p in $iterator
     do
-      local prog=${tmp}/${p}
+      local prog=$NAPALM_PROGRAMS_DIR/$p
       flag=' '
 
       # if anyone points to $prog set $flag
       for l in $(find $NAPALM_PROGRAMS_DIR -mindepth 1 -maxdepth 1 -type l -printf "%f\n")
       do
-        local link=${tmp}/$l
+        local link=$NAPALM_PROGRAMS_DIR/$l
         [[ -L $link && $(readlink -f $link) == $prog ]] && flag='*'
       done
 

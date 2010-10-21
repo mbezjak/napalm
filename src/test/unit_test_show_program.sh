@@ -2,133 +2,96 @@
 
 setUp() {
   . '../dist/bin/libnapalm'
+
+  NAPALM_PROGRAMS_DIR=`mktemp -d`
+  pd=$NAPALM_PROGRAMS_DIR # alias to reduce character count
+}
+
+tearDown() {
+  rm -rf $pd
 }
 
 testShowProgramAllNotInstalled() {
-  local tmp=`mktemp -d`
-
-  (NAPALM_PROGRAMS_DIR=$tmp;
    local msg=`show_program foo 1.3`
-   assertEquals 'Not installed: foo 1.3' "$msg")
-
-  rm -rf $tmp
+   assertEquals 'Not installed: foo 1.3' "$msg"
 }
 
 testShowProgramAllInstalledNotActive() {
-  local tmp=`mktemp -d`
-  local prog=${tmp}/foo-1.3
+  local prog=$pd/foo-1.3
   mkdir -p $prog
 
-  (NAPALM_PROGRAMS_DIR=$tmp;
-   local msg=`show_program foo 1.3`
-   assertEquals "   $prog" "$msg")
-
-  rm -rf $tmp
+  local msg=`show_program foo 1.3`
+  assertEquals "   $prog" "$msg"
 }
 
 testShowProgramAllInstalledNotActive2() {
-  local tmp=`mktemp -d`
-  local prog=${tmp}/foo-1.3
+  local prog=$pd/foo-1.3
   mkdir -p $prog
   ln -s /tmp foo
 
-  (NAPALM_PROGRAMS_DIR=$tmp;
-   local msg=`show_program foo 1.3`
-   assertEquals "   $prog" "$msg")
-
-  rm -rf $tmp
+  local msg=`show_program foo 1.3`
+  assertEquals "   $prog" "$msg"
 }
 
 testShowProgramAllInstalledActive() {
-  local tmp=`mktemp -d`
-  local prog=${tmp}/foo-1.3
+  local prog=$pd/foo-1.3
   mkdir -p $prog
-  ln -s ${prog} ${tmp}/foo
+  ln -s ${prog} $pd/foo
 
-  (NAPALM_PROGRAMS_DIR=$tmp;
-   local msg=`show_program foo 1.3`
-   assertEquals " * $prog" "$msg")
-
-  rm -rf $tmp
+  local msg=`show_program foo 1.3`
+  assertEquals " * $prog" "$msg"
 }
 
 testShowProgramNameNone() {
-  local tmp=`mktemp -d`
-
-  (NAPALM_PROGRAMS_DIR=$tmp;
-   local msg=`show_program foo`
-   assertEquals "Not installed: foo" "$msg")
-
-  rm -rf $tmp
+  local msg=`show_program foo`
+  assertEquals "Not installed: foo" "$msg"
 }
 
 testShowProgramNameNoLink() {
-  local tmp=`mktemp -d`
-  mkdir -p ${tmp}/foo-1.3
-  mkdir -p ${tmp}/foo-1.5
+  mkdir -p $pd/foo-1.3
+  mkdir -p $pd/foo-1.5
 
-  (NAPALM_PROGRAMS_DIR=$tmp;
-   local msg=`show_program foo`
-   local expected=`echo -e "   ${tmp}/foo-1.3\n   ${tmp}/foo-1.5"`
-   assertEquals "$expected" "$msg")
-
-  rm -rf $tmp
+  local msg=`show_program foo`
+  local expected=`echo -e "   $pd/foo-1.3\n   $pd/foo-1.5"`
+  assertEquals "$expected" "$msg"
 }
 
 testShowProgramNameLink() {
-  local tmp=`mktemp -d`
-  mkdir -p ${tmp}/foo-1.3
-  mkdir -p ${tmp}/foo-1.5
-  ln -s ${tmp}/foo-1.5 ${tmp}/foo
+  mkdir -p $pd/foo-1.3
+  mkdir -p $pd/foo-1.5
+  ln -s $pd/foo-1.5 $pd/foo
 
-  (NAPALM_PROGRAMS_DIR=$tmp;
-   local msg=`show_program foo`
-   local expected=`echo -e "   ${tmp}/foo-1.3\n * ${tmp}/foo-1.5"`
-   assertEquals "$expected" "$msg")
-
-  rm -rf $tmp
+  local msg=`show_program foo`
+  local expected=`echo -e "   $pd/foo-1.3\n * $pd/foo-1.5"`
+  assertEquals "$expected" "$msg"
 }
 
 testShowProgramNone() {
-  local tmp=`mktemp -d`
-
-  (NAPALM_PROGRAMS_DIR=$tmp;
-   local msg=`show_program`
-   assertEquals "Nothing installed" "$msg")
-
-  rm -rf $tmp
+  local msg=`show_program`
+  assertEquals "Nothing installed" "$msg"
 }
 
 testShowProgramNone() {
-  local tmp=`mktemp -d`
-
-  (NAPALM_PROGRAMS_DIR=$tmp;
-   local msg=`show_program`
-   assertEquals "Nothing installed" "$msg")
-
-  rm -rf $tmp
+  local msg=`show_program`
+  assertEquals "Nothing installed" "$msg"
 }
 
 testShowProgramMixed() {
-  local tmp=`mktemp -d`
-  mkdir -p ${tmp}/foo-1.3
-  mkdir -p ${tmp}/foo-1.5
-  ln -s ${tmp}/foo-1.5 ${tmp}/foo
-  mkdir -p ${tmp}/bar-2.0.1
-  ln -s ${tmp}/bar-2.0.1 ${tmp}/bar
-  mkdir -p ${tmp}/baz-0.5-rc1
+  mkdir -p $pd/foo-1.3
+  mkdir -p $pd/foo-1.5
+  ln -s $pd/foo-1.5 $pd/foo
+  mkdir -p $pd/bar-2.0.1
+  ln -s $pd/bar-2.0.1 $pd/bar
+  mkdir -p $pd/baz-0.5-rc1
 
-  (NAPALM_PROGRAMS_DIR=$tmp;
-   local msg=`show_program`
-   local expected=`cat << EOF
- * ${tmp}/bar-2.0.1
-   ${tmp}/foo-1.3
- * ${tmp}/foo-1.5
-   ${tmp}/baz-0.5-rc1
+  local msg=`show_program`
+  local expected=`cat << EOF
+ * $pd/bar-2.0.1
+   $pd/foo-1.3
+ * $pd/foo-1.5
+   $pd/baz-0.5-rc1
 EOF`
-   assertEquals "$expected" "$msg")
-
-  rm -rf $tmp
+  assertEquals "$expected" "$msg"
 }
 
 
