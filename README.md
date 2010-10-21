@@ -1,18 +1,15 @@
-napalm
-======
+# napalm
 Not a real package manager
 
-## NOTICE
+### NOTICE
 napalm is still being developed. I'm writing documentation first. Source code
 should follow soon after. Stay tuned.
 
-Summary
-=======
+## Summary
 Automate installation of archived (zip, gz, bz2) programs that are unsuited or
 unavailable from a package repository.
 
-Rationale
-=========
+## Rationale
 Linux package management is great! However, sometimes you need a program that is
 really simple to install but
 
@@ -45,8 +42,7 @@ programs. Not to mention that you will need to write separate scripts to setup
 napalm is designed as an automation tool to help you download, extract archive
 and setup environment variables quicker.
 
-Example
-=======
+## Example
 
     # install grails
     $ napalm install grails 1.2.5
@@ -57,25 +53,21 @@ Example
     # switch between two versions
     $ napalm use grails
 
-Install
-=======
+## Install
 First download latest napalm release and extract contents.
 
     $ make
     $ sudo make install
 
-Required dependencies
-=====================
+## Required dependencies
 napalm is written as a bash script therefor executing in in any linux
 distribution shouldn't be a problem. However, make sure that `wget` and `unzip`
 are installed. Some distributions don't install them by default.
 
-Development documentation
-=========================
+## Development documentation
 napalm supports installing projects via plugins. A plugin is written as a very
 simple bash script. Plugin's job is to describe how to download a project. Take
 a look at plugins directory for examples how to write napalm plugin.
 
-License
-=======
+## License
 Project uses MIT license. Check LICENSE file for more info.
