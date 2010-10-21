@@ -9,10 +9,13 @@
 #     http://www.opensource.org/licenses/mit-license.php
 #
 
+# Yeah, I know it's inefficient.
+# A millisecond here, a millisecond there...
+# It's too little for me to care.
+# :)
+
 configure_environment() {
-  if [[ -z "$NAPALM_USER_HOME" ]]; then
-    NAPALM_USER_HOME=$HOME/.napalm
-  fi
+  [[ -z "$NAPALM_USER_HOME" ]] && NAPALM_USER_HOME=$HOME/.napalm
 
   PROGRAMS_DIR=${NAPALM_USER_HOME}/programs
 }
@@ -34,11 +37,6 @@ list_plugins() {
 # $1 - program name
 # $2 - program version
 show_program() {
-  # Yeah, I know it's inefficient.
-  # A millisecond here, a millisecond there...
-  # It's too little for me to care.
-  # :)
-
   # flag='*' means that is an active version
 
   # e.g. napalm show foo 1.3
