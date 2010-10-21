@@ -5,163 +5,163 @@ setUp() {
 }
 
 testConfigureEnvironmentNUHisAlreadySet() {
-  local _nuh='/tmp/already/set'
+  local nuh='/tmp/already/set'
 
-  (export NAPALM_USER_HOME=$_nuh;
+  (export NAPALM_USER_HOME=$nuh;
    configure_environment;
-   assertEquals $_nuh $NAPALM_USER_HOME;
-   assertEquals $_nuh/programs $PROGRAMS_DIR)
+   assertEquals $nuh $NAPALM_USER_HOME;
+   assertEquals $nuh/programs $PROGRAMS_DIR)
 }
 
 testConfigureEnvironment() {
-  local _nuh=$HOME/.napalm
+  local nuh=$HOME/.napalm
 
   (configure_environment;
-   assertEquals $_nuh $NAPALM_USER_HOME;
-   assertEquals $_nuh/programs $PROGRAMS_DIR)
+   assertEquals $nuh $NAPALM_USER_HOME;
+   assertEquals $nuh/programs $PROGRAMS_DIR)
 }
 
 testListPlugins() {
-  local _tmp=`mktemp -d`
-  mkdir -p $_tmp/global/plugins
-  mkdir -p $_tmp/local/plugins
+  local tmp=`mktemp -d`
+  mkdir -p $tmp/global/plugins
+  mkdir -p $tmp/local/plugins
 
-  (NAPALM_HOME=$_tmp/global;
-   NAPALM_USER_HOME=$_tmp/local;
+  (NAPALM_HOME=$tmp/global;
+   NAPALM_USER_HOME=$tmp/local;
    touch ${NAPALM_HOME}/plugins/a;
    touch ${NAPALM_HOME}/plugins/b;
    touch ${NAPALM_USER_HOME}/plugins/c;
    touch ${NAPALM_USER_HOME}/plugins/d;
    assertEquals 'Plugins[4]: a b c d' "`list_plugins`")
 
-  rm -rf $_tmp
+  rm -rf $tmp
 }
 
 testListPluginsAllNotInstalled() {
-  local _tmp=`mktemp -d`
+  local tmp=`mktemp -d`
 
-  (PROGRAMS_DIR=$_tmp;
-   local _msg=`show_program foo 1.3`
-   assertEquals 'Not installed: foo 1.3' "$_msg")
+  (PROGRAMS_DIR=$tmp;
+   local msg=`show_program foo 1.3`
+   assertEquals 'Not installed: foo 1.3' "$msg")
 
-  rm -rf $_tmp
+  rm -rf $tmp
 }
 
 testListPluginsAllInstalledNotActive() {
-  local _tmp=`mktemp -d`
-  local _prog=${_tmp}/foo-1.3
-  mkdir -p $_prog
+  local tmp=`mktemp -d`
+  local prog=${tmp}/foo-1.3
+  mkdir -p $prog
 
-  (PROGRAMS_DIR=$_tmp;
-   local _msg=`show_program foo 1.3`
-   assertEquals "   $_prog" "$_msg")
+  (PROGRAMS_DIR=$tmp;
+   local msg=`show_program foo 1.3`
+   assertEquals "   $prog" "$msg")
 
-  rm -rf $_tmp
+  rm -rf $tmp
 }
 
 testListPluginsAllInstalledNotActive2() {
-  local _tmp=`mktemp -d`
-  local _prog=${_tmp}/foo-1.3
-  mkdir -p $_prog
+  local tmp=`mktemp -d`
+  local prog=${tmp}/foo-1.3
+  mkdir -p $prog
   ln -s /tmp foo
 
-  (PROGRAMS_DIR=$_tmp;
-   local _msg=`show_program foo 1.3`
-   assertEquals "   $_prog" "$_msg")
+  (PROGRAMS_DIR=$tmp;
+   local msg=`show_program foo 1.3`
+   assertEquals "   $prog" "$msg")
 
-  rm -rf $_tmp
+  rm -rf $tmp
 }
 
 testListPluginsAllInstalledActive() {
-  local _tmp=`mktemp -d`
-  local _prog=${_tmp}/foo-1.3
-  mkdir -p $_prog
-  ln -s ${_prog} ${_tmp}/foo
+  local tmp=`mktemp -d`
+  local prog=${tmp}/foo-1.3
+  mkdir -p $prog
+  ln -s ${prog} ${tmp}/foo
 
-  (PROGRAMS_DIR=$_tmp;
-   local _msg=`show_program foo 1.3`
-   assertEquals " * $_prog" "$_msg")
+  (PROGRAMS_DIR=$tmp;
+   local msg=`show_program foo 1.3`
+   assertEquals " * $prog" "$msg")
 
-  rm -rf $_tmp
+  rm -rf $tmp
 }
 
 testListPluginsNameNone() {
-  local _tmp=`mktemp -d`
+  local tmp=`mktemp -d`
 
-  (PROGRAMS_DIR=$_tmp;
-   local _msg=`show_program foo`
-   assertEquals "Not installed: foo" "$_msg")
+  (PROGRAMS_DIR=$tmp;
+   local msg=`show_program foo`
+   assertEquals "Not installed: foo" "$msg")
 
-  rm -rf $_tmp
+  rm -rf $tmp
 }
 
 testListPluginsNameNoLink() {
-  local _tmp=`mktemp -d`
-  mkdir -p ${_tmp}/foo-1.3
-  mkdir -p ${_tmp}/foo-1.5
+  local tmp=`mktemp -d`
+  mkdir -p ${tmp}/foo-1.3
+  mkdir -p ${tmp}/foo-1.5
 
-  (PROGRAMS_DIR=$_tmp;
-   local _msg=`show_program foo`
-   local _expected=`echo -e "   ${_tmp}/foo-1.3\n   ${_tmp}/foo-1.5"`
-   assertEquals "$_expected" "$_msg")
+  (PROGRAMS_DIR=$tmp;
+   local msg=`show_program foo`
+   local expected=`echo -e "   ${tmp}/foo-1.3\n   ${tmp}/foo-1.5"`
+   assertEquals "$expected" "$msg")
 
-  rm -rf $_tmp
+  rm -rf $tmp
 }
 
 testListPluginsNameLink() {
-  local _tmp=`mktemp -d`
-  mkdir -p ${_tmp}/foo-1.3
-  mkdir -p ${_tmp}/foo-1.5
-  ln -s ${_tmp}/foo-1.5 ${_tmp}/foo
+  local tmp=`mktemp -d`
+  mkdir -p ${tmp}/foo-1.3
+  mkdir -p ${tmp}/foo-1.5
+  ln -s ${tmp}/foo-1.5 ${tmp}/foo
 
-  (PROGRAMS_DIR=$_tmp;
-   local _msg=`show_program foo`
-   local _expected=`echo -e "   ${_tmp}/foo-1.3\n * ${_tmp}/foo-1.5"`
-   assertEquals "$_expected" "$_msg")
+  (PROGRAMS_DIR=$tmp;
+   local msg=`show_program foo`
+   local expected=`echo -e "   ${tmp}/foo-1.3\n * ${tmp}/foo-1.5"`
+   assertEquals "$expected" "$msg")
 
-  rm -rf $_tmp
+  rm -rf $tmp
 }
 
 testListPluginsNone() {
-  local _tmp=`mktemp -d`
+  local tmp=`mktemp -d`
 
-  (PROGRAMS_DIR=$_tmp;
-   local _msg=`show_program`
-   assertEquals "Nothing installed" "$_msg")
+  (PROGRAMS_DIR=$tmp;
+   local msg=`show_program`
+   assertEquals "Nothing installed" "$msg")
 
-  rm -rf $_tmp
+  rm -rf $tmp
 }
 
 testListPluginsNone() {
-  local _tmp=`mktemp -d`
+  local tmp=`mktemp -d`
 
-  (PROGRAMS_DIR=$_tmp;
-   local _msg=`show_program`
-   assertEquals "Nothing installed" "$_msg")
+  (PROGRAMS_DIR=$tmp;
+   local msg=`show_program`
+   assertEquals "Nothing installed" "$msg")
 
-  rm -rf $_tmp
+  rm -rf $tmp
 }
 
 testListPluginsMixed() {
-  local _tmp=`mktemp -d`
-  mkdir -p ${_tmp}/foo-1.3
-  mkdir -p ${_tmp}/foo-1.5
-  ln -s ${_tmp}/foo-1.5 ${_tmp}/foo
-  mkdir -p ${_tmp}/bar-2.0.1
-  ln -s ${_tmp}/bar-2.0.1 ${_tmp}/bar
-  mkdir -p ${_tmp}/baz-0.5-rc1
+  local tmp=`mktemp -d`
+  mkdir -p ${tmp}/foo-1.3
+  mkdir -p ${tmp}/foo-1.5
+  ln -s ${tmp}/foo-1.5 ${tmp}/foo
+  mkdir -p ${tmp}/bar-2.0.1
+  ln -s ${tmp}/bar-2.0.1 ${tmp}/bar
+  mkdir -p ${tmp}/baz-0.5-rc1
 
-  (PROGRAMS_DIR=$_tmp;
-   local _msg=`show_program`
-   local _expected=`cat << EOF
- * ${_tmp}/bar-2.0.1
-   ${_tmp}/foo-1.3
- * ${_tmp}/foo-1.5
-   ${_tmp}/baz-0.5-rc1
+  (PROGRAMS_DIR=$tmp;
+   local msg=`show_program`
+   local expected=`cat << EOF
+ * ${tmp}/bar-2.0.1
+   ${tmp}/foo-1.3
+ * ${tmp}/foo-1.5
+   ${tmp}/baz-0.5-rc1
 EOF`
-   assertEquals "$_expected" "$_msg")
+   assertEquals "$expected" "$msg")
 
-  rm -rf $_tmp
+  rm -rf $tmp
 }
 
 

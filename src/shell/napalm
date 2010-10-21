@@ -58,8 +58,8 @@ exit 0
 
 resolve_napalm_home() {
   if [[ -z "$NAPALM_HOME" ]]; then
-    local _bin=$(dirname $(readlink -f $0))
-    NAPALM_HOME=$(readlink -f ${_bin}/..)
+    local bin=$(dirname $(readlink -f $0))
+    NAPALM_HOME=$(readlink -f ${bin}/..)
   fi
 }
 
