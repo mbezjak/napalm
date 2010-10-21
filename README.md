@@ -64,6 +64,12 @@ napalm is written as a bash script therefor executing in in any linux
 distribution shouldn't be a problem. However, make sure that `wget` and `unzip`
 are installed. Some distributions don't install them by default.
 
+## Configuration
+These environment variables can be set to alter behavior of napalm.
+
+ * NAPALM_HOME - points to where napalm is installed
+ * NAPALM_USER_HOME - points to a hidden directory in user's home directory (defaults to $HOME/.napalm)
+
 ## Development documentation
 napalm supports installing projects via plugins. A plugin is written as a very
 simple bash script. Plugin's job is to describe how to download a project. Take
