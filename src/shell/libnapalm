@@ -33,59 +33,16 @@ list_plugins() {
 }
 
 # args:
-# $1 - program name
-# $2 - program version
+# $1 (optional) - program name
+# $2 (optional) - program version
 show_program() {
   if [[ -n "$1" && -n "$2" ]]; then
-    show_program_with_name_and_version $1 $2
-  # e.g. napalm show foo
+    show_program_with_name_and_version "$1" "$2"
   elif [[ -n "$1" ]]; then
-    local link=${NAPALM_PROGRAMS_DIR}/$1
-    local flag=' '
-    local iterator=$(find $NAPALM_PROGRAMS_DIR -mindepth 1 -maxdepth 1 -type d -printf "%f\n")
-
-    [[ -z $iterator ]] && {
-      echo "Not installed: $1"
-      return 1
-    }
-
-    for p in $iterator
-    do
-      local prog=$NAPALM_PROGRAMS_DIR/$p
-
-      # link exists and points towards $prog
-      [[ -L $link && $(readlink -f $link) == $prog ]] && flag='*'
-
-      echo " $flag $prog"
-    done
-    return 0
-
-  # e.g. napalm show
+    show_program_with_name "$1"
   else
-    local flag=' '
-    local iterator=$(find $NAPALM_PROGRAMS_DIR -mindepth 1 -maxdepth 1 -type d -printf "%f\n")
-
-    [[ -z $iterator ]] && {
-      echo "Nothing installed"
-      return 1
-    }
-
-    for p in $iterator
-    do
-      local prog=$NAPALM_PROGRAMS_DIR/$p
-      flag=' '
-
-      # if anyone points to $prog set $flag
-      for l in $(find $NAPALM_PROGRAMS_DIR -mindepth 1 -maxdepth 1 -type l -printf "%f\n")
-      do
-        local link=$NAPALM_PROGRAMS_DIR/$l
-        [[ -L $link && $(readlink -f $link) == $prog ]] && flag='*'
-      done
-
-      echo " $flag $prog"
-    done
+    show_program_all
   fi
-
 }
 
 # args:
@@ -107,5 +64,46 @@ show_program_with_name_and_version() {
   [[ -L $link && $(readlink -f $link) == $prog ]] && flag='*'
 
   echo " $flag $prog"
+  return 0
+}
+
+# args:
+# $1 - program name
+# example:
+# show_program_with_name foo
+show_program_with_name() {
+  local name="$1"
+  local iterator=$(find $NAPALM_PROGRAMS_DIR -mindepth 1 -maxdepth 1 -type d -name "$name-*" -printf "%f\n")
+
+  [[ -z $iterator ]] && {
+    echo "Not installed: $1"
+    return 1
+  }
+
+  for p in $iterator
+  do
+    local version=${p#*-}
+    show_program_with_name_and_version $name $version
+  done
+
+  return 0
+}
+
+# accepts no arguments and prints every installed program
+show_program_all() {
+  local iterator=$(find $NAPALM_PROGRAMS_DIR -mindepth 1 -maxdepth 1 -type d -printf "%f\n")
+
+  [[ -z $iterator ]] && {
+    echo "Nothing installed"
+    return 1
+  }
+
+  for p in $iterator
+  do
+    local name=${p%%-*}
+    local version=${p#*-}
+    show_program_with_name_and_version $name $version
+  done
+
   return 0
 }

@@ -42,41 +42,47 @@ testShowProgramWithNameAndVersionInstalledAndActive() {
   assertEquals " * $prog" "$msg"
 }
 
-testShowProgramNameNone() {
-  local msg=`show_program foo`
+
+testShowProgramWithNameNone() {
+  local msg=`show_program_with_name foo`
   assertEquals "Not installed: foo" "$msg"
 }
 
-testShowProgramNameNoLink() {
+testShowProgramWithNameNoLink() {
   mkdir -p $pd/foo-1.3
   mkdir -p $pd/foo-1.5
 
-  local msg=`show_program foo`
+  local msg=`show_program_with_name foo`
   local expected=`echo -e "   $pd/foo-1.3\n   $pd/foo-1.5"`
   assertEquals "$expected" "$msg"
 }
 
-testShowProgramNameLink() {
+testShowProgramWithNameLink() {
   mkdir -p $pd/foo-1.3
   mkdir -p $pd/foo-1.5
   ln -s $pd/foo-1.5 $pd/foo
 
-  local msg=`show_program foo`
+  local msg=`show_program_with_name foo`
   local expected=`echo -e "   $pd/foo-1.3\n * $pd/foo-1.5"`
   assertEquals "$expected" "$msg"
 }
 
-testShowProgramNone() {
-  local msg=`show_program`
+testShowProgramWithNameMorePrograms() {
+  mkdir -p $pd/foo-1.3
+  mkdir -p $pd/bar-2.1
+  mkdir -p $pd/bar-2.2-b5
+
+  local msg=`show_program_with_name foo`
+  assertEquals "   $pd/foo-1.3" "$msg"
+}
+
+
+testShowProgramAll() {
+  local msg=`show_program_all`
   assertEquals "Nothing installed" "$msg"
 }
 
-testShowProgramNone() {
-  local msg=`show_program`
-  assertEquals "Nothing installed" "$msg"
-}
-
-testShowProgramMixed() {
+testShowProgramAllMixed() {
   mkdir -p $pd/foo-1.3
   mkdir -p $pd/foo-1.5
   ln -s $pd/foo-1.5 $pd/foo
@@ -84,7 +90,7 @@ testShowProgramMixed() {
   ln -s $pd/bar-2.0.1 $pd/bar
   mkdir -p $pd/baz-0.5-rc1
 
-  local msg=`show_program`
+  local msg=`show_program_all`
   local expected=`cat << EOF
  * $pd/bar-2.0.1
    $pd/foo-1.3
@@ -92,6 +98,22 @@ testShowProgramMixed() {
    $pd/baz-0.5-rc1
 EOF`
   assertEquals "$expected" "$msg"
+}
+
+
+testShowProgramArgumentsNameAndVersion() {
+  local msg=`show_program foo 1.3`
+  assertEquals "Not installed: foo 1.3" "$msg"
+}
+
+testShowProgramArgumentName() {
+  local msg=`show_program foo`
+  assertEquals "Not installed: foo" "$msg"
+}
+
+testShowProgramNoArguments() {
+  local msg=`show_program`
+  assertEquals "Nothing installed" "$msg"
 }
 
 
