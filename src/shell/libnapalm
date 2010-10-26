@@ -29,6 +29,14 @@ resolve_version_from_path() {
   echo ${basepath#*-}
 }
 
+# args:
+# $1 - path from which to resolve program name
+resolve_program_name_from_path() {
+  local basepath=$(basename $1)
+  # everything before first dash (-) is a program name
+  echo ${basepath%%-*}
+}
+
 list_plugins() {
   local count=0
   local plugins=''
@@ -115,7 +123,7 @@ show_program_all() {
 
   for p in $iterator
   do
-    local name=${p%%-*}
+    local name=$(resolve_program_name_from_path $p)
     local version=$(resolve_version_from_path $p)
     show_program_with_name_and_version $name $version
   done

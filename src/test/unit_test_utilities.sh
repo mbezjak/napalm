@@ -25,4 +25,15 @@ testResolveVersionFromPathEverythingAfterFirstDashIsAVersion() {
 }
 
 
+testResolveProgramNameFromPathOnlyBasenameIsConsidered() {
+  local path="/an/absolute/path/but/only/basename/is/considered/foo-1.3"
+  assertEquals "foo" `resolve_program_name_from_path $path`
+}
+
+testResolveProgramNameFromPathComplexName() {
+  local path="foo_bar-2.1-b1"
+  assertEquals "foo_bar" `resolve_program_name_from_path $path`
+}
+
+
 . ./shunit2
