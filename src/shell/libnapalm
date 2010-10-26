@@ -21,6 +21,14 @@ configure_environment() {
   [[ -z "$NAPALM_PROGRAMS_DIR" ]] && NAPALM_PROGRAMS_DIR=$NAPALM_USER_HOME/programs
 }
 
+# args:
+# $1 - path from which to resolve version
+resolve_version_from_path() {
+  local basepath=$(basename $1)
+  # everything after first dash (-) is a version
+  echo ${basepath#*-}
+}
+
 list_plugins() {
   local count=0
   local plugins=''
@@ -89,7 +97,7 @@ show_program_with_name() {
 
   for p in $iterator
   do
-    local version=${p#*-}
+    local version=$(resolve_version_from_path $p)
     show_program_with_name_and_version $name $version
   done
 
@@ -108,7 +116,7 @@ show_program_all() {
   for p in $iterator
   do
     local name=${p%%-*}
-    local version=${p#*-}
+    local version=$(resolve_version_from_path $p)
     show_program_with_name_and_version $name $version
   done
 

@@ -19,6 +19,7 @@ test: dist test-prep
 	( cd $(TEST_DIR); $(TEST_DIR)/integration_tests.sh )
 	@echo "unit tests..."
 	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_configure_environment.sh )
+	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_utilities.sh )
 	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_list_plugins.sh )
 	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_show_program.sh )
 
