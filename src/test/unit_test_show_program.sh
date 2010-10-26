@@ -48,6 +48,12 @@ testShowProgramWithNameNone() {
   assertEquals "Not installed: foo" "$msg"
 }
 
+testShowProgramWithNameNonExistentDirectory() {
+  NAPALM_PROGRAMS_DIR='/non/existent'
+  local msg=`show_program_with_name foo`
+  assertEquals "Not installed: foo" "$msg"
+}
+
 testShowProgramWithNameNoLink() {
   mkdir -p $pd/foo-1.3
   mkdir -p $pd/foo-1.5
@@ -78,6 +84,12 @@ testShowProgramWithNameMorePrograms() {
 
 
 testShowProgramAll() {
+  local msg=`show_program_all`
+  assertEquals "Nothing installed" "$msg"
+}
+
+testShowProgramAllNonExistentDirectory() {
+  NAPALM_PROGRAMS_DIR='/non/existent'
   local msg=`show_program_all`
   assertEquals "Nothing installed" "$msg"
 }
