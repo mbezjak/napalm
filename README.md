@@ -15,7 +15,7 @@ really simple to install but
 
  * it's not available in any repository
  * an older version is in a repository
- * repository policy restricts updating to newer version therefor you need to
+ * repository policy restricts updating to newer version therefore you need to
    wait for new distribution release (Ubuntu has such policy)
  * you need both older and newer versions of a program
  * depends upon a program/library that you don't want (e.g. *java-1.5.0-gcj*;
@@ -60,9 +60,9 @@ First download latest napalm release and extract contents.
     $ sudo make install
 
 ## Required dependencies
-napalm is written as a bash script therefor executing in in any linux
-distribution shouldn't be a problem. However, make sure that `wget` and `unzip`
-are installed. Some distributions don't install them by default.
+napalm is written as a bash script therefore executing in any linux distribution
+shouldn't be a problem. However, make sure that `wget` and `unzip` are
+installed. Some distributions don't install them by default.
 
 ## Configuration
 These environment variables can be set to alter behavior of napalm.
