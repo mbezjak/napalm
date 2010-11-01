@@ -37,6 +37,16 @@ resolve_program_name_from_path() {
   echo ${basepath%%-*}
 }
 
+# args:
+# $1 - program name
+# $2 - program version (optional)
+construct_path() {
+  local path="$NAPALM_PROGRAMS_DIR/$1"
+  [[ -n "$2" ]] && path="$path-$2"
+
+  echo $path
+}
+
 list_plugins() {
   local count=0
   local plugins=''
@@ -74,8 +84,8 @@ show_program() {
 # example:
 # show_program_with_name_and_version foo 1.3
 show_program_with_name_and_version() {
-  local link="$NAPALM_PROGRAMS_DIR/$1"
-  local prog="$link-$2"
+  local link=$(construct_path "$1")
+  local prog=$(construct_path "$1" "$2")
   local flag=' '
 
   [[ ! -d $prog ]] && {

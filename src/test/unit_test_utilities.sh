@@ -36,4 +36,15 @@ testResolveProgramNameFromPathComplexName() {
 }
 
 
+testConstructPathNoVersion() {
+  (NAPALM_PROGRAMS_DIR="/tmp";
+   assertEquals "/tmp/foo" `construct_path foo`)
+}
+
+testConstructPathWithVersion() {
+  (NAPALM_PROGRAMS_DIR="/tmp";
+   assertEquals "/tmp/foo-1.3" `construct_path foo 1.3`)
+}
+
+
 . ./shunit2
