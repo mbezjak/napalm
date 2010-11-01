@@ -55,8 +55,7 @@ testShowProgramWithNameNonExistentDirectory() {
 }
 
 testShowProgramWithNameNoLink() {
-  mkdir -p $pd/foo-1.3
-  mkdir -p $pd/foo-1.5
+  mkdir -p $pd/foo-1.{3,5}
 
   local msg=`show_program_with_name foo`
   local expected=`echo -e "   $pd/foo-1.3\n   $pd/foo-1.5"`
@@ -64,8 +63,7 @@ testShowProgramWithNameNoLink() {
 }
 
 testShowProgramWithNameLink() {
-  mkdir -p $pd/foo-1.3
-  mkdir -p $pd/foo-1.5
+  mkdir -p $pd/foo-1.{3,5}
   ln -s $pd/foo-1.5 $pd/foo
 
   local msg=`show_program_with_name foo`
@@ -95,8 +93,7 @@ testShowProgramAllNonExistentDirectory() {
 }
 
 testShowProgramAllMixed() {
-  mkdir -p $pd/foo-1.3
-  mkdir -p $pd/foo-1.5
+  mkdir -p $pd/foo-1.{3,5}
   ln -s $pd/foo-1.5 $pd/foo
   mkdir -p $pd/bar-2.0.1
   ln -s $pd/bar-2.0.1 $pd/bar
