@@ -12,8 +12,8 @@ tearDown() {
 }
 
 testShowProgramWithNameAndVersionNotInstalled() {
-   local msg=`show_program_with_name_and_version foo 1.3`
-   assertEquals 'Not installed: foo 1.3' "$msg"
+  local msg=`show_program_with_name_and_version foo 1.3`
+  assertEquals 'Not installed: foo 1.3' "$msg"
 }
 
 testShowProgramWithNameAndVersionInstalledButNotActive() {
