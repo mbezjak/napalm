@@ -24,7 +24,7 @@ testShowProgramWithNameAndVersionInstalledButNotActive() {
   assertEquals "   $prog" "$msg"
 }
 
-testShowProgramWithNameAndVersionInstalledButNotActive2() {
+testShowProgramWithNameAndVersionInstalledButNotActiveLinkPointsToSomethingElse() {
   local prog=$pd/foo-1.3
   mkdir -p $prog
   ln -s /tmp $pd/foo
