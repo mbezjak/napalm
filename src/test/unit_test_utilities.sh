@@ -47,4 +47,13 @@ testConstructPathWithVersion() {
 }
 
 
+testHandleNotInstalledNoVersion() {
+  assertEquals "Not installed: foo" "`handle_not_installed foo`"
+}
+
+testHandleNotInstalledWithVersion() {
+  assertEquals "Not installed: foo 1.3" "`handle_not_installed foo 1.3`"
+}
+
+
 . ./shunit2
