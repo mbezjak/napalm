@@ -27,6 +27,8 @@ resolve_version_from_path() {
   local basepath=$(basename $1)
   # everything after first dash (-) is a version
   echo ${basepath#*-}
+
+  return 0
 }
 
 # args:
@@ -35,6 +37,8 @@ resolve_program_name_from_path() {
   local basepath=$(basename $1)
   # everything before first dash (-) is a program name
   echo ${basepath%%-*}
+
+  return 0
 }
 
 # args:
@@ -45,6 +49,7 @@ construct_path() {
   [[ -n "$2" ]] && path="$path-$2"
 
   echo $path
+  return 0
 }
 
 list_plugins() {
@@ -63,6 +68,7 @@ list_plugins() {
   done
 
   echo "Plugins [$count]:$plugins"
+  return 0
 }
 
 # args:
@@ -76,6 +82,8 @@ show_program() {
   else
     show_program_all
   fi
+
+  return 0
 }
 
 # args:
