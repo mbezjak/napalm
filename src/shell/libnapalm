@@ -94,7 +94,7 @@ show_program() {
     show_program_all
   fi
 
-  return 0
+  return
 }
 
 # args:

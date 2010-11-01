@@ -125,5 +125,17 @@ testShowProgramNoArguments() {
   assertEquals "Nothing installed" "$msg"
 }
 
+testShowProgramProgramsDirNotExists() {
+  NAPALM_PROGRAMS_DIR="/non/existent"
+  local msg=`show_program foo; assertEquals 1 $?`
+  assertEquals "Not installed: foo" "$msg"
+}
+
+testShowProgramProgramsDirNotExistsWithVersion() {
+  NAPALM_PROGRAMS_DIR="/non/existent"
+  local msg=`show_program foo 1.3; assertEquals 1 $?`
+  assertEquals "Not installed: foo 1.3" "$msg"
+}
+
 
 . ./shunit2
