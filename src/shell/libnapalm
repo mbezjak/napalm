@@ -183,3 +183,56 @@ use_program() {
 
   return 0
 }
+
+# args:
+# $1 - plugin name
+load_plugin() {
+  local plugin="$NAPALM_HOME/plugins/$1"
+  if [[ -f $plugin ]]; then
+    . $plugin
+  else
+    plugin="$NAPALM_USER_HOME/plugins/$1"
+    [[ -f $plugin ]] && . $plugin || return 1
+  fi
+
+  return 0
+}
+
+# args:
+# $1 - program name
+# $2 - program version
+# example:
+# install_program foo 1.3
+install_program() {
+  [[ -z "$1" ]] && return 2
+  [[ -z "$2" ]] && return 3
+
+  VERSION="$2"
+  load_plugin "$1" || {
+    echo "No plugin: $1" 2>1
+    return 1
+  }
+
+  
+}
+
+
+#############################
+# Functions used by plugins #
+
+# args:
+# $1 - url1
+# $2 - url2
+# ...
+url() {
+  URL="$1"
+  shift
+
+  while [[ -n "$1" ]]
+  do
+    URL="$URL $1"
+    shift
+  done
+
+  return 0
+}
