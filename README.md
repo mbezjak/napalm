@@ -89,6 +89,8 @@ a look at plugins directory for examples how to write napalm plugin.
 
 ### Limitations
 
+ * project and plugin name must be one and the same
+
  * plugin name cannot contain a dash (`-`) character in it's name. For example,
    you cannot name a plugin `foo-bar`. Instead use `fooBar` or `foo_bar` or
    `foobar`...
