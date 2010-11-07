@@ -22,7 +22,7 @@ test: dist test-prep
 	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_utilities.sh )
 	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_list_plugins.sh )
 	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_show_program.sh )
-	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_use_version.sh )
+	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_use_program.sh )
 
 test-prep: test-clean
 	@mkdir -p $(TEST_DIR)
