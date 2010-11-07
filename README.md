@@ -23,7 +23,7 @@ really simple to install but
 
 In any case you will need to install those programs manually. Manual
 installation is always boring and includes numerous steps. For example,
-installing/updating groovy includes
+installing groovy includes
 
  1. opening web browser
  2. navigating to http://groovy.codehaus.org/
