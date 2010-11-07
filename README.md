@@ -53,6 +53,15 @@ and setup environment variables quicker.
     # switch between two versions
     $ napalm use grails 1.2.5
 
+    # list all installed programs
+    $ napalm show
+
+    # list all versions of grails
+    $ napalm show grails
+
+    # list all available plugins
+    $ napalm list-plugins
+
 ## Install
 First download latest napalm release and extract contents.
 
