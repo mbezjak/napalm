@@ -224,6 +224,8 @@ install_program() {
 # $1 - url1
 # $2 - url2
 # ...
+# example:
+# url "http://acme.com/${VERSION}" "http://example.org/?version=${VERSION}"
 url() {
   URL="$1"
   shift
