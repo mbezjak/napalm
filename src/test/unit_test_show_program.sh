@@ -101,8 +101,8 @@ testShowProgramAllMixed() {
 
   local msg=`show_program_all`
   local expected=`cat << EOF
- * $pd/bar-2.0.1
    $pd/foo-1.3
+ * $pd/bar-2.0.1
  * $pd/foo-1.5
    $pd/baz-0.5-rc1
 EOF`
