@@ -198,14 +198,59 @@ load_plugin() {
   return 0
 }
 
+create_and_change_to_temp_directory() {
+  cd $(mktemp -d /tmp/napalm.XXXXXXXXX)
+}
+
+# args:
+# $1 - url locations as a space separated string
+download_program() {
+  for url in "$1"
+  do
+    set +o errexit
+    wget $url
+    local wget_status=$?
+    set -o errexit
+
+    [[ $wget_status -eq 0 ]] && return 0
+  done
+
+  return 1
+}
+
+# args:
+# $1 - archive name
+# $2 - directory to extract to
+extract_program() {
+  local archive="$1"
+  local into_dir="$2"
+  mkdir $into_dir
+
+  case $archive in
+  *.tar.gz)
+    tar --gzip --directory $into_dir -xf $archive
+    ;;
+  *.tar.bz2)
+    tar --bzip2 --directory $into_dir -xf $archive
+    ;;
+  *.zip)
+    unzip -q $archive -d $into_dir
+    ;;
+  *)
+    return 1
+  esac
+
+  return
+}
+
 # args:
 # $1 - program name
 # $2 - program version
 # example:
 # install_program foo 1.3
 install_program() {
-  [[ -z "$1" ]] && return 2
-  [[ -z "$2" ]] && return 3
+  [[ -z "$1" ]] && return 4
+  [[ -z "$2" ]] && return 5
 
   VERSION="$2"
   load_plugin "$1" || {
@@ -213,7 +258,25 @@ install_program() {
     return 1
   }
 
-  
+  create_and_change_to_temp_directory
+  download_program $URL || {
+    echo "Couldn't download $1-$2 in any of $URL" 2>1
+    return 2
+  }
+
+  local archive=$(ls -1)
+  local extracted_dir='extracted'
+  extract_program $archive $extracted_dir || {
+    echo "Couldn't extract archive $PWD/$archive" 2>1
+    return 3
+  }
+
+  mkdir -p "$NAPALM_PROGRAMS_DIR"
+  program=$(ls $extracted_dir)
+  rm -rf "$NAPALM_PROGRAMS_DIR/$1" "$NAPALM_PROGRAMS_DIR/$program"
+
+  mv "extracted/$program" "$NAPALM_PROGRAMS_DIR"
+  ln -s "$NAPALM_PROGRAMS_DIR/$program" "$NAPALM_PROGRAMS_DIR/$1"
 }
 
 
