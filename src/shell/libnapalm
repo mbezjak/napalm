@@ -67,9 +67,9 @@ list_plugins() {
   local count=0
   local plugins=''
 
-  local iterator=$NAPALM_HOME/plugins/*
+  local iterator=$(ls -1 $NAPALM_HOME/plugins)
   if [[ -d $NAPALM_USER_HOME/plugins ]]; then
-    iterator="$iterator $(echo $NAPALM_USER_HOME/plugins/*)"
+    iterator="$iterator $(ls -1 $NAPALM_USER_HOME/plugins)"
   fi
 
   for f in $iterator
