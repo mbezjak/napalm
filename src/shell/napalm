@@ -80,4 +80,12 @@ done
 shift $((OPTIND-1))
 
 
+case "$1" in
+  install)      [[ -z "$2" || -z "$3" ]] && print_usage || install_program "$2" "$3" ;;
+  use)          [[ -z "$2" || -z "$3" ]] && print_usage || use_program "$2" "$3" ;;
+  show)         show_program "$2" "$3" ;;
+  list-plugins) list_plugins ;;
+  *) print_usage ;;
+esac
+
 exit 0
