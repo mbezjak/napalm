@@ -1,8 +1,8 @@
 SRC_DIR=$(CURDIR)/src
 SRC_SHELL_DIR=$(SRC_DIR)/shell
+SRC_PLUGINS_DIR=$(SRC_DIR)/plugins
 SRC_TEST_DIR=$(SRC_DIR)/test
 LIB_DIR=$(CURDIR)/lib
-PLUGINS_DIR=$(CURDIR)/plugins
 
 BUILD_DIR=$(CURDIR)/build
 TEST_DIR=$(BUILD_DIR)/test
@@ -41,7 +41,7 @@ dist-prep: dist-clean
 	@mkdir -p $(DIST_DIR)/plugins
 
 	cp -p $(SRC_SHELL_DIR)/* $(DIST_DIR)/bin
-#	cp -p $(PLUGINS_DIR)/* $(DIST_DIR)/plugins
+	cp -p $(SRC_PLUGINS_DIR)/* $(DIST_DIR)/plugins
 
 dist-clean:
 	rm -rf $(DIST_DIR)
