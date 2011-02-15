@@ -1,5 +1,2 @@
-# NOTICE
-This is only a template. napalm isn't released yet.
-
-# 2010-10-XX, Version: 0.1
+# 2011-02-16, Version: 0.1
  * initial public release
