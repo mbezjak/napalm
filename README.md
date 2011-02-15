@@ -1,10 +1,6 @@
 # napalm
 Not a real package manager
 
-### NOTICE
-napalm is still being developed. I'm writing documentation first. Source code
-should follow soon after. Stay tuned.
-
 ## Summary
 Automate installation of archived (zip, gz, bz2) programs that are unsuited or
 unavailable from a package repository.
