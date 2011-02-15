@@ -27,7 +27,6 @@ SYNOPSIS
     napalm install NAME VERSION
     napalm use NAME VERSION
     napalm show [NAME [VERSION]]
-    napalm create-plugin NAME
     napalm list-plugins
     napalm -h
     napalm -v
