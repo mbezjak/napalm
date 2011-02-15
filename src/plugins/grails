@@ -1,0 +1,1 @@
+url "http://dist.springframework.org.s3.amazonaws.com/release/GRAILS/grails-${VERSION}.zip"
