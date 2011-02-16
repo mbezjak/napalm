@@ -12,7 +12,7 @@ tearDown() {
 }
 
 testShowProgramWithNameAndVersionNotInstalled() {
-  local msg=`show_program_with_name_and_version foo 1.3`
+  local msg=`show_program_with_name_and_version foo 1.3 2>&1`
   assertEquals 'Not installed: foo 1.3' "$msg"
 }
 
@@ -44,13 +44,13 @@ testShowProgramWithNameAndVersionInstalledAndActive() {
 
 
 testShowProgramWithNameNone() {
-  local msg=`show_program_with_name foo`
+  local msg=`show_program_with_name foo 2>&1`
   assertEquals "Not installed: foo" "$msg"
 }
 
 testShowProgramWithNameNonExistentDirectory() {
   NAPALM_PROGRAMS_DIR='/non/existent'
-  local msg=`show_program_with_name foo`
+  local msg=`show_program_with_name foo 2>&1`
   assertEquals "Not installed: foo" "$msg"
 }
 
@@ -82,13 +82,13 @@ testShowProgramWithNameMorePrograms() {
 
 
 testShowProgramAll() {
-  local msg=`show_program_all`
+  local msg=`show_program_all 2>&1`
   assertEquals "Nothing installed" "$msg"
 }
 
 testShowProgramAllNonExistentDirectory() {
   NAPALM_PROGRAMS_DIR='/non/existent'
-  local msg=`show_program_all`
+  local msg=`show_program_all 2>&1`
   assertEquals "Nothing installed" "$msg"
 }
 
@@ -111,29 +111,29 @@ EOF`
 
 
 testShowProgramArgumentsNameAndVersion() {
-  local msg=`show_program foo 1.3`
+  local msg=`show_program foo 1.3 2>&1`
   assertEquals "Not installed: foo 1.3" "$msg"
 }
 
 testShowProgramArgumentName() {
-  local msg=`show_program foo`
+  local msg=`show_program foo 2>&1`
   assertEquals "Not installed: foo" "$msg"
 }
 
 testShowProgramNoArguments() {
-  local msg=`show_program`
+  local msg=`show_program 2>&1`
   assertEquals "Nothing installed" "$msg"
 }
 
 testShowProgramProgramsDirNotExists() {
   NAPALM_PROGRAMS_DIR="/non/existent"
-  local msg=`show_program foo; assertEquals 1 $?`
+  local msg=`show_program foo 2>&1; assertEquals 1 $?`
   assertEquals "Not installed: foo" "$msg"
 }
 
 testShowProgramProgramsDirNotExistsWithVersion() {
   NAPALM_PROGRAMS_DIR="/non/existent"
-  local msg=`show_program foo 1.3; assertEquals 1 $?`
+  local msg=`show_program foo 1.3 2>&1; assertEquals 1 $?`
   assertEquals "Not installed: foo 1.3" "$msg"
 }
 

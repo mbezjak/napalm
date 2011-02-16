@@ -146,7 +146,7 @@ testInstallProgramPluginNotLoaded() {
     return 1
   }
 
-  local msg=`install_program foo 1.3; assertEquals 1 $?`
+  local msg=`install_program foo 1.3 2>&1; assertEquals 1 $?`
   assertEquals "No plugin: foo" "$msg"
 }
 

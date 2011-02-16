@@ -23,19 +23,19 @@ testUseProgramVersionEmpty() {
 
 testUseProgramProgramsDirDoesntExist() {
   NAPALM_PROGRAMS_DIR='/non/existent'
-  local msg=`use_program foo 1.3; assertEquals 1 $?`
+  local msg=`use_program foo 1.3 2>&1; assertEquals 1 $?`
   assertEquals "Not installed: foo 1.3" "$msg"
 }
 
 testUseProgramNotInstalled() {
-  local msg=`use_program foo 1.3; assertEquals 1 $?`
+  local msg=`use_program foo 1.3 2>&1; assertEquals 1 $?`
   assertEquals "Not installed: foo 1.3" "$msg"
 }
 
 testUseProgramNotInstalledInstalledOne() {
   mkdir $pd/foo-1.3
 
-  local msg=`use_program foo 1.5; assertEquals 1 $?`
+  local msg=`use_program foo 1.5 2>&1; assertEquals 1 $?`
   assertEquals "Not installed: foo 1.5" "$msg"
 }
 

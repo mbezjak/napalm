@@ -48,11 +48,11 @@ testConstructPathWithVersion() {
 
 
 testHandleNotInstalledNoVersion() {
-  assertEquals "Not installed: foo" "`handle_not_installed foo`"
+  assertEquals "Not installed: foo" "`handle_not_installed foo 2>&1`"
 }
 
 testHandleNotInstalledWithVersion() {
-  assertEquals "Not installed: foo 1.3" "`handle_not_installed foo 1.3`"
+  assertEquals "Not installed: foo 1.3" "`handle_not_installed foo 1.3 2>&1`"
 }
 
 
