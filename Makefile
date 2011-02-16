@@ -49,7 +49,7 @@ dist-clean:
 	rm -rf $(DIST_DIR)
 
 
-install: uninstall dist
+install: uninstall
 	install -m 0755 -d $(prefix)/lib/napalm/bin
 	install -m 0755 -d $(prefix)/lib/napalm/plugins
 	install -m 0644 $(DIST_DIR)/bin/libnapalm $(prefix)/lib/napalm/bin
