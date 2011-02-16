@@ -1,4 +1,4 @@
-# 2011-02-XX, Version: 0.2
+# 2011-02-17, Version: 0.2
  * added griffon plugin
  * fixed setting of directory name in NAPALM_HOME/programs.
      plugin_name-version scheme is now used
