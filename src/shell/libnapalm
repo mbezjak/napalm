@@ -59,7 +59,7 @@ handle_not_installed() {
   local msg="Not installed: $1"
   [[ -n "$2" ]] && msg="$msg $2"
 
-  echo $msg 2>1
+  echo $msg 1>&2
   return 0
 }
 
@@ -146,7 +146,7 @@ show_program_all() {
   local iterator=$(find $NAPALM_PROGRAMS_DIR -mindepth 1 -maxdepth 1 -type d -printf "%f\n" 2> /dev/null)
 
   [[ -z $iterator ]] && {
-    echo "Nothing installed" 2>1
+    echo "Nothing installed" 1>&2
     return 1
   }
 
@@ -254,20 +254,20 @@ install_program() {
 
   VERSION="$2"
   load_plugin "$1" || {
-    echo "No plugin: $1" 2>1
+    echo "No plugin: $1" 1>&2
     return 1
   }
 
   create_and_change_to_temp_directory
   download_program $URL || {
-    echo "Couldn't download $1-$2 in any of $URL" 2>1
+    echo "Couldn't download $1-$2 in any of $URL" 1>&2
     return 2
   }
 
   local archive=$(ls -1)
   local extracted_dir='extracted'
   extract_program $archive $extracted_dir || {
-    echo "Couldn't extract archive $PWD/$archive" 2>1
+    echo "Couldn't extract archive $PWD/$archive" 1>&2
     return 3
   }
 
