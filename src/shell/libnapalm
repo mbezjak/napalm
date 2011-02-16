@@ -273,10 +273,10 @@ install_program() {
 
   mkdir -p "$NAPALM_PROGRAMS_DIR"
   program=$(ls $extracted_dir)
-  rm -rf "$NAPALM_PROGRAMS_DIR/$1" "$NAPALM_PROGRAMS_DIR/$program"
+  rm -rf "$NAPALM_PROGRAMS_DIR/$1" "$NAPALM_PROGRAMS_DIR/$1-$VERSION"
 
-  mv "extracted/$program" "$NAPALM_PROGRAMS_DIR"
-  ln -s "$NAPALM_PROGRAMS_DIR/$program" "$NAPALM_PROGRAMS_DIR/$1"
+  mv "extracted/$program" "$NAPALM_PROGRAMS_DIR/$1-$VERSION"
+  ln -s "$NAPALM_PROGRAMS_DIR/$1-$VERSION" "$NAPALM_PROGRAMS_DIR/$1"
 }
 
 
