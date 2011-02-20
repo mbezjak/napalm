@@ -1,9 +1,11 @@
 # 2011-02-XX, Version: 0.4
  * minor documentation cleanups
+ * allow plugins to generate program.sh files in NAPALM_USER_HOME.
+   They define PROGRAM_HOME envoriment variable and alter PATH.
 
 # 2011-02-20, Version: 0.3
  * fixed bug in download_program. Specifying multiple urls in plugins is now
-     respected by napalm.
+   respected by napalm.
  * fixed problem when environment variables are already set
  * napalm -h now shows value of NAPALM_PROGRAMS_DIR variable
  * described security in documentation
@@ -15,9 +17,9 @@
 # 2011-02-17, Version: 0.2
  * added griffon plugin
  * fixed setting of directory name in NAPALM_HOME/programs.
-     plugin_name-version scheme is now used
+   plugin_name-version scheme is now used
  * fixed redirection bug. Errors should be redirected to stderr. Instead a file
-     named '1' was created by mistake in current working directory.
+   named '1' was created by mistake in current working directory.
  * fixed install target in Makefile. It no longer depends on dist.
 
 # 2011-02-16, Version: 0.1
