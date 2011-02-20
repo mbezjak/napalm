@@ -2,6 +2,7 @@
  * fixed bug in download_program. Specifying multiple urls in plugins is now
      respected by napalm.
  * fixed problem when environment variables are already set
+ * napalm -h now shows value of NAPALM_PROGRAMS_DIR variable
 
 # 2011-02-17, Version: 0.2
  * added griffon plugin

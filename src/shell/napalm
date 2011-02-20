@@ -47,6 +47,7 @@ License MIT: http://www.opensource.org/licenses/mit-license.php
 Documentation & source code: http://github.com/mbezjak/napalm
 
 NAPALM_HOME = $NAPALM_HOME
+NAPALM_PROGRAMS_DIR = $NAPALM_PROGRAMS_DIR
 EOF
 
 exit 0
