@@ -23,7 +23,9 @@ testConfigureEnvironmentProgramDirIsAlreadySet() {
 testConfigureEnvironment() {
   local nuh=$HOME/.napalm
 
-  (configure_environment;
+  (export NAPALM_USER_HOME=;
+   export NAPALM_PROGRAMS_DIR=;
+   configure_environment;
    assertEquals $nuh $NAPALM_USER_HOME;
    assertEquals $nuh/programs $NAPALM_PROGRAMS_DIR)
 }
