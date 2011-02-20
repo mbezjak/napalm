@@ -38,6 +38,9 @@ programs. Not to mention that you will need to write separate scripts to setup
 napalm is designed as an automation tool to help you download, extract archive
 and setup environment variables quicker.
 
+A word of caution. Do not abuse napalm! Use package management anywhere you
+can. napalm isn't a replacement in any way.
+
 ## Example
 
     # install grails
