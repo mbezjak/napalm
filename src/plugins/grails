@@ -1,1 +1,1 @@
-url "http://dist.springframework.org.s3.amazonaws.com/release/GRAILS/grails-${VERSION}.zip"
+url "http://dist.springframework.org.s3.amazonaws.com/release/GRAILS/grails-${VERSION}.zip" "http://dist.codehaus.org/grails/grails-${VERSION}.zip"
