@@ -1,1 +1,3 @@
 url "http://ftp.carnet.hr/misc/apache//ant/binaries/apache-ant-${VERSION}-bin.tar.bz2"
+set_env 'ANT_HOME'
+set_path true
