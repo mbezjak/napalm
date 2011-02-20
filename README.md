@@ -107,27 +107,29 @@ a look at plugins directory for examples how to write napalm plugin.
    `foobar`...
 
 ### How to write napalm plugin
-A plugin should contain just one call to url function. Arguments should be one
+A plugin should contain just one call to `url` function. Arguments should be one
 or more urls where a program can be downloaded. Plugin has access to `VERSION`
 property in order to create an url. Here is an example of a simple plugin:
 
-  $ url "http://www.example.com/download?name=foo&version=${VERSION}.tar.gz"
+    $ url "http://www.example.com/download?name=foo&version=${VERSION}.tar.gz"
 
 Some programs change download location in a way that one url location isn't good
 enough. For those programs specify more url locations. For example:
 
-  $ url "http://www.example.com/download?name=foo&version=${VERSION}.tar.gz"\
-        "http://download.example.com/foo/${VERSION}.tar.gz"
+    $ url "http://www.example.com/download?name=foo&version=${VERSION}.tar.gz"\
+          "http://download.example.com/foo/${VERSION}.tar.gz"
 
 napalm will try to download from first location and proceeding to another
 defined url only in case of failure.
 
 `wget` is used to download a program. Therefor any url scheme that wget allows
-is acceptable.
+is acceptable (HTTP, HTTPS, FTP).
 
 ### How to install napalm plugin
-Two ways. Put it (1) NAPALM_USER_HOME/plugins or (2) NAPALM_HOME/plugins
-directory.
+Two ways. Put it in either of these directories
+
+  * NAPALM_USER_HOME/plugins
+  * NAPALM_HOME/plugins
 
 ## Security
 Napalm evaluates any plugin as a bash script using `source` builtin command.
@@ -139,40 +141,41 @@ be installed. Probably download from someplace. If you do, treat it like any
 other bash script - potential source of malicious hazard. Examine it beforehand.
 napalm plugins should generally be extremely small. Just a couple of lines
 specifying from where to download a program and what do with it afterwards. If
-you see something longer or out of the ordinary be extra suspicious.
+you see something longer or out of the ordinary be _extra_ suspicious.
 
-For reason described above it's recommended never executing `napalm install` as
-root. Example:
+For reason described above it's **never** recommended executing `napalm install`
+as root. Example:
 
-   # using sudo and unknown plugin isn't recommended
-   $ sudo napalm install potential_rootkit 1.0.
+     # using sudo and unknown plugin isn't recommended
+     $ sudo napalm install potential_rootkit 1.0
 
 ## How to use napalm
-Star (*) character in napalm output means that version of a program is used.
+Star (*) character in napalm output represents a version of a program being
+used.
 
-  $ napalm -h
-    Show synopsis
+    # show synopsis
+    $ napalm -h
 
-  $ napalm -v
-    Show napalm version
+    # show napalm version
+    $ napalm -v
 
-  $ napalm list-plugins
-    List all available plugins
+    # list all available plugins
+    $ napalm list-plugins
 
-  $ napalm show
-    List all installed programs
+    # list all installed programs
+    $ napalm show
 
-  $ napalm show foo
-    List all versions installed for program foo
+    # list all versions installed for program foo
+    $ napalm show foo
 
-  $ napalm show foo 1.0
-    Show 1.0 version of program foo
+    # show 1.0 version of program foo
+    $ napalm show foo 1.0
 
-  $ napalm use foo 1.0
-    Switch to version 1.0 of program foo
+    # switch to version 1.0 of program foo
+    $ napalm use foo 1.0
 
-  $ napalm install foo 1.0
-    Install version 1.0 of program foo
+    # install version 1.0 of program foo
+    $ napalm install foo 1.0
 
 ## How to delete a program
 napalm curently has no option to delete installed program. You will have to do

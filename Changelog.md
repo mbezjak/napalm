@@ -1,3 +1,6 @@
+# 2011-02-XX, Version: 0.4
+ * minor documentation cleanups
+
 # 2011-02-20, Version: 0.3
  * fixed bug in download_program. Specifying multiple urls in plugins is now
      respected by napalm.
