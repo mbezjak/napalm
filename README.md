@@ -81,6 +81,11 @@ These environment variables can be set to alter behavior of napalm.
  * NAPALM_PROGRAMS_DIR - points to a directory where programs will be installed
    (defaults to $NAPALM_USER_HOME/programs)
 
+Here is an example of configuring napalm to use different programs directory.
+Snippet from $HOME/.bashrc:
+
+    export NAPALM_PROGRAMS_DIR="$HOME/lib/napalm"
+
 ## Development documentation
 napalm supports installing projects via plugins. A plugin is written as a very
 simple bash script. Plugin's job is to describe how to download a project. Take

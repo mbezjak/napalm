@@ -3,6 +3,7 @@
      respected by napalm.
  * fixed problem when environment variables are already set
  * napalm -h now shows value of NAPALM_PROGRAMS_DIR variable
+ * improved documentation
 
 # 2011-02-17, Version: 0.2
  * added griffon plugin
