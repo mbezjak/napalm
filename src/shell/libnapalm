@@ -280,6 +280,8 @@ install_program() {
 
   mv "extracted/$program" "$NAPALM_PROGRAMS_DIR/$1-$VERSION"
   ln -s "$NAPALM_PROGRAMS_DIR/$1-$VERSION" "$NAPALM_PROGRAMS_DIR/$1"
+
+  echo "Installed $1 $VERSION"
 }
 
 
