@@ -260,6 +260,7 @@ install_program() {
     return 1
   }
 
+  # note: no tests for code below
   create_and_change_to_temp_directory
   download_program "$URL" || {
     echo "Couldn't download $1-$2 in any of $URL" 1>&2
