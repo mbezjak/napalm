@@ -1,1 +1,2 @@
 url "http://ftp.carnet.hr/misc/apache/tomcat/tomcat-6/v${VERSION}/bin/apache-tomcat-${VERSION}.tar.gz"
+set_env 'CATALINA_HOME'
