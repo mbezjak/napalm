@@ -19,6 +19,7 @@
 configure_environment() {
   [[ -z "$NAPALM_USER_HOME" ]]    && NAPALM_USER_HOME=$HOME/.napalm
   [[ -z "$NAPALM_PROGRAMS_DIR" ]] && NAPALM_PROGRAMS_DIR=$NAPALM_USER_HOME/programs
+  return 0
 }
 
 # args:
