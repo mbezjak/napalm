@@ -23,12 +23,12 @@ testIllegalArgument() {
 
 testNapalmHomeCanBeAssigned() {
   local another_home=`mktemp -d`
-  cp -pR ../dist/* $another_home
+  cp -pR ../dist/* "$another_home"
 
-  local detected_home=`export NAPALM_HOME=$another_home && $NAPALM -v 2>&1 | awk '/^NAPALM_HOME/{print $3}'`
-  assertEquals $another_home $detected_home
+  local detected_home=`export NAPALM_HOME="$another_home" && $NAPALM -v 2>&1 | awk '/^NAPALM_HOME/{print $3}'`
+  assertEquals "$another_home" "$detected_home"
 
-  rm -rf $another_home
+  rm -rf "$another_home"
 }
 
 
