@@ -1,4 +1,4 @@
-# 2011-02-XX, Version: 0.4
+# 2011-02-20, Version: 0.4
  * minor documentation cleanups
  * allow plugins to generate program.sh files in NAPALM_USER_HOME.
    They define PROGRAM_HOME envoriment variable and alter PATH.
