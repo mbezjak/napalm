@@ -13,7 +13,7 @@ really simple to install but
  * an older version is in a repository
  * repository policy restricts updating to newer version therefore you need to
    wait for new distribution release (Ubuntu has such policy)
- * you need both older and newer versions of a program
+ * you need two or more versions of a program
  * depends upon a program/library that you don't want (e.g. *java-1.5.0-gcj*;
    I'm looking at you Fedora!)
 
@@ -81,7 +81,8 @@ installed. Some distributions don't install them by default.
 ## Configuration
 These environment variables can be set to alter behavior of napalm.
 
- * NAPALM_HOME - points to where napalm is installed
+ * NAPALM_HOME - points to where napalm is installed (defaults to being
+   automatically determined)
  * NAPALM_USER_HOME - points to a hidden directory in user's home directory
    (defaults to $HOME/.napalm)
  * NAPALM_PROGRAMS_DIR - points to a directory where programs will be installed
