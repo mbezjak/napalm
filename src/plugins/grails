@@ -1,1 +1,3 @@
 url "http://dist.springframework.org.s3.amazonaws.com/release/GRAILS/grails-${VERSION}.zip" "http://dist.codehaus.org/grails/grails-${VERSION}.zip"
+set_env 'GRAILS_HOME'
+set_path true
