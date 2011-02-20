@@ -1,1 +1,3 @@
 url "http://dist.groovy.codehaus.org/distributions/groovy-binary-${VERSION}.zip"
+set_env 'GROOVY_HOME'
+set_path true
