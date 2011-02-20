@@ -1,3 +1,7 @@
+# 2011-02-XX, Version: 0.3
+ * fixed bug in download_program. Specifying multiple urls in plugins is now
+     respected by napalm.
+
 # 2011-02-17, Version: 0.2
  * added griffon plugin
  * fixed setting of directory name in NAPALM_HOME/programs.

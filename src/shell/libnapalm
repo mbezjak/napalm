@@ -205,11 +205,12 @@ create_and_change_to_temp_directory() {
 # args:
 # $1 - url locations as a space separated string
 download_program() {
-  for url in "$1"
+  local wget_status
+  for url in $(echo "$1")
   do
     set +o errexit
     wget $url
-    local wget_status=$?
+    wget_status=$?
     set -o errexit
 
     [[ $wget_status -eq 0 ]] && return 0
@@ -259,7 +260,7 @@ install_program() {
   }
 
   create_and_change_to_temp_directory
-  download_program $URL || {
+  download_program "$URL" || {
     echo "Couldn't download $1-$2 in any of $URL" 1>&2
     return 2
   }
