@@ -15,9 +15,9 @@ testConfigureEnvironmentNUHisAlreadySet() {
 testConfigureEnvironmentProgramDirIsAlreadySet() {
   local pd='/already/set'
 
-  (export NAPALM_PROGRAM_DIR=$pd;
+  (export NAPALM_PROGRAMS_DIR=$pd;
    configure_environment;
-   assertEquals $pd $NAPALM_PROGRAM_DIR)
+   assertEquals $pd $NAPALM_PROGRAMS_DIR)
 }
 
 testConfigureEnvironment() {
