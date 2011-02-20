@@ -141,7 +141,42 @@ specifying from where to download a program and what do with it afterwards. If
 you see something longer or out of the ordinary be extra suspicious.
 
 For reason described above it's recommended never executing `napalm install` as
-root. Example `sudo napalm install potential_rootkit 1.0`.
+root. Example:
+
+   # using sudo and unknown plugin isn't recommended
+   $ sudo napalm install potential_rootkit 1.0.
+
+## How to use napalm
+Star (*) character in napalm output means that version of a program is used.
+
+  $ napalm -h
+    Show synopsis
+
+  $ napalm -v
+    Show napalm version
+
+  $ napalm list-plugins
+    List all available plugins
+
+  $ napalm show
+    List all installed programs
+
+  $ napalm show foo
+    List all versions installed for program foo
+
+  $ napalm show foo 1.0
+    Show 1.0 version of program foo
+
+  $ napalm use foo 1.0
+    Switch to version 1.0 of program foo
+
+  $ napalm install foo 1.0
+    Install version 1.0 of program foo
+
+## How to delete a program
+napalm curently has no option to delete installed program. You will have to do
+it manually. All programs are installed in NAPALM_PROGRAMS_DIR directory.
+Removing desired directory will ensure it is no longer intalled.
 
 ## License
 Project uses MIT license. Check LICENSE file for more info.
