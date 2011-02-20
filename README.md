@@ -99,6 +99,29 @@ a look at plugins directory for examples how to write napalm plugin.
    you cannot name a plugin `foo-bar`. Instead use `fooBar` or `foo_bar` or
    `foobar`...
 
+### How to write napalm plugin
+A plugin should contain just one call to url function. Arguments should be one
+or more urls where a program can be downloaded. Plugin has access to `VERSION`
+property in order to create an url. Here is an example of a simple plugin:
+
+  $ url "http://www.example.com/download?name=foo&version=${VERSION}.tar.gz"
+
+Some programs change download location in a way that one url location isn't good
+enough. For those programs specify more url locations. For example:
+
+  $ url "http://www.example.com/download?name=foo&version=${VERSION}.tar.gz"\
+        "http://download.example.com/foo/${VERSION}.tar.gz"
+
+napalm will try to download from first location and proceeding to another
+defined url only in case of failure.
+
+`wget` is used to download a program. Therefor any url scheme that wget allows
+is acceptable.
+
+### How to install napalm plugin
+Two ways. Put it (1) NAPALM_USER_HOME/plugins or (2) NAPALM_HOME/plugins
+directory.
+
 ## Security
 Napalm evaluates any plugin as a bash script using `source` builtin command.
 Combine that with the ability to add your own plugins and you have a receipe for
