@@ -67,6 +67,12 @@ First download latest napalm release and extract contents.
     $ make
     $ sudo make install
 
+## Uninstall
+    $ sudo make uninstall
+
+You can also remove any installed program by removing NAPALM_USER_HOME and
+NAPALM_PROGRAMS_DIR directories (see configuration section below).
+
 ## Required dependencies
 napalm is written as a bash script therefore executing in any linux distribution
 shouldn't be a problem. However, make sure that `wget` and `unzip` are
