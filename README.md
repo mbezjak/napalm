@@ -99,5 +99,20 @@ a look at plugins directory for examples how to write napalm plugin.
    you cannot name a plugin `foo-bar`. Instead use `fooBar` or `foo_bar` or
    `foobar`...
 
+## Security
+Napalm evaluates any plugin as a bash script using `source` builtin command.
+Combine that with the ability to add your own plugins and you have a receipe for
+disaster.
+
+Since you can add your own plugins it's expected that you many more plugins will
+be installed. Probably download from someplace. If you do, treat it like any
+other bash script - potential source of malicious hazard. Examine it beforehand.
+napalm plugins should generally be extremely small. Just a couple of lines
+specifying from where to download a program and what do with it afterwards. If
+you see something longer or out of the ordinary be extra suspicious.
+
+For reason described above it's recommended never executing `napalm install` as
+root. Example `sudo napalm install potential_rootkit 1.0`.
+
 ## License
 Project uses MIT license. Check LICENSE file for more info.
