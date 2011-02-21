@@ -67,10 +67,24 @@ First download latest napalm release and extract contents.
     $ make
     $ sudo make install
 
+Consider adding following snippet to your `$HOME/.bashrc` file since napalm can
+generate scripts in order to help you with setting up *_HOME variables and
+updating `PATH` variable.
+
+    if [[ -d ~/.napalm ]]; then
+      for bash_script in ~/.napalm/*.sh
+      do
+        [[ -x $bash_script ]] && . $bash_script
+      done
+      unset bash_script
+    fi
+
 ## Uninstall
+
     $ sudo make uninstall
 
-You can also remove any installed program by removing NAPALM_USER_HOME and
+Optionally remove snippet described above from your `$HOME/.bashrc` file.
+Another optional thing is to remove files/directories from NAPALM_USER_HOME and
 NAPALM_PROGRAMS_DIR directories (see configuration section below).
 
 ## Required dependencies

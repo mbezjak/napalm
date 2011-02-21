@@ -1,3 +1,6 @@
+# 2011-02-XX, Version: 0.5
+ * added .bashrc snippet that includes any *.sh files in NAPALM_USER_HOME
+
 # 2011-02-20, Version: 0.4
  * minor documentation cleanups
  * allow plugins to generate program.sh files in NAPALM_USER_HOME.
