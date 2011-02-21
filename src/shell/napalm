@@ -9,7 +9,7 @@
 #     http://www.opensource.org/licenses/mit-license.php
 #
 
-NAPALM_VERSION=0.4
+NAPALM_VERSION=0.5
 set -o errexit
 
 # error codes
