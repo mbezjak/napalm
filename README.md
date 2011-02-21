@@ -123,19 +123,16 @@ a look at plugins directory for example of how to write one.
 ### How to write napalm plugin
 napalm exposes these functions to any napalm plugin:
 
- * url
-    Used to define URL location(s) where a program can be downloaded from.
-    _args_: (String...) one or more URLs. Use `VERSION` property when
+ * `url` - used to define URL location(s) where a program can be downloaded
+   from. _args_: (String...) one or more URLs. Use `VERSION` property when
     constructing URLs.
- * set_env
-    Used when generating script file to set specified environmental property.
-    _args_: (String) name of environmental property that should be set to a
-    location of extracted program
- * set_path
-    Used when generating script file in order to update `PATH` variable.
-    _args_: (String) flat (`true` or `false`) indicating if `PATH` should be
-    updated to include `bin` directory from extracted program (defaults to
-    `false`)
+ * `set_env` - used when generating script file to set specified environmental
+   property. _args_: (String) name of environmental property that should be set
+   to a location of extracted program
+ * `set_path` - used when generating script file in order to update `PATH`
+   variable. _args_: (String) flat (`true` or `false`) indicating if `PATH`
+   should be updated to include `bin` directory from extracted program (defaults
+   to `false`)
 
 A plugin should contain a call to `url` function. Arguments should be one or
 more urls where a program can be downloaded from. Plugin has access to `VERSION`
@@ -153,7 +150,7 @@ napalm will try to download from first location and proceeding to another
 defined url only in case of failure.
 
 `wget` is used to download a program. Therefor any url scheme that wget allows
-is acceptable (HTTP, HTTPS, FTP).
+is acceptable (i.e. HTTP, HTTPS, FTP).
 
 ### Program installation example
 Consider that contents of plugin `foo` are:
@@ -184,9 +181,9 @@ Napalm evaluates any plugin as a bash script using `source` builtin command.
 Combine that with the ability to add your own plugins and you have a receipe for
 disaster.
 
-Since you can add your own plugins it's expected that you many more plugins will
-be installed. Probably download from someplace. If you do, treat it like any
-other bash script - potential source of malicious hazard. Examine it beforehand.
+Since you can add your own plugins it's expected that many more plugins will be
+installed. Probably download from someplace. If you do, treat it like any other
+bash script - potential source of malicious hazard. Examine it beforehand.
 napalm plugins should generally be extremely small. Just a couple of lines
 specifying from where to download a program and what do with it afterwards. If
 you see something longer or out of the ordinary be _extra_ suspicious.
