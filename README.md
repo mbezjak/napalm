@@ -98,23 +98,23 @@ These environment variables can be set to alter behavior of napalm.
  * NAPALM_HOME - points to where napalm is installed (defaults to being
    automatically determined)
  * NAPALM_USER_HOME - points to a hidden directory in user's home directory
-   (defaults to $HOME/.napalm)
+   (defaults to `$HOME/.napalm`)
  * NAPALM_PROGRAMS_DIR - points to a directory where programs will be installed
-   (defaults to $NAPALM_USER_HOME/programs)
+   (defaults to `$NAPALM_USER_HOME/programs`)
 
 Here is an example of configuring napalm to use different programs directory.
-Snippet from $HOME/.bashrc:
+Snippet from `$HOME/.bashrc`:
 
     export NAPALM_PROGRAMS_DIR="$HOME/lib/napalm"
 
 ## Development documentation
 napalm supports installing projects via plugins. A plugin is written as a very
 simple bash script. Plugin's job is to describe how to download a project. Take
-a look at plugins directory for examples how to write napalm plugin.
+a look at plugins directory for example of how to write one.
 
 ### Limitations
 
- * project and plugin name must be one and the same
+ * project name and plugin name must be one and the same
 
  * plugin name cannot contain a dash (`-`) character in it's name. For example,
    you cannot name a plugin `foo-bar`. Instead use `fooBar` or `foo_bar` or
@@ -174,7 +174,7 @@ program. Because `set_env` and `set_path` are used script
     PATH="$PATH:$FOO_HOME/bin"
 
 ### How to install napalm plugin
-Two ways. Put it in either of these directories
+Put it in either of these directories
 
   * NAPALM_USER_HOME/plugins
   * NAPALM_HOME/plugins
