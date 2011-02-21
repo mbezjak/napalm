@@ -121,8 +121,24 @@ a look at plugins directory for examples how to write napalm plugin.
    `foobar`...
 
 ### How to write napalm plugin
-A plugin should contain just one call to `url` function. Arguments should be one
-or more urls where a program can be downloaded. Plugin has access to `VERSION`
+napalm exposes these functions to any napalm plugin:
+
+ * url
+    Used to define URL location(s) where a program can be downloaded from.
+    _args_: (String...) one or more URLs. Use `VERSION` property when
+    constructing URLs.
+ * set_env
+    Used when generating script file to set specified environmental property.
+    _args_: (String) name of environmental property that should be set to a
+    location of extracted program
+ * set_path
+    Used when generating script file in order to update `PATH` variable.
+    _args_: (String) flat (`true` or `false`) indicating if `PATH` should be
+    updated to include `bin` directory from extracted program (defaults to
+    `false`)
+
+A plugin should contain a call to `url` function. Arguments should be one or
+more urls where a program can be downloaded from. Plugin has access to `VERSION`
 property in order to create an url. Here is an example of a simple plugin:
 
     $ url "http://www.example.com/download?name=foo&version=${VERSION}.tar.gz"
@@ -138,6 +154,24 @@ defined url only in case of failure.
 
 `wget` is used to download a program. Therefor any url scheme that wget allows
 is acceptable (HTTP, HTTPS, FTP).
+
+### Program installation example
+Consider that contents of plugin `foo` are:
+
+    url "http://download.example.com/foo/${VERSION}.tar.gz"
+    set_env 'FOO_HOME'
+    set_path true
+
+Also consider that NAPALM_USER_HOME points to `/home/john/.napalm/programs`
+directory. Executing `napalm install foo 1.4` causes
+`http://download.example.com/foo/1.4.tar.gz` to be downloaded and extracted to
+`/home/john/.napalm/programs/foo-1.4`. Symbolic link
+`/home/john/.napalm/programs/foo` is setup and points to newly extracted
+program. Because `set_env` and `set_path` are used script
+`/home/john/.napalm/foo.sh` is created with these contents:
+
+    FOO_HOME="/home/john/.napalm/programs/foo"
+    PATH="$PATH:$FOO_HOME/bin"
 
 ### How to install napalm plugin
 Two ways. Put it in either of these directories
