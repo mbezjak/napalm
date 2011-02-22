@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 setUp() {
   . '../dist/bin/libnapalm'

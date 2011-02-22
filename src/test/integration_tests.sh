@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 NAPALM='../dist/bin/napalm'
 
