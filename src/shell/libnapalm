@@ -126,7 +126,7 @@ show_program_with_name_and_version() {
 # show_program_with_name foo
 show_program_with_name() {
   local name="$1"
-  local iterator=$(find $NAPALM_PROGRAMS_DIR -mindepth 1 -maxdepth 1 -type d -name "$name-*" -printf "%f\n" 2> /dev/null)
+  local iterator=$(find $NAPALM_PROGRAMS_DIR -mindepth 1 -maxdepth 1 -type d -name "$name-*" -printf "%f\n" 2> /dev/null | sort)
 
   [[ -z $iterator ]] && {
     handle_not_installed $name
@@ -144,7 +144,7 @@ show_program_with_name() {
 
 # accepts no arguments and prints every installed program
 show_program_all() {
-  local iterator=$(find $NAPALM_PROGRAMS_DIR -mindepth 1 -maxdepth 1 -type d -printf "%f\n" 2> /dev/null)
+  local iterator=$(find $NAPALM_PROGRAMS_DIR -mindepth 1 -maxdepth 1 -type d -printf "%f\n" 2> /dev/null | sort)
 
   [[ -z $iterator ]] && {
     echo "Nothing installed" 1>&2

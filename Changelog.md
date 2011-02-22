@@ -1,3 +1,6 @@
+# 2011-02-XX, Version: 0.6
+ * show command sorts output
+
 # 2011-02-21, Version: 0.5
  * set M2_HOME instead of MAVEN_HOME
  * added .bashrc snippet that includes any *.sh files in NAPALM_USER_HOME
