@@ -1,4 +1,4 @@
-# 2011-02-XX, Version: 0.6
+# 2011-02-22, Version: 0.6
  * show command sorts output
 
 # 2011-02-21, Version: 0.5
