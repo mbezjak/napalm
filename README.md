@@ -62,7 +62,14 @@ can. napalm isn't a replacement in any way.
     $ napalm list-plugins
 
 ## Install
-First download latest napalm release and extract contents.
+First download latest napalm release by downloading `tarball`
+(https://github.com/mbezjak/napalm/archives/master) then extracting it or by
+doing `git clone`
+
+    $ git clone https://github.com/mbezjak/napalm.git
+
+Either way you end up with a directory containing napalm source code. Open
+terminal and change current directory to it. Now issue these two commands:
 
     $ make
     $ sudo make install
