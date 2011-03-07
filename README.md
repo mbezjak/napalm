@@ -86,6 +86,12 @@ updating `PATH` variable.
       unset bash_script
     fi
 
+## Upgrade
+Download new `tarball` or issue `git pull`. Then:
+
+    $ make
+    $ sudo make install
+
 ## Uninstall
 
     $ sudo make uninstall

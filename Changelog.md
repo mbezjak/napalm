@@ -1,5 +1,6 @@
 # 2011-XX-XX, Version: 0.7
  * elaborated install guide regarding downloading napalm
+ * added upgrade section in documentation
 
 # 2011-02-22, Version: 0.6
  * show command sorts output
