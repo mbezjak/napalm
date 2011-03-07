@@ -62,8 +62,8 @@ can. napalm isn't a replacement in any way.
     $ napalm list-plugins
 
 ## Install
-First download latest napalm release by downloading `tarball`
-(https://github.com/mbezjak/napalm/archives/master) then extracting it or by
+First download latest napalm release by (1) downloading `tarball`
+(https://github.com/mbezjak/napalm/archives/master) then extracting it or by (2)
 doing `git clone`
 
     $ git clone https://github.com/mbezjak/napalm.git
