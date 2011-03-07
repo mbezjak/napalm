@@ -30,8 +30,8 @@ installing groovy includes
  7. setting GROOVY_HOME variable
  8. updating PATH variable
 
-It's not a problem if you need to install one program this way. It, however,
-becomes tiresome if you need to repeat the same process for two or more
+It isn't a problem if you need to install one program this way. It, however,
+becomes tiresome if the same process needs to be repeated for two or more
 programs. Not to mention that you will need to write separate scripts to setup
 *_HOME variables if you need two different version of the same program.
 
@@ -154,16 +154,16 @@ property in order to create an url. Here is an example of a simple plugin:
     $ url "http://www.example.com/download?name=foo&version=${VERSION}.tar.gz"
 
 Some programs change download location in a way that one url location isn't good
-enough. For those programs specify more url locations. For example:
+enough. For those programs specify more url locations. Example:
 
     $ url "http://www.example.com/download?name=foo&version=${VERSION}.tar.gz"\
           "http://download.example.com/foo/${VERSION}.tar.gz"
 
-napalm will try to download from first location and proceeding to another
-defined url only in case of failure.
+napalm will try to download from first location and proceed to another defined
+url only in case of failure.
 
-`wget` is used to download a program. Therefor any url scheme that wget allows
-is acceptable (i.e. HTTP, HTTPS, FTP).
+`wget` is used to download a program. Therefor any url scheme that `wget` allows
+is acceptable (i.e. HTTP, HTTPS and FTP).
 
 ### Program installation example
 Consider that contents of plugin `foo` are:
@@ -238,7 +238,7 @@ used.
 ## How to delete a program
 napalm curently has no option to delete installed program. You will have to do
 it manually. All programs are installed in NAPALM_PROGRAMS_DIR directory.
-Removing desired directory will ensure it is no longer intalled.
+Removing desired directory will ensure it is no longer installed.
 
 ## License
 Project uses MIT license. Check LICENSE file for more info.
