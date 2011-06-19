@@ -63,20 +63,27 @@ can. napalm isn't a replacement in any way.
 
 ## Install
 First download latest napalm release by (1) downloading `tarball`
-(https://github.com/mbezjak/napalm/archives/master) then extracting it or by (2)
-doing `git clone`
+(https://github.com/mbezjak/napalm/archives/master) then extracting it
+or by (2) doing `git clone`
 
     $ git clone https://github.com/mbezjak/napalm.git
 
-Either way you end up with a directory containing napalm source code. Open
-terminal and change current directory to it. Now issue these two commands:
+Either way you end up with a directory containing napalm source
+code. Open terminal and change current directory to it. You have two
+choices now. (1) Create a link to napalm executable:
 
-    $ make
+    # assuming napalm has been downloaded/cloned into ~/lib/napalm
+    $ ln -s "$HOME/lib/napalm/bin/napalm" "$HOME/bin/napalm"
+
+This is way is more safe way and doesn't require sudo. But this way
+other users won't be able to use napalm. (2) To install napalm
+globally, issue:
+
     $ sudo make install
 
-Consider adding following snippet to your `$HOME/.bashrc` file since napalm can
-generate scripts in order to help you with setting up *_HOME variables and
-updating `PATH` variable.
+Consider adding following snippet to your `$HOME/.bashrc` file since
+napalm generates scripts in order to help you with setting up *_HOME
+variables and updating `PATH` variable.
 
     if [[ -d ~/.napalm ]]; then
       for bash_script in ~/.napalm/*.sh
@@ -87,9 +94,9 @@ updating `PATH` variable.
     fi
 
 ## Upgrade
-Download new `tarball` or issue `git pull`. Then:
+Download new `tarball` or issue `git pull`. If you've installed
+globally then:
 
-    $ make
     $ sudo make install
 
 ## Uninstall

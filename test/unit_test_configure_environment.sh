@@ -1,7 +1,7 @@
 #!/bin/bash
 
 setUp() {
-  . '../dist/bin/libnapalm'
+  . '../bin/libnapalm'
 }
 
 testConfigureEnvironmentNUHisAlreadySet() {
@@ -31,4 +31,4 @@ testConfigureEnvironment() {
 }
 
 
-. ./shunit2
+. shunit2

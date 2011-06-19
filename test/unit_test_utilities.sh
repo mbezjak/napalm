@@ -1,7 +1,7 @@
 #!/bin/bash
 
 setUp() {
-  . '../dist/bin/libnapalm'
+  . '../bin/libnapalm'
 }
 
 testResolveVersionFromPathOnlyBasenameIsConsidered() {
@@ -56,4 +56,4 @@ testHandleNotInstalledWithVersion() {
 }
 
 
-. ./shunit2
+. shunit2

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 setUp() {
-  . '../dist/bin/libnapalm'
+  . '../bin/libnapalm'
 
   NAPALM_PROGRAMS_DIR=`mktemp -d`
   pd=$NAPALM_PROGRAMS_DIR # alias to reduce character count
@@ -166,4 +166,4 @@ testUrlTwoArguments() {
 }
 
 
-. ./shunit2
+. shunit2

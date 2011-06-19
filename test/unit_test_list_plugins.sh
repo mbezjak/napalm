@@ -1,7 +1,7 @@
 #!/bin/bash
 
 setUp() {
-  . '../dist/bin/libnapalm'
+  . '../bin/libnapalm'
 
   tmp=`mktemp -d`
 }
@@ -30,4 +30,4 @@ testListPluginsNUHdoesntExist() {
 }
 
 
-. ./shunit2
+. shunit2

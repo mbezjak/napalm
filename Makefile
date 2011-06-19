@@ -1,22 +1,10 @@
 prefix=/usr/local
 
-SRC_DIR=$(CURDIR)/src
-SRC_SHELL_DIR=$(SRC_DIR)/shell
-SRC_PLUGINS_DIR=$(SRC_DIR)/plugins
-SRC_TEST_DIR=$(SRC_DIR)/test
-LIB_DIR=$(CURDIR)/lib
+TEST_DIR=$(CURDIR)/test
 
-BUILD_DIR=$(CURDIR)/build
-TEST_DIR=$(BUILD_DIR)/test
-DIST_DIR=$(BUILD_DIR)/dist
+.PHONY: test install uninstall
 
-all: test
-
-clean:
-	rm -rf $(BUILD_DIR)
-
-
-test: dist test-prep
+test:
 	@echo "integration tests..."
 	( cd $(TEST_DIR); $(TEST_DIR)/integration_tests.sh )
 	@echo "unit tests..."
@@ -27,34 +15,12 @@ test: dist test-prep
 	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_use_program.sh )
 	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_install_program.sh )
 
-test-prep: test-clean
-	@mkdir -p $(TEST_DIR)
-	cp -p $(LIB_DIR)/shunit2/shunit2 $(TEST_DIR)
-	cp -p $(SRC_TEST_DIR)/* $(TEST_DIR)
-
-test-clean:
-	rm -rf $(TEST_DIR)
-
-
-dist: dist-prep
-
-dist-prep: dist-clean
-	@mkdir -p $(DIST_DIR)/bin
-	@mkdir -p $(DIST_DIR)/plugins
-
-	cp -p $(SRC_SHELL_DIR)/* $(DIST_DIR)/bin
-	cp -p $(SRC_PLUGINS_DIR)/* $(DIST_DIR)/plugins
-
-dist-clean:
-	rm -rf $(DIST_DIR)
-
-
 install: uninstall
 	install -m 0755 -d $(prefix)/lib/napalm/bin
 	install -m 0755 -d $(prefix)/lib/napalm/plugins
-	install -m 0644 $(DIST_DIR)/bin/libnapalm $(prefix)/lib/napalm/bin
-	install -m 0755 $(DIST_DIR)/bin/napalm $(prefix)/lib/napalm/bin
-	install -m 0644 $(DIST_DIR)/plugins/* $(prefix)/lib/napalm/plugins
+	install -m 0644 $(CURDIR)/bin/libnapalm $(prefix)/lib/napalm/bin
+	install -m 0755 $(CURDIR)/bin/napalm $(prefix)/lib/napalm/bin
+	install -m 0644 $(CURDIR)/plugins/* $(prefix)/lib/napalm/plugins
 	ln -s $(prefix)/lib/napalm/bin/napalm $(prefix)/bin/napalm
 
 uninstall:

@@ -1,9 +1,15 @@
 #!/bin/bash
 
-NAPALM='../dist/bin/napalm'
+setUp() {
+  NAPALM='../bin/napalm'
 
-mkdir user_home
-export NAPALM_USER_HOME='user_home'
+  mkdir user_home
+  export NAPALM_USER_HOME='user_home'
+}
+
+tearDown() {
+  rm -rf user_home
+}
 
 testPrintVersion() {
   $NAPALM -v 2> /dev/null
@@ -23,7 +29,7 @@ testIllegalArgument() {
 
 testNapalmHomeCanBeAssigned() {
   local another_home=`mktemp -d`
-  cp -pR ../dist/* "$another_home"
+  cp -pR ../* "$another_home"
 
   local detected_home=`export NAPALM_HOME="$another_home" && $NAPALM -v 2>&1 | awk '/^NAPALM_HOME/{print $3}'`
   assertEquals "$another_home" "$detected_home"
@@ -32,4 +38,4 @@ testNapalmHomeCanBeAssigned() {
 }
 
 
-. ./shunit2
+. shunit2
