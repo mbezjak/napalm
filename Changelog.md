@@ -1,4 +1,4 @@
-# 2011-XX-XX, Version: 0.7
+# 2011-06-19, Version: 0.7
  * napalm can now be used without installing via `sudo make install`
  * elaborated install guide regarding downloading napalm
  * added upgrade section in documentation
