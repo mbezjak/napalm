@@ -1,3 +1,6 @@
+# 2011-06-20, Version: 0.8
+ * `sudo make install` also installs: README.md, Changelog.md and LICENSE
+
 # 2011-06-19, Version: 0.7
  * napalm can now be used without installing via `sudo make install`
  * elaborated install guide regarding downloading napalm

@@ -21,6 +21,9 @@ install: uninstall
 	install -m 0644 $(CURDIR)/bin/libnapalm $(prefix)/lib/napalm/bin
 	install -m 0755 $(CURDIR)/bin/napalm $(prefix)/lib/napalm/bin
 	install -m 0644 $(CURDIR)/plugins/* $(prefix)/lib/napalm/plugins
+	install -m 0644 $(CURDIR)/README.md $(prefix)/lib/napalm
+	install -m 0644 $(CURDIR)/Changelog.md $(prefix)/lib/napalm
+	install -m 0644 $(CURDIR)/LICENSE $(prefix)/lib/napalm
 	ln -s $(prefix)/lib/napalm/bin/napalm $(prefix)/bin/napalm
 
 uninstall:
