@@ -85,13 +85,14 @@ Consider adding following snippet to your `$HOME/.bashrc` file since
 napalm generates scripts in order to help you with setting up *_HOME
 variables and updating `PATH` variable.
 
-    if [[ -d ~/.napalm ]]; then
-      for bash_script in ~/.napalm/*.sh
+    [[ -d ~/.napalm ]] && {
+      for bash_script in $(find ~/.napalm -mindepth 1 -maxdepth 1 \
+                                -type f -executable -name '*.sh')
       do
-        [[ -x $bash_script ]] && . $bash_script
+        source "$bash_script"
       done
       unset bash_script
-    fi
+    }
 
 ## Upgrade
 Download new `tarball` or issue `git pull`. If you've installed
