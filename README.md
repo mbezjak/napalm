@@ -41,6 +41,11 @@ and setup environment variables quicker.
 A word of caution. Do not abuse napalm! Use package management anywhere you
 can. napalm isn't a replacement in any way.
 
+## Why name napalm
+**N**ot **a** rea**l** **p**ack**a**ge **m**anager &rarr; Nalpam &rarr; Napalm
+
+Close enough.
+
 ## Example
 
     # install grails
