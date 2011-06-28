@@ -253,5 +253,8 @@ napalm curently has no option to delete installed program. You will have to do
 it manually. All programs are installed in NAPALM_PROGRAMS_DIR directory.
 Removing desired directory will ensure it is no longer installed.
 
+## Source code
+Source code is available at github: https://github.com/mbezjak/napalm
+
 ## License
 Project uses MIT license. Check LICENSE file for more info.
