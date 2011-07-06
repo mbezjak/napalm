@@ -100,6 +100,21 @@ testExtractProgramExtensionTarGz() {
    assertTrue "[ -d extracted ]")
 }
 
+testExtractProgramExtensionTgz() {
+  (cd $pd;
+   tar() {
+    assertEquals "--gzip" $1
+    assertEquals "--directory" $2
+    assertEquals "extracted" $3
+    assertEquals "-xf" $4
+    assertEquals "example.tgz" $5
+    return 0
+   };
+   extract_program 'example.tgz' extracted;
+   assertEquals 0 $?;
+   assertTrue "[ -d extracted ]")
+}
+
 testExtractProgramExtensionTarBz2() {
   (cd $pd;
    tar() {

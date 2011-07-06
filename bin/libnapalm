@@ -232,6 +232,9 @@ extract_program() {
   *.tar.gz)
     tar --gzip --directory $into_dir -xf $archive
     ;;
+  *.tgz)
+    tar --gzip --directory $into_dir -xf $archive
+    ;;
   *.tar.bz2)
     tar --bzip2 --directory $into_dir -xf $archive
     ;;

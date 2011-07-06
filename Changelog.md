@@ -1,5 +1,6 @@
 # 2011-xx-xx, Version: 0.9
  * documentation improvements
+ * add support to extract `tgz` files
 
 # 2011-06-20, Version: 0.8
  * `sudo make install` also installs: README.md, Changelog.md and LICENSE
