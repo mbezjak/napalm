@@ -1,4 +1,4 @@
-# 2011-xx-xx, Version: 0.9
+# 2011-07-06, Version: 1.0
  * documentation improvements
  * add support to extract `tgz` files
  * update griffon url (use `tgz` instead of `tar.gz`)
