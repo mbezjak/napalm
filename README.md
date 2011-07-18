@@ -5,6 +5,9 @@ Not a real package manager
 Automate installation of archived (zip, gz, bz2) programs that are unsuited or
 unavailable from a package repository.
 
+## Screenshots
+For the impatient: https://github.com/mbezjak/napalm/wiki
+
 ## Rationale
 Linux package management is great! However, sometimes you need a program that is
 really simple to install but
