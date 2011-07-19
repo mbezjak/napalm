@@ -1,3 +1,6 @@
+# 2011-xx-xx, Version: 1.1
+ * document where screenshots are located
+
 # 2011-07-06, Version: 1.0
  * documentation improvements
  * add support to extract `tgz` files
