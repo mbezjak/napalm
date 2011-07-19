@@ -1,4 +1,4 @@
-# 2011-xx-xx, Version: 1.1
+# 2011-07-19, Version: 1.1
  * document where screenshots are located
  * various documentation improvements
  * add support for tomcat7
