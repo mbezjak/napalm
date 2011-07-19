@@ -81,6 +81,7 @@ code. Open terminal and change current directory to it. You have two
 choices now. (1) Create a link to napalm executable:
 
     # assuming napalm has been downloaded/cloned into ~/lib/napalm
+    # also assumes that $HOME/bin directory exists
     $ ln -s "$HOME/lib/napalm/bin/napalm" "$HOME/bin/napalm"
 
 This is way is more safe way and doesn't require sudo. But this way
