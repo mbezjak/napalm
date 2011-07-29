@@ -44,7 +44,7 @@ cat >&2 << EOF
 napalm $NAPALM_VERSION
 Copyright (c) 2010,2011 Miro Bezjak <bezjak.miro@gmail.com>
 License MIT: http://www.opensource.org/licenses/mit-license.php
-Documentation & source code: http://github.com/mbezjak/napalm
+Documentation & source code: https://github.com/mbezjak/napalm
 
 NAPALM_HOME = $NAPALM_HOME
 NAPALM_PROGRAMS_DIR = $NAPALM_PROGRAMS_DIR
