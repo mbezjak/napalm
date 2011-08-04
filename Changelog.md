@@ -1,3 +1,6 @@
+# 2011-08-xx, Version: 1.2
+ * various documentation improvements
+
 # 2011-07-19, Version: 1.1
  * document where screenshots are located
  * various documentation improvements

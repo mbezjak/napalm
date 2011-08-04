@@ -160,9 +160,9 @@ napalm exposes these functions to any napalm plugin:
    property. _args_: (String) name of environmental property that should be set
    to a location of extracted program
  * `set_path` - used when generating script file in order to update `PATH`
-   variable. _args_: (String) flat (`true` or `false`) indicating if `PATH`
+   variable. _args_: (String) either `true` or `false` indicating if `PATH`
    should be updated to include `bin` directory from extracted program (defaults
-   to `false`)
+   to `false`). Used only if `set_env` is set.
 
 A plugin should contain a call to `url` function. Arguments should be one or
 more urls where a program can be downloaded from. Plugin has access to `VERSION`
