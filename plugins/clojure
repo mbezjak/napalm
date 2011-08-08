@@ -1,2 +1,14 @@
 url "https://github.com/downloads/clojure/clojure/clojure-${VERSION}.zip"
 set_env 'CLOJURE_HOME'
+set_path true
+
+build() {
+  mkdir bin
+
+  cat > bin/clojure << EOF
+#!$(which bash)
+java -jar \$CLOJURE_HOME/clojure.jar
+EOF
+
+  chmod u+x bin/clojure
+}
