@@ -1,5 +1,5 @@
 # 2011-08-xx, Version: 1.2
- * add plugins groovyserv, scala, clojure, fantom
+ * add plugins groovyserv, scala, clojure, fantom, gosu
  * various documentation improvements
 
 # 2011-07-19, Version: 1.1

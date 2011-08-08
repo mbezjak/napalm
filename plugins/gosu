@@ -1,0 +1,3 @@
+url "http://gosu-lang.org/downloads/gosu-${VERSION}/gosu-${VERSION}.tgz"
+set_env 'GOSU_HOME'
+set_path true
