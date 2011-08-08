@@ -1,6 +1,6 @@
 Things to do when releasing:
 
- * Mention changes in `Changelog.md`
+ * Mention changes in `Changelog.md` (+ update release date)
  * Update version in `bin/napalm`
 
 git work:
