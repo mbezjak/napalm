@@ -1,0 +1,3 @@
+url "http://github.com/downloads/kobo/groovyserv/groovyserv-${VERSION}-linux-i386-bin.zip"
+set_env 'GROOVYSERV_HOME'
+set_path true

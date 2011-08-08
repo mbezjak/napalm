@@ -1,4 +1,5 @@
 # 2011-08-xx, Version: 1.2
+ * add plugin groovyserv
  * various documentation improvements
 
 # 2011-07-19, Version: 1.1
