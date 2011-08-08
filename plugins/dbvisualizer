@@ -1,0 +1,8 @@
+url "http://www.dbvis.com/product_download/dbvis-${VERSION}/media/dbvis_unix_${VERSION//./_}.tar.gz"
+set_env 'DBVISUALIZER_HOME'
+set_path true
+
+build() {
+  mkdir bin
+  ln --symbolic ../dbvis bin/dbvis
+}
