@@ -1,4 +1,4 @@
-# 2011-08-xx, Version: 1.2
+# 2011-08-08, Version: 1.2
  * add plugins groovyserv, scala, clojure, gosu, dbvisualizer
  * plugins can declare `build` function in order to perform arbitrary work
  during installation (look into README.md for more documentation)
