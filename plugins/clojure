@@ -1,0 +1,2 @@
+url "https://github.com/downloads/clojure/clojure/clojure-${VERSION}.zip"
+set_env 'CLOJURE_HOME'
