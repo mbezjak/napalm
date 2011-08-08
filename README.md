@@ -164,6 +164,13 @@ napalm exposes these functions to any napalm plugin:
    should be updated to include `bin` directory from extracted program (defaults
    to `false`). Used only if `set_env` is set.
 
+As of version `1.2` plugins can declare `build` function in order to perform
+arbitrary work during installation. It gets called after program is extracted
+and all links are setup but before `program.sh` script gets created. Current
+working directory for `build` function is set to directory where program is
+extracted. Take a look at source of `clojure` plugin for usefulness of `build`
+function.
+
 A plugin should contain a call to `url` function. Arguments should be one or
 more urls where a program can be downloaded from. Plugin has access to `VERSION`
 property in order to create an url. Here is an example of a simple plugin:
@@ -194,8 +201,10 @@ directory. Executing `napalm install foo 1.4` causes
 `http://download.example.com/foo/1.4.tar.gz` to be downloaded and extracted to
 `/home/john/.napalm/programs/foo-1.4`. Symbolic link
 `/home/john/.napalm/programs/foo` is setup and points to newly extracted
-program. Because `set_env` and `set_path` are used script
-`/home/john/.napalm/foo.sh` is created with these contents:
+program. If `build` function is declared then it is invoked with current working
+directory set to `/home/john/.napalm/programs/foo-1.4`. Because `set_env` and
+`set_path` are used script `/home/john/.napalm/foo.sh` is created with these
+contents:
 
     FOO_HOME="/home/john/.napalm/programs/foo"
     PATH="$PATH:$FOO_HOME/bin"
