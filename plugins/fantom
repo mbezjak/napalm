@@ -1,3 +1,0 @@
-url "http://fan.googlecode.com/files/fantom-${VERSION}.zip"
-set_env 'FANTOM_HOME'
-set_path true

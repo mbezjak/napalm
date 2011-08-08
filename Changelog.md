@@ -1,5 +1,5 @@
 # 2011-08-xx, Version: 1.2
- * add plugins groovyserv, scala, clojure, fantom, gosu
+ * add plugins groovyserv, scala, clojure, gosu
  * plugins can declare `build` function in order to perform arbitrary work
  during installation (look into README.md for more documentation)
  * various documentation improvements
