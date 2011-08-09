@@ -3,7 +3,6 @@
  * plugins can declare `build` function in order to perform arbitrary work
  during installation (look into README.md for more documentation)
  * various documentation improvements
- * add `Roadmap.md`
 
 # 2011-07-19, Version: 1.1
  * document where screenshots are located
