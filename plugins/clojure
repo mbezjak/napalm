@@ -7,7 +7,7 @@ build() {
 
   cat > bin/clojure <<'EOF'
 #!/bin/bash
-java -jar $CLOJURE_HOME/clojure.jar
+java -jar $CLOJURE_HOME/clojure.jar "$@"
 EOF
 
   chmod u+x bin/clojure
