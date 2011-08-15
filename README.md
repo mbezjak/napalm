@@ -272,5 +272,8 @@ Source code is available at github: https://github.com/mbezjak/napalm
 ## Roadmap
 Roadmap is available at: https://github.com/mbezjak/napalm/issues
 
+## Additional documentation
+Additional documentation is available at: https://github.com/mbezjak/napalm/wiki
+
 ## License
 Project uses MIT license. Check LICENSE file for more info.
