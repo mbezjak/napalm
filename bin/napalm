@@ -28,7 +28,7 @@ SYNOPSIS
     napalm use NAME VERSION
     napalm show [NAME [VERSION]]
     napalm list-plugins
-    napalm -h
+    napalm [-h]
     napalm -v
 
 NAME    - program name
