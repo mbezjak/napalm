@@ -144,6 +144,18 @@ testExtractProgramExtensionZip() {
    assertTrue "[ -d extracted ]")
 }
 
+testExtractProgramExtensionJar() {
+  (cd $pd;
+   cp() {
+    assertEquals "example.jar" $1
+    assertEquals "extracted" $2
+    return 0
+   };
+   extract_program 'example.jar' extracted;
+   assertEquals 0 $?;
+   assertTrue "[ -d extracted ]")
+}
+
 testInstallProgramNameEmpty() {
   install_program
   assertEquals 5 $?

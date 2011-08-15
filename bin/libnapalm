@@ -241,6 +241,10 @@ extract_program() {
   *.zip)
     unzip -q $archive -d $into_dir
     ;;
+  *.jar)
+    mkdir "$into_dir/$archive"
+    cp $archive "$into_dir/$archive"
+    ;;
   *)
     return 1
   esac
