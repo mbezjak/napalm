@@ -298,6 +298,7 @@ install_program() {
 
   local program_rc="$NAPALM_USER_HOME/${1}.sh"
   if [[ ! -f "$program_rc" && -n "$PROGRAM_ENV" ]]; then
+    SHOULD_RESTART_TERMINAL=true
     touch "$program_rc"
     chmod u+x "$program_rc"
 
@@ -316,7 +317,11 @@ install_program() {
     fi
   fi
 
-  echo "Installed $1 $VERSION"
+  if [[ $SHOULD_RESTART_TERMINAL == true ]]; then
+    echo "To complete installation of $1 $VERSION restart terminal"
+  else
+    echo "Installed $1 $VERSION"
+  fi
   return 0
 }
 
