@@ -270,7 +270,7 @@ Removing desired directory will ensure it is no longer installed.
 Source code is available at github: https://github.com/mbezjak/napalm
 
 ## Roadmap
-Is available at: https://github.com/mbezjak/napalm/issues
+Roadmap is available at: https://github.com/mbezjak/napalm/issues
 
 ## License
 Project uses MIT license. Check LICENSE file for more info.
