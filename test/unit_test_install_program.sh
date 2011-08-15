@@ -146,12 +146,12 @@ testExtractProgramExtensionZip() {
 
 testInstallProgramNameEmpty() {
   install_program
-  assertEquals 4 $?
+  assertEquals 5 $?
 }
 
 testInstallProgramVersionEmpty() {
   install_program foo
-  assertEquals 5 $?
+  assertEquals 6 $?
 }
 
 testInstallProgramPluginNotLoaded() {
