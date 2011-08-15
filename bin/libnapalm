@@ -306,6 +306,13 @@ install_program() {
     echo "Created $program_rc"
     if [[ "$PROGRAM_PATH" == true && -d $NAPALM_PROGRAMS_DIR/$1/bin ]]; then
       echo "export PATH=\"\$PATH:\$${PROGRAM_ENV}/bin\"" >> "$program_rc"
+
+      echo
+      echo "$program_rc adds $NAPALM_PROGRAMS_DIR/$1/bin to \$PATH. That includes:"
+      echo "----------------------------------------"
+      ls "$NAPALM_PROGRAMS_DIR/$1/bin"
+      echo "----------------------------------------"
+      echo
     fi
   fi
 
