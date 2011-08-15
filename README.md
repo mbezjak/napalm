@@ -2,8 +2,8 @@
 Not a real package manager
 
 ## Summary
-Automate installation of archived (zip, gz, bz2) programs that are unsuited or
-unavailable from a package repository.
+Automate installation of archived (zip, gz, bz2, jar) programs that are unsuited
+or unavailable from a package repository.
 
 ## Screenshots
 For the impatient: https://github.com/mbezjak/napalm/wiki/Screenshots
