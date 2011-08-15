@@ -1,0 +1,15 @@
+url "http://typesafe.artifactoryonline.com/typesafe/ivy-releases/org.scala-tools.sbt/sbt-launch/${VERSION}/sbt-launch.jar"
+set_env 'SBT_HOME'
+set_path true
+
+build() {
+  mkdir bin
+
+  cat > bin/sbt <<'EOF'
+#!/bin/bash
+default_opts="-Xmx512m -XX:MaxPermSize=256m -XX:+CMSClassUnloadingEnabled"
+java ${SBT_OPTS:-$default_opts} -jar "$SBT_HOME/sbt-launch.jar" "$@"
+EOF
+
+  chmod u+x bin/sbt
+}
