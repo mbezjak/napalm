@@ -325,6 +325,17 @@ install_program() {
   return 0
 }
 
+# args:
+# $1 - program name
+# example:
+# uninstall_program foo
+uninstall_program() {
+  local name="$1"
+  rm -f "$NAPALM_USER_HOME/${name}.sh"
+  rm -f "$NAPALM_PROGRAMS_DIR/$name"
+  rm -rf "$NAPALM_PROGRAMS_DIR/$name"-*
+}
+
 
 #############################
 # Functions used by plugins #

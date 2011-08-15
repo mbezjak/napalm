@@ -69,6 +69,9 @@ Close enough.
     # list all available plugins
     $ napalm list-plugins
 
+    # uninstall grails
+    $ napalm uninstall grails
+
 ## Install
 First download latest napalm release by (1) downloading `tarball`
 (https://github.com/mbezjak/napalm/archives/master) then extracting it
@@ -261,10 +264,13 @@ used.
     # install version 1.0 of program foo
     $ napalm install foo 1.0
 
-## How to delete a program
-napalm curently has no option to delete installed program. You will have to do
-it manually. All programs are installed in NAPALM_PROGRAMS_DIR directory.
-Removing desired directory will ensure it is no longer installed.
+    # uninstall all versions of program foo
+    $ napalm uninstall foo
+
+## How to delete a particular version
+napalm currently has no option to uninstall just one version of a program. You
+will have to do it manually. All programs are installed in NAPALM_PROGRAMS_DIR
+directory.  Removing desired directory will ensure it is no longer installed.
 
 ## Source code
 Source code is available at github: https://github.com/mbezjak/napalm

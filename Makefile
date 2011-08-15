@@ -14,6 +14,7 @@ test:
 	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_show_program.sh )
 	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_use_program.sh )
 	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_install_program.sh )
+	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_uninstall_program.sh )
 
 install: uninstall
 	install -m 0755 -d $(prefix)/lib/napalm/bin
