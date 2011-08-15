@@ -7,7 +7,7 @@ build() {
 
   cat > bin/sbt <<'EOF'
 #!/bin/bash
-default_opts="-Xmx512m -XX:MaxPermSize=256m -XX:+CMSClassUnloadingEnabled"
+default_opts="-Xmx512m -XX:MaxPermSize=256m -XX:+CMSClassUnloadingEnabled -Dfile.encoding=UTF8"
 java ${SBT_OPTS:-$default_opts} -jar "$SBT_HOME/sbt-launch.jar" "$@"
 EOF
 
