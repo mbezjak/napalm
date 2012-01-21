@@ -99,7 +99,7 @@ variables and updating `PATH` variable.
 
     [[ -d ~/.napalm ]] && {
       for bash_script in $(find ~/.napalm -mindepth 1 -maxdepth 1 \
-                                -type f -executable -name '*.sh')
+                                -type f -executable -name '*\.sh')
       do
         source "$bash_script"
       done
