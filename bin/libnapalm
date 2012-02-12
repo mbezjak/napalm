@@ -334,6 +334,8 @@ uninstall_program() {
   rm -f "$NAPALM_USER_HOME/${name}.sh"
   rm -f "$NAPALM_PROGRAMS_DIR/$name"
   rm -rf "$NAPALM_PROGRAMS_DIR/$name"-*
+
+  return 0
 }
 
 
