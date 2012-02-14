@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright (c) 2010,2011 Miro Bezjak <bezjak.miro@gmail.com>
+# Copyright (c) 2010-2012 Miro Bezjak <bezjak.miro@gmail.com>
 #
 # Licensed under the MIT License (the "License"); you may
 # not use this file except in compliance with the License.
@@ -43,7 +43,7 @@ exit $E_USAGE
 print_version() {
 cat >&2 << EOF
 napalm $NAPALM_VERSION
-Copyright (c) 2010,2011 Miro Bezjak <bezjak.miro@gmail.com>
+Copyright (c) 2010-2012 Miro Bezjak <bezjak.miro@gmail.com>
 License MIT: http://www.opensource.org/licenses/mit-license.php
 Documentation & source code: https://github.com/mbezjak/napalm
 
