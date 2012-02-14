@@ -1,3 +1,3 @@
-url "http://gradle.artifactoryonline.com/gradle/distributions/gradle-${VERSION}-all.zip"
+url "http://services.gradle.org/distributions/gradle-${VERSION}-all.zip"
 set_env 'GRADLE_HOME'
 set_path true
