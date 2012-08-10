@@ -1,4 +1,5 @@
-url "http://typesafe.artifactoryonline.com/typesafe/ivy-releases/org.scala-tools.sbt/sbt-launch/${VERSION}/sbt-launch.jar"
+url "http://typesafe.artifactoryonline.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/${VERSION}/sbt-launch.jar" \
+    "http://typesafe.artifactoryonline.com/typesafe/ivy-releases/org.scala-tools.sbt/sbt-launch/${VERSION}/sbt-launch.jar"
 set_env 'SBT_HOME'
 set_path true
 
