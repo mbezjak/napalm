@@ -274,16 +274,11 @@ napalm currently has no option to uninstall just one version of a program. You
 will have to do it manually. All programs are installed in NAPALM_PROGRAMS_DIR
 directory.  Removing desired directory will ensure it is no longer installed.
 
-## Source code
-Source code is available at github: https://github.com/mbezjak/napalm
+## Further Resources
 
-CI server: http://travis-ci.org/mbezjak/napalm
-
-## Roadmap
-Roadmap is available at: https://github.com/mbezjak/napalm/issues
-
-## Additional documentation
-Additional documentation is available at: https://github.com/mbezjak/napalm/wiki
-
-## License
-Project uses MIT license. Check LICENSE file for more info.
+ * Homepage:       https://github.com/mbezjak/napalm
+ * Issue tracker:  https://github.com/mbezjak/napalm/issues
+ * Roadmap:        https://github.com/mbezjak/napalm/issues
+ * Wiki:           https://github.com/mbezjak/napalm/wiki
+ * CI server:      http://travis-ci.org/mbezjak/napalm
+ * License:        MIT (see LICENSE file)
