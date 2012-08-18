@@ -1,6 +1,8 @@
 # napalm
 Not a real package manager
 
+[![Build Status](https://secure.travis-ci.org/mbezjak/napalm.png?branch=master)](http://travis-ci.org/mbezjak/napalm)
+
 ## Summary
 Automate installation of archived (zip, gz, bz2, jar) programs that are unsuited
 or unavailable from a package repository.
@@ -274,6 +276,8 @@ directory.  Removing desired directory will ensure it is no longer installed.
 
 ## Source code
 Source code is available at github: https://github.com/mbezjak/napalm
+
+CI server: http://travis-ci.org/mbezjak/napalm
 
 ## Roadmap
 Roadmap is available at: https://github.com/mbezjak/napalm/issues
