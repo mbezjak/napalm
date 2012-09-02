@@ -239,8 +239,7 @@ as root. Example:
      $ sudo napalm install potential_rootkit 1.0
 
 ## How to use napalm
-Star (*) character in napalm output represents a version of a program being
-used.
+Programs marked with * are the one being used.
 
     # show synopsis
     $ napalm -h
