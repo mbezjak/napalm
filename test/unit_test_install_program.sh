@@ -148,7 +148,7 @@ testExtractProgramExtensionJar() {
   (cd $pd;
    cp() {
     assertEquals "example.jar" $1
-    assertEquals "extracted" $2
+    assertEquals "extracted/example.jar" $2
     return 0
    };
    extract_program 'example.jar' extracted;
