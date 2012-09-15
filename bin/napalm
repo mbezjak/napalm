@@ -26,6 +26,7 @@ napalm - not a real package manager
 SYNOPSIS
     napalm install NAME VERSION
     napalm uninstall NAME [VERSION]
+    napalm replace NAME VERSION
     napalm use NAME VERSION
     napalm show [NAME [VERSION]]
     napalm list-plugins
@@ -84,6 +85,7 @@ shift $((OPTIND-1))
 case "$1" in
   install)      [[ -z "$2" || -z "$3" ]] && print_usage || install_program "$2" "$3" ;;
   uninstall)    [[ -z "$2"            ]] && print_usage || uninstall_program "$2" "$3" ;;
+  replace)      [[ -z "$2" || -z "$3" ]] && print_usage || replace_program "$2" "$3" ;;
   use)          [[ -z "$2" || -z "$3" ]] && print_usage || use_program "$2" "$3" ;;
   show)         show_program "$2" "$3" ;;
   list-plugins) list_plugins ;;

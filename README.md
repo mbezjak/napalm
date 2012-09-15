@@ -59,6 +59,9 @@ Close enough.
     # install another version
     $ napalm install grails 1.3.5
 
+    # replace active version (1.3.5) with another
+    $ napalm replace grails 1.3.7
+
     # switch between two versions
     $ napalm use grails 1.2.5
 
@@ -71,8 +74,8 @@ Close enough.
     # list all available plugins
     $ napalm list-plugins
 
-    # uninstall grails 1.3.5
-    $ napalm uninstall grails 1.3.5
+    # uninstall grails 1.3.7
+    $ napalm uninstall grails 1.3.7
 
     # uninstall grails
     $ napalm uninstall grails
@@ -270,6 +273,9 @@ Programs marked with * are the one being used.
 
     # uninstall version 1.0 of program foo
     $ napalm uninstall foo 1.0
+
+    # replace currently active version of program foo
+    $ napalm replace foo 1.5
 
     # uninstall all versions of program foo
     $ napalm uninstall foo

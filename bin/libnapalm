@@ -392,6 +392,26 @@ uninstall_program_version() {
   return 0
 }
 
+# args:
+# $1 - program name
+# $2 - program version
+# example:
+# replace_program foo 1.4
+replace_program() {
+  [[ -z "$1" ]] && return 1
+  [[ -z "$2" ]] && return 2
+
+  local name="$1"
+  local version="$2"
+  local old_version=$(get_active_version "$name")
+
+  [[ -n "$old_version" ]] && uninstall_program_version "$name" "$old_version"
+
+  install_program "$name" "$version"
+
+  return 0
+}
+
 
 #############################
 # Functions used by plugins #
