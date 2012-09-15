@@ -177,6 +177,20 @@ count_programs() {
 
 # args:
 # $1 - program name
+# example:
+# get_active_version foo
+get_active_version() {
+  set +o errexit
+  local path=$(show_program_with_name "$1" 2> /dev/null | grep '*' | awk '{print $2}')
+  set -o errexit
+
+  [[ -n "$path" ]] && echo $(resolve_version_from_path "$path")
+
+  return 0
+}
+
+# args:
+# $1 - program name
 # $2 - program version
 # example:
 # use_program foo 1.3

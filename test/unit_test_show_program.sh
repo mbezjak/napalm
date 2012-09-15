@@ -158,4 +158,26 @@ testCountProgramsInstalledTwo() {
 }
 
 
+testGetActiveVersionNotInstalled() {
+  local msg=`get_active_version foo`
+  assertEquals "" "$msg"
+}
+
+testGetActiveVersionInstalledOne() {
+  mkdir -p $pd/foo-1.3
+  ln -s $pd/foo-1.3 $pd/foo
+
+  local msg=`get_active_version foo`
+  assertEquals "1.3" "$msg"
+}
+
+testGetActiveVersionInstalledTwo() {
+  mkdir -p $pd/foo-1.{3,7}
+  ln -s $pd/foo-1.7 $pd/foo
+
+  local msg=`get_active_version foo`
+  assertEquals "1.7" "$msg"
+}
+
+
 . shunit2
