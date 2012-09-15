@@ -325,13 +325,19 @@ install_program() {
   return 0
 }
 
+uninstall_program() {
+  [[ -z "$1" ]] && return 1
+
+  uninstall_program_all "$1"
+
+  return 0
+}
+
 # args:
 # $1 - program name
 # example:
 # uninstall_program foo
-uninstall_program() {
-  [[ -z "$1" ]] && return 1
-
+uninstall_program_all() {
   local name="$1"
   rm -f  "$NAPALM_USER_HOME/${name}.sh"
   rm -f  $(construct_path $name)

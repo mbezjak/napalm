@@ -23,7 +23,7 @@ testUninstallNotInstalled() {
    assertEquals 0 $?)
 }
 
-testUninstallInstalledOneNoScriptNoLink() {
+testUninstallAllInstalledOneNoScriptNoLink() {
   mkdir -p $pd/foo-1.2
 
   (uninstall_program foo;
@@ -31,7 +31,7 @@ testUninstallInstalledOneNoScriptNoLink() {
    assertFalse "[[ -d $pd/foo-1.2 ]]")
 }
 
-testUninstallInstalledOneNoScript() {
+testUninstallAllInstalledOneNoScript() {
   mkdir -p $pd/foo-1.2
   ln -s $pd/foo-1.2 $pd/foo
 
@@ -41,7 +41,7 @@ testUninstallInstalledOneNoScript() {
    assertFalse "[[ -f $pd/foo ]]")
 }
 
-testUninstallInstalledOne() {
+testUninstallAllInstalledOne() {
   mkdir -p $pd/foo-1.2
   ln -s $pd/foo-1.2 $pd/foo
   touch $uh/foo.sh
@@ -53,7 +53,7 @@ testUninstallInstalledOne() {
    assertFalse "[ -f $uh/foo.sh ]")
 }
 
-testUninstallInstalledThree() {
+testUninstallAllInstalledThree() {
   mkdir -p $pd/foo-1.{2,7}
   mkdir -p $pd/foo-2.0.1
   ln -s $pd/foo-1.2 $pd/foo
