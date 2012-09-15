@@ -23,6 +23,24 @@ testUninstallNotInstalled() {
    assertEquals 0 $?)
 }
 
+testUninstallWithVersionNotInstalled() {
+  (uninstall_program foo 1.4;
+   assertEquals 0 $?)
+}
+
+testUninstallInstalledOne() {
+  mkdir -p $pd/foo-1.2
+  ln -s $pd/foo-1.2 $pd/foo
+  touch $uh/foo.sh
+
+  (uninstall_program foo 1.2;
+   assertEquals 0 $?;
+   assertFalse "[ -d $pd/foo-1.2 ]";
+   assertFalse "[ -f $pd/foo ]";
+   assertFalse "[ -f $uh/foo.sh ]")
+}
+
+
 testUninstallAllInstalledOneNoScriptNoLink() {
   mkdir -p $pd/foo-1.2
 
@@ -66,6 +84,27 @@ testUninstallAllInstalledThree() {
    assertFalse "[ -d $pd/foo-2.0.1 ]";
    assertFalse "[ -f $pd/foo ]";
    assertFalse "[ -f $uh/foo.sh ]")
+}
+
+
+testUninstallVersionNotActive() {
+  mkdir -p $pd/foo-1.{2,7}
+  ln -s $pd/foo-1.7 $pd/foo
+
+  (uninstall_program_version foo 1.2;
+   assertEquals 0 $?;
+   assertFalse "[ -d $pd/foo-1.2 ]";
+   assertTrue  "[ -d $pd/foo-1.7 ]")
+}
+
+testUninstallVersionActive() {
+  mkdir -p $pd/foo-1.{2,7}
+  ln -s $pd/foo-1.7 $pd/foo
+
+  (uninstall_program_version foo 1.7;
+   assertEquals 0 $?;
+   assertTrue  "[ -d $pd/foo-1.2 ]";
+   assertFalse "[ -d $pd/foo-1.7 ]")
 }
 
 

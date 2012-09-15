@@ -342,7 +342,14 @@ install_program() {
 uninstall_program() {
   [[ -z "$1" ]] && return 1
 
-  uninstall_program_all "$1"
+  local name="$1"
+  local version="$2"
+
+  if [[ -n "$version" && $(count_programs "$name") -gt 1 ]]; then
+    uninstall_program_version "$name" "$version"
+  else
+    uninstall_program_all "$name"
+  fi
 
   return 0
 }
@@ -356,6 +363,17 @@ uninstall_program_all() {
   rm -f  "$NAPALM_USER_HOME/${name}.sh"
   rm -f  $(construct_path "$name")
   rm -rf $(construct_path "$name")-* # shell expand every directory
+
+  return 0
+}
+
+# args:
+# $1 - program name
+# $2 - program version
+# example:
+# uninstall_program foo 1.4
+uninstall_program_version() {
+  rm -rf $(construct_path "$1" "$2")
 
   return 0
 }
