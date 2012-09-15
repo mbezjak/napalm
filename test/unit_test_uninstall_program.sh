@@ -13,12 +13,17 @@ tearDown() {
   rm -rf $uh $pd
 }
 
-testRemoveNotInstalled() {
+testUninstallProgramNameEmpty() {
+  uninstall_program
+  assertEquals 1 $?
+}
+
+testUninstallNotInstalled() {
   (uninstall_program foo;
    assertEquals 0 $?)
 }
 
-testRemoveInstalledOneNoScriptNoLink() {
+testUninstallInstalledOneNoScriptNoLink() {
   mkdir -p $pd/foo-1.2
 
   (uninstall_program foo;
@@ -26,7 +31,7 @@ testRemoveInstalledOneNoScriptNoLink() {
    assertFalse "[[ -d $pd/foo-1.2 ]]")
 }
 
-testRemoveInstalledOneNoScript() {
+testUninstallInstalledOneNoScript() {
   mkdir -p $pd/foo-1.2
   ln -s $pd/foo-1.2 $pd/foo
 
@@ -36,7 +41,7 @@ testRemoveInstalledOneNoScript() {
    assertFalse "[[ -f $pd/foo ]]")
 }
 
-testRemoveInstalledOne() {
+testUninstallInstalledOne() {
   mkdir -p $pd/foo-1.2
   ln -s $pd/foo-1.2 $pd/foo
   touch $uh/foo.sh
@@ -48,7 +53,7 @@ testRemoveInstalledOne() {
    assertFalse "[ -f $uh/foo.sh ]")
 }
 
-testRemoveInstalledThree() {
+testUninstallInstalledThree() {
   mkdir -p $pd/foo-1.{2,7}
   mkdir -p $pd/foo-2.0.1
   ln -s $pd/foo-1.2 $pd/foo

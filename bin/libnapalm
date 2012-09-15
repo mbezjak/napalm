@@ -330,6 +330,8 @@ install_program() {
 # example:
 # uninstall_program foo
 uninstall_program() {
+  [[ -z "$1" ]] && return 1
+
   local name="$1"
   rm -f "$NAPALM_USER_HOME/${name}.sh"
   rm -f "$NAPALM_PROGRAMS_DIR/$name"
