@@ -271,7 +271,7 @@ Programs marked with * are the one being used.
 ## How to delete a particular version
 napalm currently has no option to uninstall just one version of a program. You
 will have to do it manually. All programs are installed in NAPALM_PROGRAMS_DIR
-directory.  Removing desired directory will ensure it is no longer installed.
+directory. Removing desired directory will ensure it is no longer installed.
 
 ## Further Resources
 
