@@ -340,8 +340,8 @@ uninstall_program() {
 uninstall_program_all() {
   local name="$1"
   rm -f  "$NAPALM_USER_HOME/${name}.sh"
-  rm -f  $(construct_path $name)
-  rm -rf $(construct_path $name)-* # shell expand every directory
+  rm -f  $(construct_path "$name")
+  rm -rf $(construct_path "$name")-* # shell expand every directory
 
   return 0
 }
