@@ -138,4 +138,24 @@ testShowProgramProgramsDirNotExistsWithVersion() {
 }
 
 
+testCountProgramsNotInstalled() {
+  local count=`count_programs foo`
+  assertEquals "0" "$count"
+}
+
+testCountProgramsInstalledOne() {
+  mkdir -p $pd/foo-1.3
+
+  local count=`count_programs foo`
+  assertEquals "1" "$count"
+}
+
+testCountProgramsInstalledTwo() {
+  mkdir -p $pd/foo-1.{3,7}
+
+  local count=`count_programs foo`
+  assertEquals "2" "$count"
+}
+
+
 . shunit2
