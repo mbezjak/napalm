@@ -1,0 +1,3 @@
+url "https://github.com/mbezjak/napalm/tarball/${VERSION}"
+set_env 'NAPALM_HOME'
+set_path true
