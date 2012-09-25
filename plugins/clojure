@@ -4,8 +4,8 @@ set_env 'CLOJURE_HOME'
 set_path true
 
 build() {
-  wget http://puzzle.dl.sourceforge.net/project/jline/jline/0.9.94/jline-0.9.94.zip
-  unzip -q jline-0.9.94.zip
+  wget http://sourceforge.net/projects/jline/files/jline/0.9.94/jline-0.9.94.zip/download -O jline.zip
+  unzip -q jline.zip
   ln --symbolic jline-0.9.94/jline-0.9.94.jar jline.jar
 
   mkdir bin
