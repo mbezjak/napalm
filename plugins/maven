@@ -1,3 +1,4 @@
-url "http://www.apache.org/dist//maven/binaries/apache-maven-${VERSION}-bin.tar.gz"
+url "http://archive.apache.org/dist/maven/binaries/apache-maven-${VERSION}-bin.tar.gz" \
+    "http://www.apache.org/dist//maven/binaries/apache-maven-${VERSION}-bin.tar.gz"
 set_env 'M2_HOME'
 set_path true
