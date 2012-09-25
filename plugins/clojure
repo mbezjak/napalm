@@ -9,9 +9,9 @@ build() {
   ln --symbolic jline-0.9.94/jline-0.9.94.jar jline.jar
 
   mkdir bin
-  cat > bin/clojure <<'EOF'
+  cat > bin/clojure <<EOF
 #!/bin/bash
-java $CLOJURE_OPTS -cp "$CLOJURE_HOME/jline.jar:$CLOJURE_HOME/clojure.jar" jline.ConsoleRunner clojure.main "$@"
+java \$CLOJURE_OPTS -cp "\$CLOJURE_HOME/jline.jar:\$CLOJURE_HOME/clojure-$VERSION.jar" jline.ConsoleRunner clojure.main "\$@"
 EOF
 
   chmod u+x bin/clojure
