@@ -1,3 +1,4 @@
-url "http://gosu-lang.org/downloads/gosu-${VERSION}/gosu-${VERSION}.tgz"
+url "http://gosu-lang.org/downloads/gosu-${VERSION}/gosu-${VERSION}-full.tar.gz" \
+    "http://gosu-lang.org/downloads/gosu-${VERSION}/gosu-${VERSION}.tgz"
 set_env 'GOSU_HOME'
 set_path true
