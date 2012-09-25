@@ -1,4 +1,5 @@
-url "https://github.com/downloads/clojure/clojure/clojure-${VERSION}.zip"
+url "http://repo1.maven.org/maven2/org/clojure/clojure/${VERSION}/clojure-${VERSION}.zip" \
+    "https://github.com/downloads/clojure/clojure/clojure-${VERSION}.zip"
 set_env 'CLOJURE_HOME'
 set_path true
 
