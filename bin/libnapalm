@@ -238,7 +238,7 @@ download_program() {
   for url in $(echo "$1")
   do
     set +o errexit
-    wget $url
+    wget --content-disposition $url
     wget_status=$?
     set -o errexit
 
