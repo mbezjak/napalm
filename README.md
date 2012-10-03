@@ -286,5 +286,6 @@ Programs marked with * are the one being used.
  * Issue tracker:  https://github.com/mbezjak/napalm/issues
  * Roadmap:        https://github.com/mbezjak/napalm/issues
  * Wiki:           https://github.com/mbezjak/napalm/wiki
+ * FAQ:            https://github.com/mbezjak/napalm/wiki/FAQ
  * CI server:      http://travis-ci.org/mbezjak/napalm
  * License:        MIT (see LICENSE file)
