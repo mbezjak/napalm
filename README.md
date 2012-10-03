@@ -161,7 +161,7 @@ a look at plugins directory for example of how to write one.
    you cannot name a plugin `foo-bar`. Instead use `fooBar` or `foo_bar` or
    `foobar`...
 
-### How to write napalm plugin
+### Creating a plugin
 napalm exposes these functions to any napalm plugin:
 
  * `url` - used to define URL location(s) where a program can be downloaded
@@ -214,13 +214,13 @@ directory. Executing `napalm install foo 1.4` causes
 `/home/john/.napalm/programs/foo` is setup and points to newly extracted
 program. If `build` function is declared then it is invoked with current working
 directory set to `/home/john/.napalm/programs/foo-1.4`. Because `set_env` and
-`set_path` are used script `/home/john/.napalm/foo.sh` is created with these
-contents:
+`set_path` are used script `/home/john/.napalm/foo.sh` is created with this
+content:
 
     FOO_HOME="/home/john/.napalm/programs/foo"
     PATH="$PATH:$FOO_HOME/bin"
 
-### How to install napalm plugin
+### Installing a plugin
 Put it in either of these directories
 
   * NAPALM_USER_HOME/plugins
