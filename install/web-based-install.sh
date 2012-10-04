@@ -59,6 +59,6 @@ if [ $post15 -eq 0 ]; then
 fi
 
 
-echo napalm $version installed
+echo Restart terminal to complete napalm $version installation
 
 exit 0
