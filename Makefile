@@ -1,4 +1,7 @@
-prefix=/usr/local
+version  = $(shell awk -F '=' '/^NAPALM_VERSION/{print $$2}' $(CURDIR)/bin/napalm)
+prefix   = $(HOME)/.napalm
+programs = $(prefix)/programs
+home     = $(programs)/napalm-$(version)
 
 TEST_DIR=$(CURDIR)/test
 
@@ -17,16 +20,20 @@ test:
 	( cd $(TEST_DIR); $(TEST_DIR)/unit_test_uninstall_program.sh )
 
 install: uninstall
-	install -m 0755 -d $(prefix)/lib/napalm/bin
-	install -m 0755 -d $(prefix)/lib/napalm/plugins
-	install -m 0644 $(CURDIR)/bin/libnapalm $(prefix)/lib/napalm/bin
-	install -m 0755 $(CURDIR)/bin/napalm $(prefix)/lib/napalm/bin
-	install -m 0644 $(CURDIR)/plugins/* $(prefix)/lib/napalm/plugins
-	install -m 0644 $(CURDIR)/README.md $(prefix)/lib/napalm
-	install -m 0644 $(CURDIR)/Changelog.md $(prefix)/lib/napalm
-	install -m 0644 $(CURDIR)/LICENSE $(prefix)/lib/napalm
-	ln -s $(prefix)/lib/napalm/bin/napalm $(prefix)/bin/napalm
+	install -m 0755 -d $(prefix)
+	install -m 0755 -d $(home)/bin
+	install -m 0755 -d $(home)/plugins
+
+	install -m 0644 $(CURDIR)/install/profile $(prefix)
+
+	install -m 0644 $(CURDIR)/bin/libnapalm $(home)/bin
+	install -m 0755 $(CURDIR)/bin/napalm $(home)/bin
+	install -m 0644 $(CURDIR)/plugins/* $(home)/plugins
+	install -m 0644 $(CURDIR)/README.md $(home)
+	install -m 0644 $(CURDIR)/Changelog.md $(home)
+	install -m 0644 $(CURDIR)/LICENSE $(home)
+	ln -s $(home) $(programs)/napalm
 
 uninstall:
-	rm -f $(prefix)/bin/napalm
-	rm -rf $(prefix)/lib/napalm
+	rm -f $(prefix)/profile
+	rm -rf $(programs)/napalm*
