@@ -87,7 +87,7 @@ Prerequisites are `wget` and `make`. Open terminal and execute:
 
 ## Upgrade
 
-    $ napalm install napalm 1.4
+    $ napalm install napalm 1.5
 
 ## Uninstall
 For standard installations:
