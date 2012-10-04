@@ -99,7 +99,7 @@ This is way is more safe way and doesn't require sudo. But this way
 other users won't be able to use napalm. (2) To install napalm
 globally, issue:
 
-    $ sudo make install
+    $ make install
 
 Consider adding following snippet to your `$HOME/.bashrc` file since
 napalm generates scripts in order to help you with setting up *_HOME
@@ -118,11 +118,11 @@ variables and updating `PATH` variable.
 Download new `tarball` or issue `git pull`. If you've installed
 globally then:
 
-    $ sudo make install
+    $ make install
 
 ## Uninstall
 
-    $ sudo make uninstall
+    $ make uninstall
 
 Optionally remove snippet described above from your `$HOME/.bashrc` file.
 Another optional thing is to remove files/directories from NAPALM_USER_HOME and
