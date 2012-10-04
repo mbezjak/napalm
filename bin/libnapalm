@@ -14,7 +14,7 @@
 # It's too little for me to care.
 # :)
 
-# Note: NAPALM_USER_HOME and NAPALM_PROGRAMS_DIR could point to a non existent
+# Note: NAPALM_USER_HOME and NAPALM_PROGRAMS_DIR could point to non existent
 # directory!
 configure_environment() {
   [[ -z "$NAPALM_USER_HOME" ]]    && NAPALM_USER_HOME=$HOME/.napalm
