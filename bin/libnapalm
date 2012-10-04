@@ -405,9 +405,9 @@ replace_program() {
   local version="$2"
   local old_version=$(get_active_version "$name")
 
-  [[ -n "$old_version" ]] && uninstall_program_version "$name" "$old_version"
-
   install_program "$name" "$version"
+
+  [[ -n "$old_version" ]] && uninstall_program_version "$name" "$old_version"
 
   return 0
 }
