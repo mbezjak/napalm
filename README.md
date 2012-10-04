@@ -81,52 +81,25 @@ Close enough.
     $ napalm uninstall grails
 
 ## Install
-First download latest napalm release by (1) downloading `tarball`
-(https://github.com/mbezjak/napalm/archives/master) then extracting it
-or by (2) doing `git clone`
+Prerequisites are `wget` and `make`. Open terminal and execute:
 
-    $ git clone https://github.com/mbezjak/napalm.git
-
-Either way you end up with a directory containing napalm source
-code. Open terminal and change current directory to it. You have two
-choices now. (1) Create a link to napalm executable:
-
-    # assuming napalm has been downloaded/cloned into ~/lib/napalm
-    # also assumes that $HOME/bin directory exists
-    $ ln -s "$HOME/lib/napalm/bin/napalm" "$HOME/bin/napalm"
-
-This is way is more safe way and doesn't require sudo. But this way
-other users won't be able to use napalm. (2) To install napalm
-globally, issue:
-
-    $ make install
-
-Consider adding following snippet to your `$HOME/.bashrc` file since
-napalm generates scripts in order to help you with setting up *_HOME
-variables and updating `PATH` variable.
-
-    [[ -d ~/.napalm ]] && {
-      for bash_script in $(find ~/.napalm -mindepth 1 -maxdepth 1 \
-                                -type f -executable -name '*\.sh')
-      do
-        source "$bash_script"
-      done
-      unset bash_script
-    }
+    $ wget https://raw.github.com/mbezjak/napalm/master/install/web-based-install.sh -O- | sh
 
 ## Upgrade
-Download new `tarball` or issue `git pull`. If you've installed
-globally then:
 
-    $ make install
+    $ napalm install napalm 1.4
 
 ## Uninstall
+For standard installations:
 
-    $ make uninstall
+    $ rm -rf ~/.napalm
 
-Optionally remove snippet described above from your `$HOME/.bashrc` file.
-Another optional thing is to remove files/directories from NAPALM_USER_HOME and
-NAPALM_PROGRAMS_DIR directories (see configuration section below).
+For non standard installations, you should remove directories bound to
+``$NAPALM_HOME``, ``$NAPALM_USER_HOME`` and ``$NAPALM_PROGRAMS_DIR``
+environmental variables.
+
+Optionally remove bootstrap snippet added by
+[web-based-install.sh](https://github.com/mbezjak/napalm/blob/master/install/web-based-install.sh).
 
 ## Required dependencies
 napalm is written as a bash script therefore executing in any linux distribution

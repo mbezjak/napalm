@@ -2,7 +2,8 @@ Napalm release steps:
 
 1. Update `NAPALM_VERSION` in `bin/napalm`
 2. Update version in `install/web-based-install.sh`
-3. Git work:
+3. Update (upgrade) version in `README.md`
+4. Git work:
 
         $ git tag --annotate $version
         $ git push
