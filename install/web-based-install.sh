@@ -6,25 +6,36 @@ tar=/tmp/napalm.tar.gz
 extract=/tmp/napalm
 
 bootstrap='[[ -f ~/.napalm/profile ]] && source ~/.napalm/profile'
-pre15=$(grep --count 'source "$bash_script"' ~/.bashrc)
-post15=$(grep --count "$bootstrap" ~/.bashrc)
+pre15=$(grep --fixed-strings --count 'source "$bash_script"' ~/.bashrc)
+post15=$(grep --fixed-strings --count "$bootstrap" ~/.bashrc)
 
 set -o errexit # not for grep
 
 
 # Warn about pre 1.5 installations
 if [ $pre15 -ne 0 ]; then
-  echo WARNING: napalm 1.5 and above requires different bootstrap in '~/.bashrc'
-  echo Please remove old boostrap code before continuing. Old boostrap code has
-  echo the following form:
-  echo '    [[ -d ~/.napalm ]] && {'
-  echo '      ...'
-  echo '    }'
-  echo Depending on if you have modified above bootstrap code, it might look
-  echo 'different. In any case, the end result should be not to import (source)'
-  echo '~/.napalm/*.sh' files anymore.
-  echo It is also advisable to remove any pre 1.5 version of napalm.
-  echo Press any key to continue
+  cat <<'EOF'
+WARNING: Detected napalm with version less then 1.5
+
+You should remove previously installed napalm before proceeding. The following
+summarizes uninstallation procedure for napalm before 1.5. Note that it differs
+from uninstall procedure described at https://github.com/mbezjak/napalm and this
+one should be used instead.
+
+  1) remove $NAPALM_HOME directory; execute 'napalm -v' to find out the value of
+     $NAPALM_HOME
+  2) remove potential symbolic link from '~/bin' directory
+  3) remove any 'export PATH=...' calls in '~/.bashrc' that mention napalm
+  4) remove old napalm bootstrap code in '~/.bashrc'; it usually has the
+     following form:
+         [[ -d ~/.napalm ]] && {
+           ...
+         }
+
+Note that there is no need to remove ~/.napalm directory before upgrading!
+
+Once napalm is uninstalled press any key to continue.
+EOF
   read any
   echo
 fi
@@ -46,22 +57,29 @@ echo
 
 # Setup bootstrap in ~/.bashrc
 if [ $post15 -eq 0 ]; then
-  echo napalm 1.5 and above requires one line boostrap in '~/.bashrc':
-  echo "    $bootstrap"
-  echo Should that line be automatically added to the end of '~/.bashrc (y/n)'?
+  cat <<EOF
+napalm 1.5 and above requires one line bootstrap in '~/.bashrc':
+    $bootstrap
+Should that line be automatically added to the end of '~/.bashrc' (y/n)?
+EOF
   read answere
+  echo
   if [ "$answere" == y ]; then
-    echo $bootstrap >> ~/.bashrc
+    echo -e "\n$bootstrap" >> ~/.bashrc
     echo "Added '$bootstrap' to ~/.bashrc"
   else
-    echo You should manually add napalm bootstrap to '~/.bashrc':
-    echo "    $bootstrap"
+    cat <<EOF
+You should manually add napalm bootstrap to '~/.bashrc':
+    $bootstrap
+EOF
   fi
-  echo
-  echo napalm can now be updated by executing the following command
-  echo '    napalm replace napalm $version'
-  echo "where '$version' should be substituted with appropriate napalm version"
-  echo
+
+  cat <<EOF
+
+napalm can now be updated by executing the following command:
+    $ napalm replace napalm $version
+
+EOF
 fi
 
 
