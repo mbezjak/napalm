@@ -21,7 +21,7 @@ if [ $pre15 -ne 0 ]; then
   echo '      ...'
   echo '    }'
   echo Depending on if you have modified above bootstrap code, it might look
-  echo different. In any case, the end result should be not to import (source)
+  echo 'different. In any case, the end result should be not to import (source)'
   echo '~/.napalm/*.sh' files anymore.
   echo It is also advisable to remove any pre 1.5 version of napalm.
   echo Press any key to continue
