@@ -83,7 +83,7 @@ Close enough.
 ## Install
 Prerequisites are `wget` and `make`. Open terminal and execute:
 
-    $ wget https://raw.github.com/mbezjak/napalm/master/install/web-based-install.sh -O- | sh
+    $ wget https://raw.github.com/mbezjak/napalm/master/install/web-based-install.sh -O /tmp/install-napalm.sh && sh /tmp/install-napalm.sh
 
 ## Upgrade
 
