@@ -14,14 +14,16 @@ set -o errexit # not for grep
 
 # Warn about pre 1.5 installations
 if [ $pre15 -ne 0 ]; then
-  echo WARNING:
-  echo napalm 1.5 and above requires different bootstrap in '~/.bashrc'
-  echo Please remove old boostrap code before continuing
-  echo Old boostrap code has the following form:
+  echo WARNING: napalm 1.5 and above requires different bootstrap in '~/.bashrc'
+  echo Please remove old boostrap code before continuing. Old boostrap code has
+  echo the following form:
   echo '    [[ -d ~/.napalm ]] && {'
   echo '      ...'
   echo '    }'
-  echo It is also advisable to remove any pre 1.5 version of napalm
+  echo Depending on if you have modified above bootstrap code, it might look
+  echo different. In any case, the end result should be not to import (source)
+  echo '~/.napalm/*.sh' files anymore.
+  echo It is also advisable to remove any pre 1.5 version of napalm.
   echo Press any key to continue
   read any
   echo
