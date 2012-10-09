@@ -23,7 +23,7 @@ if [ $pre15 -ne 0 ]; then
   echo '    }'
   echo It is also advisable to remove any pre 1.5 version of napalm
   echo Press any key to continue
-  read
+  read any
   echo
 fi
 
