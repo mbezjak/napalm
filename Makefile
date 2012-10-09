@@ -22,17 +22,18 @@ test:
 install: uninstall
 	install -m 0755 -d $(prefix)
 	install -m 0755 -d $(home)/bin
+	install -m 0755 -d $(home)/install
 	install -m 0755 -d $(home)/plugins
-
-	install -m 0644 $(CURDIR)/install/profile $(prefix)
 
 	install -m 0644 $(CURDIR)/bin/libnapalm $(home)/bin
 	install -m 0755 $(CURDIR)/bin/napalm $(home)/bin
+	install -m 0755 $(CURDIR)/install/profile $(home)/install
 	install -m 0644 $(CURDIR)/plugins/* $(home)/plugins
 	install -m 0644 $(CURDIR)/README.md $(home)
 	install -m 0644 $(CURDIR)/Changelog.md $(home)
 	install -m 0644 $(CURDIR)/LICENSE $(home)
 	ln -s $(home) $(programs)/napalm
+	ln -s $(home)/install/profile $(prefix)/profile
 
 uninstall:
 	rm -f $(prefix)/profile
