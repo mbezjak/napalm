@@ -58,6 +58,10 @@ if [ $post15 -eq 0 ]; then
     echo "    $bootstrap"
   fi
   echo
+  echo napalm can now be updated by executing the following command
+  echo '    napalm replace napalm $version'
+  echo "where '$version' should be substituted with appropriate napalm version"
+  echo
 fi
 
 
