@@ -33,7 +33,7 @@ install: uninstall
 	install -m 0644 $(CURDIR)/Changelog.md $(home)
 	install -m 0644 $(CURDIR)/LICENSE $(home)
 	ln -s $(home) $(programs)/napalm
-	ln -s $(home)/install/profile $(prefix)/profile
+	ln -s $(programs)/napalm/install/profile $(prefix)/profile
 
 uninstall:
 	rm -f $(prefix)/profile
