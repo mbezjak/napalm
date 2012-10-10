@@ -50,7 +50,7 @@ tar --extract --file $tar --directory $extract
 echo '------------------------------------------------'
 echo Installing napalm $version
 echo
-make --directory=$extract/$(ls $extract) install
+make --directory=$extract/$(ls $extract) install "$@"
 echo
 echo
 

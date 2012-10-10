@@ -85,6 +85,12 @@ Prerequisites are `wget` and `make`. Open terminal and execute:
 
     $ wget https://raw.github.com/mbezjak/napalm/master/install/web-based-install.sh -O /tmp/install-napalm.sh && sh /tmp/install-napalm.sh
 
+This will install napalm to `$HOME/.napalm` directory. In order to use another
+directory simply add `prefix=directory/to/use` argument to `sh` command. For
+example, to install to `/tmp/napalm` directory, execute this instead:
+
+    $ wget https://raw.github.com/mbezjak/napalm/master/install/web-based-install.sh -O /tmp/install-napalm.sh && sh /tmp/install-napalm.sh prefix=/tmp/napalm
+
 ## Upgrade
 
     $ napalm replace napalm 1.5.1
