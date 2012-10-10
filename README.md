@@ -93,7 +93,7 @@ example, to install to `/tmp/napalm` directory, execute this instead:
 
 ## Upgrade
 
-    $ napalm replace napalm 1.5.1
+    $ napalm replace napalm 1.5.2
 
 ## Uninstall
 For standard installations:
