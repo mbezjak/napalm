@@ -108,7 +108,7 @@ Optionally remove bootstrap snippet added by
 [web-based-install.sh](https://github.com/mbezjak/napalm/blob/master/install/web-based-install.sh).
 
 ## Required dependencies
-napalm is written as a bash script therefore executing in any linux distribution
+napalm is written as a bash script therefore executing in any Linux distribution
 shouldn't be a problem. However, make sure that `wget` and `unzip` are
 installed. Some distributions don't install them by default.
 
@@ -207,7 +207,7 @@ Put it in either of these directories
 
 ## Security
 Napalm evaluates any plugin as a bash script using `source` builtin command.
-Combine that with the ability to add your own plugins and you have a receipe for
+Combine that with the ability to add your own plugins and you have a recipe for
 disaster.
 
 Since you can add your own plugins it's expected that many more plugins will be
