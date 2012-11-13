@@ -31,6 +31,7 @@ install: uninstall
 	install -m 0644 $(CURDIR)/plugins/* $(home)/plugins
 	install -m 0644 $(CURDIR)/README.md $(home)
 	install -m 0644 $(CURDIR)/Changelog.md $(home)
+	install -m 0644 $(CURDIR)/Roadmap.md $(home)
 	install -m 0644 $(CURDIR)/LICENSE $(home)
 	ln -s $(home) $(programs)/napalm
 	ln -s $(programs)/napalm/install/profile $(prefix)/profile

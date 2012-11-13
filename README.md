@@ -267,6 +267,7 @@ Programs marked with * are the one being used.
  * Homepage:   https://github.com/mbezjak/napalm
  * Issues:     https://github.com/mbezjak/napalm/issues
  * Changelog:  see Changelog.md file
+ * Roadmap:    see Roadmap.md file
  * Wiki:       https://github.com/mbezjak/napalm/wiki
  * FAQ:        https://github.com/mbezjak/napalm/wiki/FAQ
  * CI Server:  http://travis-ci.org/mbezjak/napalm
