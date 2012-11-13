@@ -1,4 +1,4 @@
-Napalm release steps:
+Release steps:
 
 1. Update `NAPALM_VERSION` in `bin/napalm`
 2. Update version in `install/web-based-install.sh`
