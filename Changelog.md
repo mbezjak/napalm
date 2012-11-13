@@ -1,3 +1,7 @@
+# From version 1.6 `Changelog.md` is back
+Turns out I don't like to sift through github issues to find out what's new.
+This file communicates much better new features/fixes.
+
 # From version 1.3 watch github issues for changelog
 https://github.com/mbezjak/napalm/issues
 

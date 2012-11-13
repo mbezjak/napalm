@@ -264,10 +264,10 @@ Programs marked with * are the one being used.
 
 ## Further Resources
 
- * Homepage:       https://github.com/mbezjak/napalm
- * Issue tracker:  https://github.com/mbezjak/napalm/issues
- * Roadmap:        https://github.com/mbezjak/napalm/issues
- * Wiki:           https://github.com/mbezjak/napalm/wiki
- * FAQ:            https://github.com/mbezjak/napalm/wiki/FAQ
- * CI server:      http://travis-ci.org/mbezjak/napalm
- * License:        MIT (see LICENSE file)
+ * Homepage:   https://github.com/mbezjak/napalm
+ * Issues:     https://github.com/mbezjak/napalm/issues
+ * Changelog:  see Changelog.md file
+ * Wiki:       https://github.com/mbezjak/napalm/wiki
+ * FAQ:        https://github.com/mbezjak/napalm/wiki/FAQ
+ * CI Server:  http://travis-ci.org/mbezjak/napalm
+ * License:    MIT (see LICENSE file)
