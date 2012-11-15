@@ -6,7 +6,7 @@ build() {
   mkdir bin
   cat > bin/play <<'EOF'
 #!/bin/bash
-"$PLAYFRAMEWORK_HOME"/play
+"$PLAYFRAMEWORK_HOME"/play "$@"
 EOF
 
   chmod u+x bin/play

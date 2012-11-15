@@ -1,3 +1,6 @@
+# 1.6.1 [2012-11-15]
+ * fix: forward cmd args to play command
+
 # 1.6 [2012-11-15]
  * add playframework plugin
 
