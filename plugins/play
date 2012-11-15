@@ -1,0 +1,13 @@
+url "http://download.playframework.org/releases/play-${VERSION}.zip"
+set_env 'PLAYFRAMEWORK_HOME'
+set_path true
+
+build() {
+  mkdir bin
+  cat > bin/play <<'EOF'
+#!/bin/bash
+"$PLAYFRAMEWORK_HOME"/play
+EOF
+
+  chmod u+x bin/play
+}

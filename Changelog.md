@@ -1,3 +1,6 @@
+# 1.7 [2012-11-15]
+ * add playframework plugin
+
 # From version 1.6 `Changelog.md` is back
 Turns out I don't like to sift through github issues to find out what's new.
 This file communicates much better new features/fixes.
