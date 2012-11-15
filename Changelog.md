@@ -1,4 +1,4 @@
-# 1.7 [2012-11-15]
+# 1.6 [2012-11-15]
  * add playframework plugin
 
 # From version 1.6 `Changelog.md` is back
