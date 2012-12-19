@@ -62,9 +62,9 @@ napalm 1.5 and above requires one line bootstrap in '~/.bashrc':
     $bootstrap
 Should that line be automatically added to the end of '~/.bashrc' (y/n)?
 EOF
-  read answere
+  read answer
   echo
-  if [ "$answere" = y ]; then
+  if [ "$answer" = y ]; then
     echo -e "\n$bootstrap" >> ~/.bashrc
     echo "Added '$bootstrap' to ~/.bashrc"
   else
