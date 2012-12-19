@@ -64,7 +64,7 @@ Should that line be automatically added to the end of '~/.bashrc' (y/n)?
 EOF
   read answere
   echo
-  if [ "$answere" == y ]; then
+  if [ "$answere" = y ]; then
     echo -e "\n$bootstrap" >> ~/.bashrc
     echo "Added '$bootstrap' to ~/.bashrc"
   else

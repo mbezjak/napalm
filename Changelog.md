@@ -1,3 +1,6 @@
+# 1.6.2 [2012-12-19]
+ * `web-based-install.sh`: /bin/sh compatibility
+
 # 1.6.1 [2012-11-15]
  * fix: forward cmd args to play command
 
