@@ -34,7 +34,7 @@ one should be used instead.
 
 Note that there is no need to remove ~/.napalm directory before upgrading!
 
-Once napalm is uninstalled press any key to continue.
+Once napalm is uninstalled press any key to continue. Press ctrl+c to cancel.
 EOF
   read any
   echo
