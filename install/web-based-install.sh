@@ -15,7 +15,7 @@ set -o errexit # not for grep
 # Warn about pre 1.5 installations
 if [ $pre15 -ne 0 ]; then
   cat <<'EOF'
-WARNING: Detected napalm with version less then 1.5
+WARNING: Detected napalm with version less than 1.5
 
 You should remove previously installed napalm before proceeding. The following
 summarizes uninstallation procedure for napalm before 1.5. Note that it differs
