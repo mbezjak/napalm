@@ -1,3 +1,6 @@
+# 1.6.3 [2013-01-23]
+ * `web-based-install.sh': POSIX compatibility (use `printf' instead of `echo -e')
+
 # 1.6.2 [2012-12-19]
  * `web-based-install.sh`: /bin/sh compatibility
 
