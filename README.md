@@ -108,7 +108,7 @@ For non standard installations, you should remove directories bound to
 environmental variables.
 
 Optionally remove bootstrap snippet added by
-[web-based-install.sh](https://github.com/mbezjak/napalm/blob/master/install/web-based-install.sh).
+[web-based-install.sh](install/web-based-install.sh).
 
 ## Required dependencies
 napalm is written as a bash script therefore executing in any Linux distribution
