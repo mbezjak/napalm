@@ -1,3 +1,6 @@
+# 1.7 [2013-02-06]
+ * New url for playframework. Compatible with playframework 2.1.0.
+
 # 1.6.3 [2013-01-23]
  * `web-based-install.sh': POSIX compatibility (use `printf' instead of `echo -e')
 

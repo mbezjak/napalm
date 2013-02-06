@@ -1,4 +1,5 @@
-url "http://download.playframework.org/releases/play-${VERSION}.zip"
+url "http://downloads.typesafe.com/play/${VERSION}/play-${VERSION}.zip" \
+    "http://download.playframework.org/releases/play-${VERSION}.zip"
 set_env 'PLAYFRAMEWORK_HOME'
 set_path true
 
