@@ -4,27 +4,26 @@ Not a real package manager
 [![Build Status](https://secure.travis-ci.org/mbezjak/napalm.png?branch=master)](http://travis-ci.org/mbezjak/napalm)
 
 ## Summary
-Automate installation of archived (zip, gz, bz2, jar) programs that are unsuited
-or unavailable from a package repository.
+Automate installation of artifacts (zip, gz, bz2, jar) that are not available in
+a package repository.
 
 ## Screenshots
 For the impatient: https://github.com/mbezjak/napalm/wiki/Screenshots
 
 ## Rationale
 Linux package management is great! However, sometimes you need a program that is
-really simple to install but
+easy to install but:
 
  * it's not available in any repository
  * an older version is in a repository
- * repository policy restricts updating to newer version therefore you need to
-   wait for new distribution release (Ubuntu has such policy)
+ * repository policy restricts updates, therefore you need to wait for a new
+   distribution release (e.g. Ubuntu)
  * you need two or more versions of a program
  * depends upon a program/library that you don't want (e.g. *java-1.5.0-gcj*;
    I'm looking at you Fedora!)
 
-In any case you will need to install those programs manually. Manual
-installation is always boring and includes numerous steps. For example,
-installing groovy includes
+In any case you will need to install those programs manually. But that is boring
+and tedious. For example, installing groovy includes:
 
  1. opening web browser
  2. navigating to http://groovy.codehaus.org/
