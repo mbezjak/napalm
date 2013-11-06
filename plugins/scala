@@ -1,3 +1,4 @@
-url "http://www.scala-lang.org/downloads/distrib/files/scala-${VERSION}.tgz"
+url "http://www.scala-lang.org/files/archive/scala-${VERSION}.tgz" \
+    "http://www.scala-lang.org/downloads/distrib/files/scala-${VERSION}.tgz"
 set_env 'SCALA_HOME'
 set_path true
