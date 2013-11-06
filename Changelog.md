@@ -1,3 +1,6 @@
+# 1.7.1 [2013-11-06]
+ * New URL for griffon. Compatible with griffon 1.4.0.
+
 # 1.7 [2013-02-06]
  * New url for playframework. Compatible with playframework 2.1.0.
 
