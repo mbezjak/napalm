@@ -1,3 +1,6 @@
+# 1.7.2 [2013-11-06]
+ * New URL for scala. Compatible with scala 2.10.3.
+
 # 1.7.1 [2013-11-06]
  * New URL for griffon. Compatible with griffon 1.4.0.
 
