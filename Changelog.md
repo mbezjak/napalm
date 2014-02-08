@@ -1,3 +1,6 @@
+# 1.8 [2014-02-08]
+ * new plugin: poly-devel (https://github.com/mbezjak/poly-devel)
+
 # 1.7.2 [2013-11-06]
  * New URL for scala. Compatible with scala 2.10.3.
 
