@@ -1,0 +1,3 @@
+url "https://github.com/mbezjak/poly-devel/archive/master.tar.gz"
+set_env 'POLY_DEVEL_HOME'
+set_path true
