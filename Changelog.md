@@ -1,3 +1,7 @@
+# 1.8.1 [2014-02-09]
+ * rename a plugin to `polydevel`
+   by the documentation, it must not contain a dash character
+
 # 1.8 [2014-02-08]
  * new plugin: poly-devel (https://github.com/mbezjak/poly-devel)
 
