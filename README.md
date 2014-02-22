@@ -90,6 +90,10 @@ example, to install to `/tmp/napalm` directory, execute this instead:
 
     $ wget http://git.io/SMnZVQ -O /tmp/install-napalm.sh && sh /tmp/install-napalm.sh prefix=/tmp/napalm
 
+To install non-interactively pass `-y` as the first parameter. Example:
+
+    $ wget http://git.io/SMnZVQ -O /tmp/install-napalm.sh && sh /tmp/install-napalm.sh -y
+
 Note: `http://git.io/SMnZVQ` is short for
 `https://raw.github.com/mbezjak/napalm/master/install/web-based-install.sh`.
 
