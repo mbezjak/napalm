@@ -5,6 +5,11 @@ version=1.8.1.1
 tar=/tmp/napalm.tar.gz
 extract=/tmp/napalm
 
+if [ "$1" = "-y" ]; then
+  noninteractive=y
+  shift
+fi
+
 bootstrap='[[ -f ~/.napalm/profile ]] && source ~/.napalm/profile'
 pre15=$(grep --fixed-strings --count 'source "$bash_script"' ~/.bashrc)
 post15=$(grep --fixed-strings --count "$bootstrap" ~/.bashrc)
@@ -62,8 +67,12 @@ napalm 1.5 and above requires one line bootstrap in '~/.bashrc':
     $bootstrap
 Should that line be automatically added to the end of '~/.bashrc' (y/n)?
 EOF
-  read answer
-  echo
+  if [ -n $noninteractive ]; then
+      answer=y
+  else
+      read answer
+      echo
+  fi
   if [ "$answer" = y ]; then
     printf "\n%s" "$bootstrap" >> ~/.bashrc
     echo "Added '$bootstrap' to ~/.bashrc"
