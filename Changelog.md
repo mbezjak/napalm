@@ -1,3 +1,7 @@
+# 1.8.1.1 [2014-02-22]
+ * no source changes
+ * automate the release process via `release.sh`
+
 # 1.8.1 [2014-02-09]
  * rename a plugin to `polydevel`
    by the documentation, it must not contain a dash character
