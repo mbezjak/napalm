@@ -1,3 +1,7 @@
+# 1.8.1.2 [2014-02-22]
+ * no source changes
+ * `web-based-install.sh`: add `-y` argument to install non-interactively
+
 # 1.8.1.1 [2014-02-22]
  * no source changes
  * automate the release process via `release.sh`
