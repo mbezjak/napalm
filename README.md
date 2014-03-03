@@ -84,11 +84,7 @@ Prerequisites are `wget` and `make`. Open terminal and execute:
 
     $ wget http://git.io/SMnZVQ -O /tmp/install-napalm.sh && sh /tmp/install-napalm.sh
 
-This will install napalm to `$HOME/.napalm` directory. In order to use another
-directory simply add `prefix=directory/to/use` argument to `sh` command. For
-example, to install to `/tmp/napalm` directory, execute this instead:
-
-    $ wget http://git.io/SMnZVQ -O /tmp/install-napalm.sh && sh /tmp/install-napalm.sh prefix=/tmp/napalm
+This will install napalm to `$HOME/.napalm` directory.
 
 To install non-interactively pass `-y` as the first parameter. Example:
 
