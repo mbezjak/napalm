@@ -1,3 +1,6 @@
+# 1.8.2 [2014-03-15]
+ * New URL for groovy. Compatible with groovy 2.2.2.
+
 # 1.8.1.2 [2014-02-22]
  * no source changes
  * `web-based-install.sh`: add `-y` argument to install non-interactively
