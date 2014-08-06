@@ -11,8 +11,13 @@ if [ "$1" = "-y" ]; then
 fi
 
 bootstrap='[[ -f ~/.napalm/profile ]] && source ~/.napalm/profile'
-pre15=$(grep --fixed-strings --count 'source "$bash_script"' ~/.bashrc)
-post15=$(grep --fixed-strings --count "$bootstrap" ~/.bashrc)
+if [ -f ~/.bashrc ]; then
+  pre15=$(grep --fixed-strings --count 'source "$bash_script"' ~/.bashrc)
+  post15=$(grep --fixed-strings --count "$bootstrap" ~/.bashrc)
+else
+  pre15=0
+  post15=0
+fi
 
 set -o errexit # not for grep
 
