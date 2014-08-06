@@ -74,7 +74,7 @@ EOF
       echo
   fi
   if [ "$answer" = y ]; then
-    printf "\n%s" "$bootstrap" >> ~/.bashrc
+    printf "\n%s\n" "$bootstrap" >> ~/.bashrc
     echo "Added '$bootstrap' to ~/.bashrc"
   else
     cat <<EOF
