@@ -1,3 +1,6 @@
+# 1.8.3 [2015-01-08]
+ * New URL for grails. Compatible with old grails (version<=1.3.4).
+
 # 1.8.2 [2014-03-15]
  * New URL for groovy. Compatible with groovy 2.2.2.
 
