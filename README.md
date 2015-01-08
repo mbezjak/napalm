@@ -95,7 +95,7 @@ Note: `http://git.io/SMnZVQ` is short for
 
 ## Upgrade
 
-    $ napalm replace napalm 1.8.2
+    $ napalm replace napalm 1.8.3
 
 ## Uninstall
 For standard installations:
