@@ -1,3 +1,6 @@
+# 1.9 [2015-01-30]
+ * new plugin: activator (https://typesafe.com/get-started)
+
 # 1.8.3 [2015-01-08]
  * New URL for grails. Compatible with old grails (version<=1.3.4).
 
