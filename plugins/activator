@@ -1,0 +1,8 @@
+url "http://downloads.typesafe.com/typesafe-activator/${VERSION}/typesafe-activator-${VERSION}-minimal.zip"
+set_env 'ACTIVATOR_HOME'
+set_path true
+
+build() {
+  mkdir bin
+  ln -s ../activator bin/activator
+}
