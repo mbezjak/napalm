@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 
-version=1.8.3
+version=1.9
 tar=/tmp/napalm.tar.gz
 extract=/tmp/napalm
 
