@@ -1,3 +1,6 @@
+# 1.10 [2015-04-30]
+ * New URL for maven. Compatible with maven 3.3.3.
+
 # 1.9 [2015-01-30]
  * new plugin: activator (https://typesafe.com/get-started)
 
