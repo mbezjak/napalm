@@ -25,7 +25,7 @@ In any case you will need to install those programs manually. But that is boring
 and tedious. For example, installing groovy includes:
 
  1. opening web browser
- 2. navigating to http://groovy.codehaus.org/
+ 2. navigating to http://www.groovy-lang.org/
  3. finding a download link
  4. downloading latest binary release
  5. extracting zip
