@@ -19,8 +19,7 @@ easy to install but:
  * repository policy restricts updates, therefore you need to wait for a new
    distribution release (e.g. Ubuntu)
  * you need two or more versions of a program
- * depends upon a program/library that you don't want (e.g. *java-1.5.0-gcj*;
-   I'm looking at you Fedora!)
+ * depends upon a program/library that you don't want (e.g. *java-1.5.0-gcj*)
 
 In any case you will need to install those programs manually. But that is boring
 and tedious. For example, installing groovy includes:
