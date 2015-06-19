@@ -1,3 +1,6 @@
+# 1.10.1 [2015-06-19]
+ * Fix sbt plugin. Now works again for 0.13.8.
+
 # 1.10 [2015-04-30]
  * New URL for maven. Compatible with maven 3.3.3.
 
