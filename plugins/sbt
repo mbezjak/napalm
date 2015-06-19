@@ -13,4 +13,9 @@ java ${SBT_OPTS:-$default_opts} -jar "$SBT_HOME/sbt-launch.jar" "$@"
 EOF
 
   chmod u+x bin/sbt
+
+  # fix inapropriate `Content-Disposition` line that can result in wget determining the wrong filename
+  # $ curl -o /dev/null -v http://typesafe.artifactoryonline.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.8/sbt-launch.jar
+  # < Content-Disposition: attachment; filename="sbt-launch.jar"; filename*=UTF-8''sbt-launch.jar
+  [[ -f sbt-launch.jarsbt-launch.jar ]] && mv sbt-launch.jarsbt-launch.jar sbt-launch.jar
 }
