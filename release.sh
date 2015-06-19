@@ -8,4 +8,6 @@ declare -r version="$1"
 release-pre "$version"
 release-post "$version"
 
+napalm replace napalm "$version"
+
 exit 0
