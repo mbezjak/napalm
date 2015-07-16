@@ -1,0 +1,3 @@
+url "https://github.com/prezi/pride/releases/download/${VERSION}/pride-${VERSION}.tar"
+set_env 'PRIDE_HOME'
+set_path true
