@@ -306,17 +306,23 @@ install_program() {
   }
 
   local archive=$(ls -1)
-  local extracted_dir='extracted'
+  local extracted_dir=extracted
   extract_program $archive $extracted_dir || {
     echo "Couldn't extract archive $PWD/$archive" 1>&2
     return 3
   }
 
   mkdir -p "$NAPALM_PROGRAMS_DIR"
-  program=$(ls $extracted_dir)
   rm -rf "$NAPALM_PROGRAMS_DIR/$1" "$NAPALM_PROGRAMS_DIR/$1-$VERSION"
 
-  mv "extracted/$program" "$NAPALM_PROGRAMS_DIR/$1-$VERSION"
+  if [[ $(ls -1 $extracted_dir | wc -l) == 1 ]]; then
+      mv "extracted/$(ls $extracted_dir)" "$NAPALM_PROGRAMS_DIR/$1-$VERSION"
+  elif [[ -d "$extracted_dir/$1-$VERSION" ]]; then
+      mv "$extracted_dir/$1-$VERSION" "$NAPALM_PROGRAMS_DIR/$1-$VERSION"
+  else
+      mv $extracted_dir "$NAPALM_PROGRAMS_DIR/$1-$VERSION"
+  fi
+
   ln -s "$NAPALM_PROGRAMS_DIR/$1-$VERSION" "$NAPALM_PROGRAMS_DIR/$1"
 
   if hash build 2> /dev/null; then
