@@ -1,3 +1,6 @@
+# 1.11 [2015-07-16]
+ * new plugin: pride (https://github.com/prezi/pride)
+
 # 1.10.1 [2015-06-19]
  * Fix sbt plugin. Now works again for 0.13.8.
 
