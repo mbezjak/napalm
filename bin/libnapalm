@@ -266,6 +266,9 @@ extract_program() {
   *.tar.bz2)
     tar --bzip2 --directory $into_dir -xf $archive
     ;;
+  *.tar)
+    tar --directory $into_dir -xf $archive
+    ;;
   *.zip)
     unzip -q $archive -d $into_dir
     ;;

@@ -130,6 +130,20 @@ testExtractProgramExtensionTarBz2() {
    assertTrue "[ -d extracted ]")
 }
 
+testExtractProgramExtensionTar() {
+  (cd $pd;
+   tar() {
+    assertEquals "--directory" $1
+    assertEquals "extracted" $2
+    assertEquals "-xf" $3
+    assertEquals "example.tar" $4
+    return 0
+   };
+   extract_program 'example.tar' extracted;
+   assertEquals 0 $?;
+   assertTrue "[ -d extracted ]")
+}
+
 testExtractProgramExtensionZip() {
   (cd $pd;
    unzip() {
