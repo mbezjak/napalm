@@ -1,3 +1,4 @@
-url "https://github.com/prezi/pride/releases/download/${VERSION}/pride-${VERSION}.tar"
+url "https://github.com/prezi/pride/releases/download/${VERSION}/pride-${VERSION}.tar" \
+    "https://github.com/prezi/pride/releases/download/${VERSION}/pride-${VERSION}.zip"
 set_env 'PRIDE_HOME'
 set_path true
