@@ -1,3 +1,6 @@
+# 1.11.1 [2015-07-17]
+ * plugin pride: alternative (zip) URL
+
 # 1.11 [2015-07-16]
  * new plugin: pride (https://github.com/prezi/pride)
 
