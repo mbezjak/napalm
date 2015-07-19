@@ -1,3 +1,6 @@
+# 1.11.2 [2015-07-19]
+ * plugin pride: alternative (tar.gz) URL
+
 # 1.11.1 [2015-07-17]
  * plugin pride: alternative (zip) URL
 
