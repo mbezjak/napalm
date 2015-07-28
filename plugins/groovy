@@ -1,4 +1,5 @@
-url "http://dl.bintray.com/groovy/maven/groovy-binary-${VERSION}.zip" \
+url "http://dl.bintray.com/groovy/maven/apache-groovy-binary-${VERSION}.zip" \
+    "http://dl.bintray.com/groovy/maven/groovy-binary-${VERSION}.zip" \
     "http://dist.groovy.codehaus.org/distributions/groovy-binary-${VERSION}.zip"
 set_env 'GROOVY_HOME'
 set_path true
