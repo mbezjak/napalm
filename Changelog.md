@@ -1,3 +1,6 @@
+# 1.11.3 [2015-07-28]
+ * new URL for groovy 2.4.4
+
 # 1.11.2 [2015-07-19]
  * plugin pride: alternative (tar.gz) URL
 
