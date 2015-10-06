@@ -1,3 +1,6 @@
+# 1.11.4 [2015-10-06]
+ * New URL and logic for sbt. Compatible with sbt 0.13.9.
+
 # 1.11.3 [2015-07-28]
  * new URL for groovy 2.4.4
 
