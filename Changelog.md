@@ -1,3 +1,6 @@
+# 1.11.5 [2015-10-13]
+ * $HOME/.napalm can be a symlink
+
 # 1.11.4 [2015-10-06]
  * New URL and logic for sbt. Compatible with sbt 0.13.9.
 
