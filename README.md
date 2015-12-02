@@ -94,7 +94,7 @@ Note: `http://git.io/SMnZVQ` is short for
 
 ## Upgrade
 
-    $ napalm replace napalm 1.11.5
+    $ napalm replace napalm 1.11.6
 
 ## Uninstall
 For standard installations:
