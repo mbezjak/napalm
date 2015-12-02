@@ -1,3 +1,6 @@
+# 1.11.6 [2015-12-02]
+ * Remove dead codehaus links
+
 # 1.11.5 [2015-10-13]
  * $HOME/.napalm can be a symlink
 
