@@ -1,4 +1,5 @@
-url "http://dist.springframework.org.s3.amazonaws.com/release/GRAILS/grails-${VERSION}.zip" \
+url "https://github.com/grails/grails-core/releases/download/v${VERSION}/grails-${VERSION}.zip" \
+    "http://dist.springframework.org.s3.amazonaws.com/release/GRAILS/grails-${VERSION}.zip" \
     "https://grails.org/dist/grails-${VERSION}.zip"
 set_env 'GRAILS_HOME'
 set_path true
