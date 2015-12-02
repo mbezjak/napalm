@@ -1,3 +1,6 @@
+# 1.11.7 [2015-12-02]
+ * New URL for grails. Compatible with grails 3.0.9.
+
 # 1.11.6 [2015-12-02]
  * Remove dead codehaus links
 
