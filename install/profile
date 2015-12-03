@@ -2,7 +2,7 @@
 # napalm setup by sourcing individual plugin-created bash scripts.
 
 export NAPALM_USER_HOME=${NAPALM_USER_HOME:-$HOME/.napalm/}
-export NAPALM_PROGRAMS_DIR=${NAPALM_PROGRAMS_DIR:-$NAPALM_USER_HOME/programs}
+export NAPALM_PROGRAMS_DIR=${NAPALM_PROGRAMS_DIR:-${NAPALM_USER_HOME%%/}/programs}
 export NAPALM_HOME=${NAPALM_HOME:-$NAPALM_PROGRAMS_DIR/napalm}
 
 export PATH="$PATH:$NAPALM_HOME/bin"
