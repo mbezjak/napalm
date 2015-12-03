@@ -1,3 +1,7 @@
+# 1.12 [2015-12-03]
+ * Generate profile scripts that use `NAPALM_PROGRAMS_DIR` environment variable
+   (instead of it's value at the time of installation).
+
 # 1.11.8 [2015-12-03]
  * Fix `napalm show` not emitting `*` characters
  * Fix groovy not working because of double `/` character in $GROOVY_HOME
