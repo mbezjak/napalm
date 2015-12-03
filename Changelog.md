@@ -1,3 +1,7 @@
+# 1.11.8 [2015-12-03]
+ * Fix `napalm show` not emitting `*` characters
+ * Fix groovy not working because of double `/` character in $GROOVY_HOME
+
 # 1.11.7 [2015-12-02]
  * New URL for grails. Compatible with grails 3.0.9.
 
