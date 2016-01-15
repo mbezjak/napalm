@@ -66,7 +66,7 @@ echo
 
 
 # Setup bootstrap in ~/.bashrc
-if [ $post15 -eq 0 ]; then
+if ! type -P napalm &> /dev/null && [ $post15 -eq 0 ]; then
   cat <<EOF
 napalm 1.5 and above requires one line bootstrap in '~/.bashrc':
     $bootstrap
