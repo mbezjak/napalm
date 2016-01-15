@@ -1,3 +1,6 @@
+# 1.12.1 [2016-01-15]
+ * Avoid writing bootstrap code in ~/.bashrc if napalm is already installed.
+
 # 1.12 [2015-12-03]
  * Generate profile scripts that use `NAPALM_PROGRAMS_DIR` environment variable
    (instead of it's value at the time of installation).
