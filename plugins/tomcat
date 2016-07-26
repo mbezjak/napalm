@@ -1,3 +1,5 @@
-url "http://archive.apache.org/dist/tomcat/tomcat-6/v${VERSION}/bin/apache-tomcat-${VERSION}.tar.gz" \
-    "http://archive.apache.org/dist/tomcat/tomcat-7/v${VERSION}/bin/apache-tomcat-${VERSION}.tar.gz"
+url "http://archive.apache.org/dist/tomcat/tomcat-8/v${VERSION}/bin/apache-tomcat-${VERSION}.tar.gz" \
+    "http://archive.apache.org/dist/tomcat/tomcat-7/v${VERSION}/bin/apache-tomcat-${VERSION}.tar.gz" \
+    "http://archive.apache.org/dist/tomcat/tomcat-6/v${VERSION}/bin/apache-tomcat-${VERSION}.tar.gz"
+
 set_env 'CATALINA_HOME'
