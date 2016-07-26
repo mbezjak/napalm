@@ -1,3 +1,6 @@
+# 1.13 [2016-07-26]
+ * New URL for tomcat. Compatible with tomcat 8.
+
 # 1.12.1 [2016-01-15]
  * Avoid writing bootstrap code in ~/.bashrc if napalm is already installed.
 
